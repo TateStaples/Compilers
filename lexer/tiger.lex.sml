@@ -111,7 +111,7 @@ type lexresult = Tokens.token
 
 val lineNum = ErrorMsg.lineNum
 val linePos = ErrorMsg.linePos
-val comments = ref 0
+val comments: (int * int) list ref = ref []
 
 val string_start = ref 0
 val string_builder = ref ""
@@ -123,9 +123,10 @@ fun eof() =
     let
         val pos = hd(!linePos)
     in 
-        if !in_string then ErrorMsg.error(!string_start) (" open comment")
-        else if !comments > 0 then ErrorMsg.error(pos) (" open comment")
-        else ();
+        if !in_string then ErrorMsg.error(!string_start) ("Error open string") else ();
+        case !comments of 
+               [] => ()
+             | (lineNum, linePos)::l => (map print ["Lex Error: Unclosed comment at ", Int.toString lineNum, ":", Int.toString linePos, "\n"]; ()); 
         Tokens.EOF(pos,pos) 
     end
 
@@ -285,9 +286,12 @@ fun yyAction45 (strm, lastMatch : yymatch) = let
         (Tokens.INT(valOf (Int.fromString yytext), yypos, yypos + size yytext))
       end
 fun yyAction46 (strm, lastMatch : yymatch) = (yystrm := strm;
-      (YYBEGIN COMMENT; comments := !comments + 1; continue()))
+      (YYBEGIN COMMENT; comments := ((!lineNum, yypos)::(!comments)); continue()))
 fun yyAction47 (strm, lastMatch : yymatch) = (yystrm := strm;
-      (comments := !comments - 1; if !comments = 0 then YYBEGIN INITIAL else (); continue()))
+      ((case !comments of 
+                     a::[] => (comments := []; YYBEGIN INITIAL) 
+                   | a::l => comments := l
+                   | [] => (* This will never happen just silencing warning *) ()); continue()))
 fun yyAction48 (strm, lastMatch : yymatch) = (yystrm := strm; (continue()))
 fun yyAction49 (strm, lastMatch : yymatch) = (yystrm := strm;
       (YYBEGIN STRING; in_string := true; string_start := yypos; string_builder := ""; continue()))

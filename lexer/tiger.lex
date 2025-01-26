@@ -7,7 +7,7 @@ type lexresult = Tokens.token
 
 val lineNum = ErrorMsg.lineNum
 val linePos = ErrorMsg.linePos
-val comments = ref 0
+val comments: (int * int) list ref = ref []
 
 val string_start = ref 0
 val string_builder = ref ""
@@ -19,9 +19,10 @@ fun eof() =
     let
         val pos = hd(!linePos)
     in 
-        if !in_string then ErrorMsg.error(!string_start) ("Error open string")
-        else if !comments > 0 then ErrorMsg.error(pos) ("Error open comment")
-        else ();
+        if !in_string then ErrorMsg.error(!string_start) ("Error open string") else ();
+        case !comments of 
+               [] => ()
+             | (lineNum, linePos)::l => (map print ["Lex Error: Unclosed comment at ", Int.toString lineNum, ":", Int.toString linePos, "\n"]; ()); (* ErrorMsg.error appears to only work for errors on the line currently being lexed, not done retroactively at the end, and I'm not sure that we maintain linePos *)
         Tokens.EOF(pos,pos) 
     end
 
@@ -79,8 +80,12 @@ fun eof() =
 <INITIAL>[a-zA-Z][a-zA-Z0-9]* => (Tokens.ID(yytext, yypos, yypos + size yytext));
 <INITIAL>[0-9]+ => (Tokens.INT(valOf (Int.fromString yytext), yypos, yypos + size yytext));
 
-<INITIAL>"/*" => (YYBEGIN COMMENT; comments := !comments + 1; continue());
-<COMMENT>"*/" => (comments := !comments - 1; if !comments = 0 then YYBEGIN INITIAL else (); continue()); 
+<INITIAL>"/*" => (YYBEGIN COMMENT; comments := ((!lineNum, yypos)::(!comments)); continue());
+<COMMENT>"*/" => ((case !comments of 
+                     a::[] => (comments := []; YYBEGIN INITIAL) 
+                   | a::l => comments := l
+                   | [] => (* This will never happen just silencing warning *) ()); continue()); 
+
 <COMMENT>. => (continue());
 
 <INITIAL>"\"" => (YYBEGIN STRING; in_string := true; string_start := yypos; string_builder := ""; continue());
