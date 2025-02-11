@@ -76,7 +76,7 @@ fun eof() =
 <INITIAL>"while"  => (Tokens.WHILE (yypos, yypos + 5));
 <INITIAL>"function"   => (Tokens.FUNCTION (yypos, yypos + 8));
 
-<INITIAL>[a-zA-Z][a-zA-Z0-9]* => (Tokens.ID(yytext, yypos, yypos + size yytext));
+<INITIAL>[A-Za-z][A-Za-z0-9_]* => (Tokens.ID(yytext, yypos, yypos + size yytext));
 <INITIAL>[0-9]+ => (Tokens.INT(valOf (Int.fromString yytext), yypos, yypos + size yytext));
 
 <INITIAL>"/*" => (YYBEGIN COMMENT; comments := !comments + 1; continue());

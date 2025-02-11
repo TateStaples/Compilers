@@ -1,0 +1,2 @@
+Skeleton 5
+ae"TigerLexFun"i2aä¢Tokens"gp1c"Tiger_TOKENS"f6ä¢Char"Cä¢ErrorMsg"ä¢String"ÿä¢TextIO"ä¢Vector"Nh3aä¢yyInput"jh3aä¢TIO"gp1ÿad"TSIO"gp2ÿ1d"StreamIO"ad"TPIO"gp1d"TextPrimIO"è0aä¢UserDeclarations"ÿ‚.bbd2egp1ÿ‚1f5Cd"IO"ÿ#ÿ/ÿ‚1ÿ7Cd"List"d"Int"ÿÿÿNf0f1ÿ#
