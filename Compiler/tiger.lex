@@ -28,7 +28,6 @@ fun eof() =
 %header (functor TigerLexFun(structure Tokens: Tiger_TOKENS));
 %s INITIAL COMMENT STRING ESCAPED_STRING; 
 %%
-
 \n	=> (lineNum := !lineNum+1; linePos := yypos :: !linePos; continue());
 \t => (continue());
 \r => (continue());

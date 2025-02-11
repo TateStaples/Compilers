@@ -12,7 +12,7 @@ def create_divider(test_num):
 # Create commands to be executed in SML
 sml_commands = [
     'CM.make "sources.cm";',
-    *[f'print "{create_divider(i)}"; Parse.parse "tests/test{i}.tig"; print "\\n \\n \\n";' for i in range(1, 50)],
+    *[f'print "{create_divider(i)}"; Parse.parse "tests/test{i}.tig"; print "\\n \\n \\n";' for i in range(1, 55)],
     'OS.Process.exit(0);'
 ]
 
@@ -25,7 +25,7 @@ full_command = f'sml << EOF\n{command_string}\nEOF'
 # Run the command and capture output
 try:
     # Open a file to write the output
-    with open('parsing_output.txt', 'w') as output_file:
+    with open('_parsing_output.txt', 'w') as output_file:
         result = subprocess.run(
             full_command,
             shell=True,

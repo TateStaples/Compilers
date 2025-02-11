@@ -107,8 +107,6 @@ ESCAPED_STRING | STRING | COMMENT | INITIAL
 type pos = int
 type lexresult = Tokens.token
 
-
-
 val lineNum = ErrorMsg.lineNum
 val linePos = ErrorMsg.linePos
 val comments = ref 0

@@ -1,0 +1,6 @@
+/* exp in parens */
+let 
+  var a := 23
+in
+  (a)
+end

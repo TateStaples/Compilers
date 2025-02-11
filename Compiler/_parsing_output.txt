@@ -46,7 +46,7 @@ val it =
     {body=SeqExp [(VarExp (SimpleVar (-,121)),121)],
      decs=[TypeDec [{name=-,pos=49,ty=ArrayTy (-,65)}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=ArrayExp {init=IntExp 0,pos=107,size=IntExp 10,typ=-},
               name=-,pos=83,typ=SOME (-,88)}],pos=44} : Absyn.exp
 
@@ -64,7 +64,7 @@ val it =
              [{name=-,pos=61,ty=NameTy (-,74)},
               {name=-,pos=79,ty=ArrayTy (-,95)}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=ArrayExp {init=IntExp 0,pos=140,size=IntExp 10,typ=-},
               name=-,pos=116,typ=SOME (-,121)}],pos=56} : Absyn.exp
 
@@ -88,7 +88,7 @@ val it =
                     [{escape=ref #,name=-,pos=66,typ=-},
                      {escape=ref #,name=-,pos=79,typ=-}]}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=RecordExp
                      {fields=[(-,StringExp #,118),(-,IntExp #,133)],pos=109,
                       typ=-},name=-,pos=93,typ=SOME (-,98)}],pos=44}
@@ -109,7 +109,7 @@ val it =
                       {else'=SOME (OpExp #),pos=94,
                        test=OpExp {left=#,oper=#,pos=#,right=#},
                        then'=IntExp 1},name=-,
-               params=[{escape=ref true,name=-,pos=77,typ=-}],pos=60,
+               params=[{escape=ref false,name=-,pos=77,typ=-}],pos=60,
                result=SOME (-,86)}]],pos=36} : Absyn.exp
 
  
@@ -136,7 +136,7 @@ val it =
                     [{escape=ref #,name=-,pos=180,typ=-},
                      {escape=ref #,name=-,pos=190,typ=-}]}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=RecordExp
                      {fields=[(-,IntExp #,234),(-,NilExp,240)],pos=224,typ=-},
               name=-,pos=209,typ=SOME (-,213)}],pos=37} : Absyn.exp
@@ -154,12 +154,12 @@ val it =
             [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=177},177)],
      decs=[FunctionDec
              [{body=CallExp {args=[OpExp #],func=-,pos=99},name=-,
-               params=[{escape=ref true,name=-,pos=77,typ=-},
-                       {escape=ref true,name=-,pos=85,typ=-}],pos=56,
+               params=[{escape=ref false,name=-,pos=77,typ=-},
+                       {escape=ref false,name=-,pos=85,typ=-}],pos=56,
                result=NONE},
               {body=CallExp {args=[VarExp #,StringExp #],func=-,pos=150},
-               name=-,params=[{escape=ref true,name=-,pos=138,typ=-}],pos=117,
-               result=NONE}]],pos=51} : Absyn.exp
+               name=-,params=[{escape=ref false,name=-,pos=138,typ=-}],
+               pos=117,result=NONE}]],pos=51} : Absyn.exp
 
  
  
@@ -174,11 +174,11 @@ val it =
             [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=197},197)],
      decs=[FunctionDec
              [{body=SeqExp [(CallExp #,103),(IntExp #,120)],name=-,
-               params=[{escape=ref true,name=-,pos=76,typ=-},
-                       {escape=ref true,name=-,pos=84,typ=-}],pos=55,
+               params=[{escape=ref false,name=-,pos=76,typ=-},
+                       {escape=ref false,name=-,pos=84,typ=-}],pos=55,
                result=SOME (-,95)},
               {body=SeqExp [(CallExp #,165),(StringExp #,187)],name=-,
-               params=[{escape=ref true,name=-,pos=145,typ=-}],pos=124,
+               params=[{escape=ref false,name=-,pos=145,typ=-}],pos=124,
                result=SOME (-,153)}]],pos=50} : Absyn.exp
 
  
@@ -204,7 +204,7 @@ val it = () : unit
 val it = () : unit
 val it =
   IfExp
-    {else'=SOME (StringExp ("",68)),pos=45,
+    {else'=SOME (StringExp (" ",68)),pos=45,
      test=SeqExp [(OpExp {left=IntExp 5,oper=GtOp,pos=49,right=IntExp 4},49)],
      then'=IntExp 13} : Absyn.exp
 
@@ -234,7 +234,7 @@ val it =
             {exp=OpExp
                    {left=VarExp (SimpleVar (-,106)),oper=MinusOp,pos=106,
                     right=IntExp 1},pos=101,var=SimpleVar (-,101)},
-     escape=ref true,hi=StringExp ("",92),lo=IntExp 10,pos=79,var=-}
+     escape=ref false,hi=StringExp (" ",92),lo=IntExp 10,pos=79,var=-}
   : Absyn.exp
 
  
@@ -248,9 +248,9 @@ val it =
   LetExp
     {body=SeqExp
             [(ForExp
-                {body=SeqExp [(#,#),(#,#)],escape=ref true,hi=IntExp 100,
+                {body=SeqExp [(#,#),(#,#)],escape=ref false,hi=IntExp 100,
                  lo=IntExp 0,pos=47,var=-},47)],
-     decs=[VarDec {escape=ref true,init=IntExp 0,name=-,pos=32,typ=NONE}],
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=32,typ=NONE}],
      pos=27} : Absyn.exp
 
  
@@ -284,12 +284,12 @@ val it =
                     [{escape=ref #,name=-,pos=91,typ=-},
                      {escape=ref #,name=-,pos=104,typ=-}]}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=RecordExp
                      {fields=[(-,StringExp #,135),(-,IntExp #,149)],pos=126,
                       typ=-},name=-,pos=115,typ=NONE},
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=ArrayExp {init=IntExp 0,pos=175,size=IntExp 3,typ=-},
               name=-,pos=156,typ=NONE}],pos=40} : Absyn.exp
 
@@ -334,7 +334,7 @@ val it =
                     [{escape=ref #,name=-,pos=96,typ=-},
                      {escape=ref #,name=-,pos=106,typ=-}]}],
            VarDec
-             {escape=ref true,init=IntExp 0,name=-,pos=130,typ=SOME (-,132)},
+             {escape=ref false,init=IntExp 0,name=-,pos=130,typ=SOME (-,132)},
            TypeDec
              [{name=-,pos=140,
                ty=RecordTy
@@ -355,13 +355,13 @@ val it =
             [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=222},222)],
      decs=[FunctionDec
              [{body=SeqExp [(CallExp #,118),(IntExp #,135)],name=-,
-               params=[{escape=ref true,name=-,pos=91,typ=-},
-                       {escape=ref true,name=-,pos=99,typ=-}],pos=70,
+               params=[{escape=ref false,name=-,pos=91,typ=-},
+                       {escape=ref false,name=-,pos=99,typ=-}],pos=70,
                result=SOME (-,110)}],
-           VarDec {escape=ref true,init=IntExp 0,name=-,pos=139,typ=NONE},
+           VarDec {escape=ref false,init=IntExp 0,name=-,pos=139,typ=NONE},
            FunctionDec
              [{body=SeqExp [(CallExp #,190),(StringExp #,212)],name=-,
-               params=[{escape=ref true,name=-,pos=170,typ=-}],pos=149,
+               params=[{escape=ref false,name=-,pos=170,typ=-}],pos=149,
                result=SOME (-,178)}]],pos=65} : Absyn.exp
 
  
@@ -377,11 +377,11 @@ val it =
             [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=238},238)],
      decs=[FunctionDec
              [{body=SeqExp [(CallExp #,144),(IntExp #,161)],name=-,
-               params=[{escape=ref true,name=-,pos=117,typ=-},
-                       {escape=ref true,name=-,pos=125,typ=-}],pos=96,
+               params=[{escape=ref false,name=-,pos=117,typ=-},
+                       {escape=ref false,name=-,pos=125,typ=-}],pos=96,
                result=SOME (-,136)},
               {body=SeqExp [(CallExp #,206),(StringExp #,228)],name=-,
-               params=[{escape=ref true,name=-,pos=186,typ=-}],pos=165,
+               params=[{escape=ref false,name=-,pos=186,typ=-}],pos=165,
                result=SOME (-,194)}]],pos=91} : Absyn.exp
 
  
@@ -414,7 +414,7 @@ val it =
                       {else'=SOME (OpExp #),pos=126,
                        test=OpExp {left=#,oper=#,pos=#,right=#},
                        then'=IntExp 1},name=-,
-               params=[{escape=ref true,name=-,pos=114,typ=-}],pos=97,
+               params=[{escape=ref false,name=-,pos=114,typ=-}],pos=97,
                result=NONE}]],pos=73} : Absyn.exp
 
  
@@ -436,7 +436,7 @@ val it =
                     [{escape=ref #,name=-,pos=64,typ=-},
                      {escape=ref #,name=-,pos=78,typ=-}]}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=RecordExp
                      {fields=[(-,StringExp #,108),(-,IntExp #,121)],pos=99,
                       typ=-},name=-,pos=87,typ=NONE}],pos=42} : Absyn.exp
@@ -462,7 +462,7 @@ val it =
                     [{escape=ref #,name=-,pos=53,typ=-},
                      {escape=ref #,name=-,pos=67,typ=-}]}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=RecordExp
                      {fields=[(-,StringExp #,97),(-,IntExp #,111)],pos=88,
                       typ=-},name=-,pos=76,typ=NONE}],pos=31} : Absyn.exp
@@ -477,7 +477,7 @@ val it = () : unit
 val it =
   LetExp
     {body=SeqExp [(VarExp (SubscriptVar (SimpleVar (#,#),IntExp 3,55)),54)],
-     decs=[VarDec {escape=ref true,init=IntExp 0,name=-,pos=41,typ=NONE}],
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=41,typ=NONE}],
      pos=35} : Absyn.exp
 
  
@@ -490,7 +490,7 @@ val it = () : unit
 val it =
   LetExp
     {body=SeqExp [(VarExp (FieldVar (SimpleVar (#,#),-,57)),55)],
-     decs=[VarDec {escape=ref true,init=IntExp 0,name=-,pos=42,typ=NONE}],
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=42,typ=NONE}],
      pos=36} : Absyn.exp
 
  
@@ -513,10 +513,10 @@ val it = () : unit
 val it =
   LetExp
     {body=SeqExp [(CallExp {args=[IntExp 2],func=-,pos=75},75)],
-     decs=[VarDec {escape=ref true,init=IntExp 0,name=-,pos=33,typ=NONE},
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=33,typ=NONE},
            FunctionDec
              [{body=VarExp (SimpleVar (-,68)),name=-,
-               params=[{escape=ref true,name=-,pos=55,typ=-}],pos=44,
+               params=[{escape=ref false,name=-,pos=55,typ=-}],pos=44,
                result=SOME (-,62)}]],pos=28} : Absyn.exp
 
  
@@ -539,7 +539,7 @@ val it =
                     [{escape=ref #,name=-,pos=102,typ=-},
                      {escape=ref #,name=-,pos=116,typ=-}]}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=RecordExp
                      {fields=[(-,StringExp #,158),(-,IntExp #,171)],pos=148,
                       typ=-},name=-,pos=130,typ=SOME (-,136)}],pos=40}
@@ -559,7 +559,7 @@ val it =
              [{name=-,pos=44,ty=ArrayTy (-,60)},
               {name=-,pos=74,ty=ArrayTy (-,90)}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=ArrayExp {init=IntExp 0,pos=136,size=IntExp 10,typ=-},
               name=-,pos=109,typ=SOME (-,115)}],pos=39} : Absyn.exp
 
@@ -577,7 +577,7 @@ val it =
              [{name=-,pos=34,ty=ArrayTy (-,43)},
               {name=-,pos=58,ty=NameTy (-,67)}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=ArrayExp {init=IntExp 0,pos=88,size=IntExp 10,typ=-},
               name=-,pos=76,typ=SOME (-,81)}],pos=27} : Absyn.exp
 
@@ -592,7 +592,7 @@ val it =
   LetExp
     {body=SeqExp [(VarExp (SimpleVar (-,81)),81)],
      decs=[VarDec
-             {escape=ref true,init=StringExp ("",73),name=-,pos=64,
+             {escape=ref false,init=StringExp (" ",73),name=-,pos=64,
               typ=SOME (-,66)}],pos=54} : Absyn.exp
 
  
@@ -607,9 +607,9 @@ val it =
     {body=SeqExp [(IntExp 0,124)],
      decs=[TypeDec [{name=-,pos=61,ty=ArrayTy (-,76)}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=ArrayExp
-                     {init=StringExp ("",116),pos=108,size=IntExp 10,typ=-},
+                     {init=StringExp (" ",116),pos=108,size=IntExp 10,typ=-},
               name=-,pos=91,typ=NONE}],pos=56} : Absyn.exp
 
  
@@ -623,7 +623,7 @@ val it =
   LetExp
     {body=SeqExp [(IntExp 0,57)],
      decs=[VarDec
-             {escape=ref true,init=RecordExp {fields=[],pos=42,typ=-},name=-,
+             {escape=ref false,init=RecordExp {fields=[],pos=42,typ=-},name=-,
               pos=34,typ=NONE}],pos=29} : Absyn.exp
 
  
@@ -640,8 +640,8 @@ val it =
               104)],
      decs=[FunctionDec
              [{body=VarExp (SimpleVar (-,98)),name=-,
-               params=[{escape=ref true,name=-,pos=74,typ=-},
-                       {escape=ref true,name=-,pos=82,typ=-}],pos=62,
+               params=[{escape=ref false,name=-,pos=74,typ=-},
+                       {escape=ref false,name=-,pos=82,typ=-}],pos=62,
                result=SOME (-,92)}]],pos=57} : Absyn.exp
 
  
@@ -656,8 +656,8 @@ val it =
     {body=SeqExp [(CallExp {args=[StringExp (#,#)],func=-,pos=93},93)],
      decs=[FunctionDec
              [{body=VarExp (SimpleVar (-,87)),name=-,
-               params=[{escape=ref true,name=-,pos=63,typ=-},
-                       {escape=ref true,name=-,pos=71,typ=-}],pos=51,
+               params=[{escape=ref false,name=-,pos=63,typ=-},
+                       {escape=ref false,name=-,pos=71,typ=-}],pos=51,
                result=SOME (-,81)}]],pos=46} : Absyn.exp
 
  
@@ -674,8 +674,8 @@ val it =
               94)],
      decs=[FunctionDec
              [{body=VarExp (SimpleVar (-,88)),name=-,
-               params=[{escape=ref true,name=-,pos=64,typ=-},
-                       {escape=ref true,name=-,pos=72,typ=-}],pos=52,
+               params=[{escape=ref false,name=-,pos=64,typ=-},
+                       {escape=ref false,name=-,pos=72,typ=-}],pos=52,
                result=SOME (-,82)}]],pos=47} : Absyn.exp
 
  
@@ -688,10 +688,10 @@ val it = () : unit
 val it =
   LetExp
     {body=SeqExp [(IntExp 0,175)],
-     decs=[VarDec {escape=ref true,init=IntExp 0,name=-,pos=146,typ=NONE},
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=146,typ=NONE},
            VarDec
-             {escape=ref true,init=StringExp ("",167),name=-,pos=158,typ=NONE}],
-     pos=141} : Absyn.exp
+             {escape=ref false,init=StringExp (" ",167),name=-,pos=158,
+              typ=NONE}],pos=141} : Absyn.exp
 
  
  
@@ -719,10 +719,10 @@ val it =
     {body=SeqExp [(IntExp 0,224)],
      decs=[FunctionDec
              [{body=VarExp (SimpleVar (-,191)),name=-,
-               params=[{escape=ref true,name=-,pos=178,typ=-}],pos=167,
+               params=[{escape=ref false,name=-,pos=178,typ=-}],pos=167,
                result=SOME (-,185)},
               {body=VarExp (SimpleVar (-,218)),name=-,
-               params=[{escape=ref true,name=-,pos=205,typ=-}],pos=194,
+               params=[{escape=ref false,name=-,pos=205,typ=-}],pos=194,
                result=SOME (-,212)}]],pos=162} : Absyn.exp
 
  
@@ -737,7 +737,7 @@ val it =
     {body=SeqExp [(CallExp {args=[IntExp 2],func=-,pos=72},72)],
      decs=[FunctionDec
              [{body=VarExp (SimpleVar (-,65)),name=-,
-               params=[{escape=ref true,name=-,pos=56,typ=-}],pos=45,
+               params=[{escape=ref false,name=-,pos=56,typ=-}],pos=45,
                result=NONE}]],pos=40} : Absyn.exp
 
  
@@ -801,27 +801,27 @@ val it =
                      {escape=ref #,name=-,pos=196,typ=-}]},
               {name=-,pos=214,ty=ArrayTy (-,230)}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=ArrayExp {init=IntExp 0,pos=268,size=IntExp 10,typ=-},
               name=-,pos=247,typ=NONE},
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=ArrayExp
                      {init=RecordExp {fields=[#,#,#,#],pos=307,typ=-},pos=300,
                       size=IntExp 5,typ=-},name=-,pos=278,typ=NONE},
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=ArrayExp
                      {init=StringExp ("",404),pos=395,size=IntExp 100,typ=-},
               name=-,pos=369,typ=SOME (-,374)},
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=RecordExp
                      {fields=[(-,StringExp #,430),(-,StringExp #,446),
                               (-,IntExp #,463),(-,IntExp #,473)],pos=420,
                       typ=-},name=-,pos=408,typ=NONE},
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=RecordExp
                      {fields=[(-,StringExp #,503),(-,ArrayExp #,517)],pos=493,
                       typ=-},name=-,pos=481,typ=NONE}],pos=29} : Absyn.exp
@@ -839,7 +839,7 @@ val it =
             [(OpExp
                 {left=VarExp (SimpleVar (#,#)),oper=PlusOp,pos=90,
                  right=IntExp 3},90)],
-     decs=[VarDec {escape=ref true,init=SeqExp [],name=-,pos=74,typ=NONE}],
+     decs=[VarDec {escape=ref false,init=SeqExp [],name=-,pos=74,typ=NONE}],
      pos=68} : Absyn.exp
 
  
@@ -857,7 +857,7 @@ val it =
                ty=RecordTy
                     [{escape=ref #,name=-,pos=71,typ=-},
                      {escape=ref #,name=-,pos=84,typ=-}]}],
-           VarDec {escape=ref true,init=NilExp,name=-,pos=97,typ=SOME (-,99)}],
+           VarDec {escape=ref false,init=NilExp,name=-,pos=97,typ=SOME (-,99)}],
      pos=48} : Absyn.exp
 
  
@@ -875,7 +875,7 @@ val it =
                ty=RecordTy
                     [{escape=ref #,name=-,pos=97,typ=-},
                      {escape=ref #,name=-,pos=110,typ=-}]}],
-           VarDec {escape=ref true,init=NilExp,name=-,pos=120,typ=NONE}],
+           VarDec {escape=ref false,init=NilExp,name=-,pos=120,typ=NONE}],
      pos=75} : Absyn.exp
 
  
@@ -899,7 +899,7 @@ val it =
                ty=RecordTy
                     [{escape=ref #,name=-,pos=52,typ=-},
                      {escape=ref #,name=-,pos=65,typ=-}]}],
-           VarDec {escape=ref true,init=NilExp,name=-,pos=78,typ=SOME (-,80)}],
+           VarDec {escape=ref false,init=NilExp,name=-,pos=78,typ=SOME (-,80)}],
      pos=30} : Absyn.exp
 
  
@@ -913,7 +913,7 @@ val it =
   LetExp
     {body=SeqExp [(IntExp 0,271)],
      decs=[TypeDec [{name=-,pos=225,ty=NameTy (-,234)}],
-           VarDec {escape=ref true,init=IntExp 4,name=-,pos=239,typ=NONE},
+           VarDec {escape=ref false,init=IntExp 4,name=-,pos=239,typ=NONE},
            TypeDec [{name=-,pos=251,ty=NameTy (-,260)}]],pos=220} : Absyn.exp
 
  
@@ -928,12 +928,12 @@ val it =
     {body=SeqExp [(IntExp 0,309)],
      decs=[FunctionDec
              [{body=VarExp (SimpleVar (-,262)),name=-,
-               params=[{escape=ref true,name=-,pos=249,typ=-}],pos=238,
+               params=[{escape=ref false,name=-,pos=249,typ=-}],pos=238,
                result=SOME (-,256)}],
            TypeDec [{name=-,pos=265,ty=NameTy (-,274)}],
            FunctionDec
              [{body=VarExp (SimpleVar (-,303)),name=-,
-               params=[{escape=ref true,name=-,pos=290,typ=-}],pos=279,
+               params=[{escape=ref false,name=-,pos=290,typ=-}],pos=279,
                result=SOME (-,297)}]],pos=233} : Absyn.exp
 
  
@@ -953,7 +953,7 @@ val it =
                     [{escape=ref #,name=-,pos=91,typ=-},
                      {escape=ref #,name=-,pos=104,typ=-}]}],
            VarDec
-             {escape=ref true,
+             {escape=ref false,
               init=OpExp
                      {left=VarExp (SimpleVar (#,#)),oper=PlusOp,pos=122,
                       right=NilExp},name=-,pos=114,typ=NONE}],pos=69}
@@ -962,7 +962,60 @@ val it =
  
  
 val it = () : unit
-[autoloading]
-[autoloading done]
-stdIn:1.5788-1.5806 Warning: type vars not generalized because of
-   value restriction are instantiated to dummy types (X1,X2,...)
+==================== TEST 50 ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,102)),102)],
+     decs=[VarDec
+             {escape=ref false,
+              init=OpExp
+                     {left=VarExp (SimpleVar (#,#)),oper=MinusOp,pos=39,
+                      right=OpExp
+                              {left=IntExp #,oper=MinusOp,pos=43,
+                               right=VarExp #}},name=-,pos=30,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=OpExp
+                     {left=OpExp
+                             {left=IntExp #,oper=MinusOp,pos=61,
+                              right=VarExp #},oper=MinusOp,pos=61,
+                      right=VarExp (SimpleVar (#,#))},name=-,pos=52,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=OpExp
+                     {left=VarExp (SimpleVar (#,#)),oper=PlusOp,pos=82,
+                      right=OpExp
+                              {left=IntExp #,oper=MinusOp,pos=86,
+                               right=OpExp #}},name=-,pos=73,typ=NONE}],
+     pos=21} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST 51 ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  SeqExp
+    [(OpExp {left=IntExp 1,oper=PlusOp,pos=3,right=IntExp 2},3),
+     (OpExp {left=IntExp 3,oper=PlusOp,pos=10,right=IntExp 4},10),
+     (SeqExp
+        [(OpExp {left=IntExp 5,oper=PlusOp,pos=18,right=IntExp 6},18),
+         (CallExp {args=[IntExp #],func=-,pos=25},25)],17)] : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST 52 ==================== 
+ 
+ 
+val it = () : unit
+tests/test52.tig:4.4:syntax error found at END
+
+uncaught exception Error
+  raised at: parse.sml:17.47-17.61
+- 
