@@ -32,7 +32,7 @@ fun add_or_combine_declaration (A.FunctionDec(a1::l1), A.FunctionDec(l2)::declar
 | declaration_list
 | declaration
 | type_declaration
-| type
+| type'
 | type_fields
 | type_field
 | var_declaration
@@ -76,11 +76,11 @@ program	: exp				                                    (exp)
 (* SeqExp of (exp * pos) list *)
 (* expression <- rule *)
 exp:  STRING                                                    (A.StringExp(STRING, STRINGleft))  
-    | INT                                                       (A.IntExp(INT, INTleft)) 
+    | INT                                                       (A.IntExp(INT)) 
     | ID                                                        (A.SimpleVar(Symbol.symbol(ID), IDleft))
     | NIL                                                       (A.NilExp)
     | lvalue                                                    (A.VarExp(lvalue))
-    | MINUS exp                                                 (A.OpExp{left=IntExp(0), oper=Minus, right=exp, pos=MINUSleft})
+    | MINUS exp                                                 (A.OpExp{left=A.IntExp(0), oper=A.MinusOp, right=exp, pos=MINUSleft})
     | arithmetic                                                (arithmetic)
     | lvalue ASSIGN exp                                         (A.AssignExp{lvalue=lvalue, exp=exp, pos=ASSIGNleft})
     | ID ASSIGN exp                                             (A.AssignExp{lvalue=A.SimpleVar(Symbol.symbol(ID), IDleft), exp=exp, pos=IDleft})
@@ -112,8 +112,8 @@ declaration_list: declaration declaration_list                  (merge_declarati
 declaration: type_declaration                                   (type_declaration)
     | var_declaration                                           (var_declaration)
     | fun_declaration                                           (fun_declaration)
-type_declaration: TYPE ID EQ type SEMICOLON                     (A.TypeDec([{typ=Symbol.symbol(ID), ty=type, pos=IDleft}]))
-type: ID                                                        (A.NameTy(Symbol.symbol(ID), IDleft))
+type_declaration: TYPE ID EQ type' SEMICOLON                     (A.TypeDec([{typ=Symbol.symbol(ID), ty=type', pos=IDleft}]))
+type': ID                                                        (A.NameTy(Symbol.symbol(ID), IDleft))
     | LBRACE type_fields RBRACE                                 (A.RecordTy(type_fields))
     | LBRACE RBRACE                                             (A.RecordTy([]))
     | ARRAY OF ID                                               (A.ArrayTy(Symbol.symbol(ID), IDleft))
@@ -123,7 +123,7 @@ type_field: ID COLON ID                                         ({name=Symbol.sy
 var_declaration: VAR ID COLON ID ASSIGN exp                     (A.VarDec{name=Symbol.symbol(ID1), typ=SOME((Symbol.symbol(ID2), IDleft)), init=exp, escape=ref false, pos=VARleft})
     | VAR ID ASSIGN exp                                         (A.VarDec{name=Symbol.symbol(ID), typ=NONE, init=exp, escape=ref false, pos=IDleft})
 fun_declaration: FUNCTION ID LPAREN type_fields RPAREN EQ exp   (A.FunctionDec([{name=Symbol.symbol(ID), params=type_fields, result=NONE, body=exp, pos=FUNCTIONleft}]))
-    | FUNCTION ID LPAREN type_fields RPAREN COLON ID EQ exp(A.FunctionDec([{name=Symbol.symbol(ID), params=type_fields, result=SOME(Symbol.symbol(ID), IDleft), body=exp, pos=FUNCTIONleft}]))
+    | FUNCTION ID LPAREN type_fields RPAREN COLON ID EQ exp     (A.FunctionDec([{name=Symbol.symbol(ID), params=type_fields, result=SOME(Symbol.symbol(ID), IDleft), body=exp, pos=FUNCTIONleft}]))
     | FUNCTION ID LPAREN RPAREN EQ exp                          (A.FunctionDec([{name=Symbol.symbol(ID), params=[], result=NONE, body=exp, pos=FUNCTIONleft}]))
     | FUNCTION ID LPAREN RPAREN COLON ID EQ exp                 (A.FunctionDec[{name=Symbol.symbol(ID1), params=[], result=SOME(Symbol.symbol(ID2), IDleft), body=exp, pos=FUNCTIONleft}])
 arithmetic: exp PLUS exp                                        (A.OpExp{left=exp1, oper=A.PlusOp, right=exp2, pos=PLUSleft})
@@ -136,5 +136,5 @@ arithmetic: exp PLUS exp                                        (A.OpExp{left=ex
     | exp LE exp                                                (A.OpExp{left=exp1, oper=A.LeOp, right=exp2, pos=LEleft})       
     | exp GT exp                                                (A.OpExp{left=exp1, oper=A.GtOp, right=exp2, pos=GTleft})       
     | exp GE exp                                                (A.OpExp{left=exp1, oper=A.GeOp, right=exp2, pos=GEleft})       
-    | exp AND exp                                               (A.OpExp{left=exp1, oper=A.AndOp, right=exp2, pos=ANDleft})       
-    | exp OR exp                                                (A.OpExp{left=exp1, oper=A.OrOp, right=exp2, pos=ORleft})      
+    | exp AND exp												(A.IfExp({test=exp1, then'=exp2, else'=SOME(A.IntExp(0)), pos=exp1left}))
+    | exp OR exp 												(A.IfExp({test=exp1, then'=A.IntExp(1), else'=SOME exp2, pos=exp1left}))

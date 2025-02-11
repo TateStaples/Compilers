@@ -589,10 +589,10 @@ end
 end)
  in ( LrTable.NT 0, ( result, STRING1left, STRING1right), rest671)
 end
-|  ( 2, ( ( _, ( MlyValue.INT INT1, (INTleft as INT1left), INT1right))
- :: rest671)) => let val  result = MlyValue.exp (fn _ => let val  (INT
- as INT1) = INT1 ()
- in (A.IntExp(INT, INTleft))
+|  ( 2, ( ( _, ( MlyValue.INT INT1, INT1left, INT1right)) :: rest671))
+ => let val  result = MlyValue.exp (fn _ => let val  (INT as INT1) = 
+INT1 ()
+ in (A.IntExp(INT))
 end)
  in ( LrTable.NT 0, ( result, INT1left, INT1right), rest671)
 end
@@ -617,7 +617,8 @@ end
 |  ( 6, ( ( _, ( MlyValue.exp exp1, _, exp1right)) :: ( _, ( _, (
 MINUSleft as MINUS1left), _)) :: rest671)) => let val  result = 
 MlyValue.exp (fn _ => let val  (exp as exp1) = exp1 ()
- in (A.OpExp{left=IntExp(0), oper=Minus, right=exp, pos=MINUSleft})
+ in (
+A.OpExp{left=A.IntExp(0), oper=A.MinusOp, right=exp, pos=MINUSleft})
 
 end)
  in ( LrTable.NT 0, ( result, MINUS1left, exp1right), rest671)
@@ -889,11 +890,11 @@ end; ()))
 fun_declaration1right), rest671)
 end
 |  ( 37, ( ( _, ( _, _, SEMICOLON1right)) :: ( _, ( MlyValue.ntVOID 
-type1, _, _)) :: _ :: ( _, ( MlyValue.ID ID1, IDleft, _)) :: ( _, ( _,
- TYPE1left, _)) :: rest671)) => let val  result = MlyValue.ntVOID (fn
+type'1, _, _)) :: _ :: ( _, ( MlyValue.ID ID1, IDleft, _)) :: ( _, ( _
+, TYPE1left, _)) :: rest671)) => let val  result = MlyValue.ntVOID (fn
  _ => ( let val  (ID as ID1) = ID1 ()
- val  (type as type1) = type1 ()
- in (A.TypeDec([{typ=Symbol.symbol(ID), ty=type, pos=IDleft}]))
+ val  (type' as type'1) = type'1 ()
+ in (A.TypeDec([{typ=Symbol.symbol(ID), ty=type', pos=IDleft}]))
 end;
  ()))
  in ( LrTable.NT 9, ( result, TYPE1left, SEMICOLON1right), rest671)
@@ -1125,23 +1126,24 @@ end; ())
 )
  in ( LrTable.NT 3, ( result, exp1left, exp2right), rest671)
 end
-|  ( 61, ( ( _, ( MlyValue.exp exp2, _, exp2right)) :: ( _, ( _, 
-ANDleft, _)) :: ( _, ( MlyValue.exp exp1, exp1left, _)) :: rest671))
- => let val  result = MlyValue.ntVOID (fn _ => ( let val  exp1 = exp1
- ()
+|  ( 61, ( ( _, ( MlyValue.exp exp2, _, exp2right)) :: _ :: ( _, ( 
+MlyValue.exp exp1, exp1left, _)) :: rest671)) => let val  result = 
+MlyValue.ntVOID (fn _ => ( let val  exp1 = exp1 ()
  val  exp2 = exp2 ()
- in (A.OpExp{left=exp1, oper=A.AndOp, right=exp2, pos=ANDleft})
-end;
- ()))
+ in (
+A.IfExp({test=exp1, then'=exp2, else'=SOME(A.IntExp(0)), pos=exp1left})
+)
+end; ()))
  in ( LrTable.NT 3, ( result, exp1left, exp2right), rest671)
 end
-|  ( 62, ( ( _, ( MlyValue.exp exp2, _, exp2right)) :: ( _, ( _, 
-ORleft, _)) :: ( _, ( MlyValue.exp exp1, exp1left, _)) :: rest671)) =>
- let val  result = MlyValue.ntVOID (fn _ => ( let val  exp1 = exp1 ()
+|  ( 62, ( ( _, ( MlyValue.exp exp2, _, exp2right)) :: _ :: ( _, ( 
+MlyValue.exp exp1, exp1left, _)) :: rest671)) => let val  result = 
+MlyValue.ntVOID (fn _ => ( let val  exp1 = exp1 ()
  val  exp2 = exp2 ()
- in (A.OpExp{left=exp1, oper=A.OrOp, right=exp2, pos=ORleft})
-end; ())
+ in (
+A.IfExp({test=exp1, then'=A.IntExp(1), else'=SOME exp2, pos=exp1left})
 )
+end; ()))
  in ( LrTable.NT 3, ( result, exp1left, exp2right), rest671)
 end
 | _ => raise (mlyAction i392)

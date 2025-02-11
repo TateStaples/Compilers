@@ -649,7 +649,7 @@ state 34:
 
 state 35:
 
-	type_declaration : TYPE . ID EQ type SEMICOLON 
+	type_declaration : TYPE . ID EQ type' SEMICOLON 
 
 	ID	shift 66
 
@@ -1386,7 +1386,7 @@ state 65:
 
 state 66:
 
-	type_declaration : TYPE ID . EQ type SEMICOLON 
+	type_declaration : TYPE ID . EQ type' SEMICOLON 
 
 	EQ	shift 85
 
@@ -1704,13 +1704,13 @@ state 84:
 
 state 85:
 
-	type_declaration : TYPE ID EQ . type SEMICOLON 
+	type_declaration : TYPE ID EQ . type' SEMICOLON 
 
 	ID	shift 103
 	LBRACE	shift 102
 	ARRAY	shift 101
 
-	type	goto 100
+	type'	goto 100
 
 	.	error
 
@@ -1970,7 +1970,7 @@ state 99:
 
 state 100:
 
-	type_declaration : TYPE ID EQ type . SEMICOLON 
+	type_declaration : TYPE ID EQ type' . SEMICOLON 
 
 	SEMICOLON	shift 116
 
@@ -1980,7 +1980,7 @@ state 100:
 
 state 101:
 
-	type : ARRAY . OF ID 
+	type' : ARRAY . OF ID 
 
 	OF	shift 117
 
@@ -1990,8 +1990,8 @@ state 101:
 
 state 102:
 
-	type : LBRACE . type_fields RBRACE 
-	type : LBRACE . RBRACE 
+	type' : LBRACE . type_fields RBRACE 
+	type' : LBRACE . RBRACE 
 
 	ID	shift 109
 	RBRACE	shift 119
@@ -2004,7 +2004,7 @@ state 102:
 
 state 103:
 
-	type : ID .  (reduce by rule 38)
+	type' : ID .  (reduce by rule 38)
 
 
 
@@ -2221,7 +2221,7 @@ state 115:
 
 state 116:
 
-	type_declaration : TYPE ID EQ type SEMICOLON .  (reduce by rule 37)
+	type_declaration : TYPE ID EQ type' SEMICOLON .  (reduce by rule 37)
 
 
 
@@ -2230,7 +2230,7 @@ state 116:
 
 state 117:
 
-	type : ARRAY OF . ID 
+	type' : ARRAY OF . ID 
 
 	ID	shift 130
 
@@ -2240,7 +2240,7 @@ state 117:
 
 state 118:
 
-	type : LBRACE type_fields . RBRACE 
+	type' : LBRACE type_fields . RBRACE 
 
 	RBRACE	shift 131
 
@@ -2250,7 +2250,7 @@ state 118:
 
 state 119:
 
-	type : LBRACE RBRACE .  (reduce by rule 40)
+	type' : LBRACE RBRACE .  (reduce by rule 40)
 
 
 
@@ -2472,7 +2472,7 @@ state 129:
 
 state 130:
 
-	type : ARRAY OF ID .  (reduce by rule 41)
+	type' : ARRAY OF ID .  (reduce by rule 41)
 
 
 
@@ -2481,7 +2481,7 @@ state 130:
 
 state 131:
 
-	type : LBRACE type_fields RBRACE .  (reduce by rule 39)
+	type' : LBRACE type_fields RBRACE .  (reduce by rule 39)
 
 
 
