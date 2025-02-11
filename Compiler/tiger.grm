@@ -48,12 +48,17 @@ fun add_or_combine_declaration (A.FunctionDec(a1::l1), A.FunctionDec(l2)::declar
 
 %prefer THEN ELSE LPAREN
 
-%left THEN DO ELSE OF (*
+%value ID ("bogus")
+%value INT (1)
+%value STRING ("")
+
+%left DO OF (*
 if at top, then IF exp THEN exp + exp -> IF exp THEN (exp + exp)
 if at bottom, then IF exp THEN exp + exp -> (IF exp THEN exp) + exp 
 *)
 %left ASSIGN
-%left LT LE GT GE
+(* %left LT LE GT GE *)
+%right THEN ELSE
 %left OR
 %left AND
 %nonassoc EQ NEQ LT LE GT GE 
@@ -109,7 +114,7 @@ declaration_list: declaration declaration_list                  (add_or_combine_
 declaration: type_declaration                                   (type_declaration)
     | var_declaration                                           (var_declaration)
     | fun_declaration                                           (fun_declaration)
-type_declaration: TYPE ID EQ type' SEMICOLON                    (A.TypeDec([{name=Symbol.symbol(ID), ty=type', pos=IDleft}]))
+type_declaration: TYPE ID EQ type'                              (A.TypeDec([{name=Symbol.symbol(ID), ty=type', pos=IDleft}]))
 type': ID                                                       (A.NameTy(Symbol.symbol(ID), IDleft))
     | LBRACE type_fields RBRACE                                 (A.RecordTy(type_fields))
     | LBRACE RBRACE                                             (A.RecordTy([]))
