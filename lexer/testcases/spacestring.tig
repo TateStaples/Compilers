@@ -1,0 +1,5 @@
+let 
+  var a := "b      "
+in 
+  a
+end

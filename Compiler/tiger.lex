@@ -19,7 +19,7 @@ fun eof() =
         val pos = hd(!linePos)
     in 
         if !in_string then ErrorMsg.error(!string_start) ("Error open string")
-        else if !comments > 0 then ErrorMsg.error(pos) ("Error open comment")
+        else if !comments > 0 then ErrorMsg.error(pos) ("Error open comment" ^ (Int.toString (!comments)))
         else ();
         Tokens.EOF(pos,pos) 
     end
@@ -32,7 +32,7 @@ fun eof() =
 \n	=> (lineNum := !lineNum+1; linePos := yypos :: !linePos; continue());
 \t => (continue());
 \r => (continue());
-" " => (continue());
+<INITIAL>" " => (continue());
 
 <INITIAL>"."    => (Tokens.DOT (yypos, yypos + 1));
 <INITIAL>","	=> (Tokens.COMMA (yypos, yypos + 1));
@@ -80,12 +80,13 @@ fun eof() =
 <INITIAL>[0-9]+ => (Tokens.INT(valOf (Int.fromString yytext), yypos, yypos + size yytext));
 
 <INITIAL>"/*" => (YYBEGIN COMMENT; comments := !comments + 1; continue());
+<COMMENT>"/*" => (comments := !comments + 1; continue());
 <COMMENT>"*/" => (comments := !comments - 1; if !comments = 0 then YYBEGIN INITIAL else (); continue()); 
 <COMMENT>. => (continue());
 
 <INITIAL>"\"" => (YYBEGIN STRING; in_string := true; string_start := yypos; string_builder := ""; continue());
 <STRING>"\"" => (YYBEGIN INITIAL; in_string := false; Tokens.STRING(!string_builder, !string_start, yypos + 1));
-<STRING>\ => (YYBEGIN ESCAPED_STRING; continue());
+<STRING>\\ => (YYBEGIN ESCAPED_STRING; continue());
 <STRING>. => (string_builder := !string_builder ^ yytext; continue());
 
 <ESCAPED_STRING>n => (string_builder := !string_builder ^ "\n"; YYBEGIN STRING; continue());
@@ -93,7 +94,7 @@ fun eof() =
 <ESCAPED_STRING>r => (string_builder := !string_builder ^ "\r"; YYBEGIN STRING; continue());
 <ESCAPED_STRING>"\n" => (YYBEGIN STRING; continue());
 <ESCAPED_STRING>"\"" => (string_builder := !string_builder ^ "\""; YYBEGIN STRING; continue());
-<ESCAPED_STRING>\ => (string_builder := !string_builder ^ "\\"; YYBEGIN STRING; continue());
+<ESCAPED_STRING>\\ => (string_builder := !string_builder ^ "\\"; YYBEGIN STRING; continue());
 <ESCAPED_STRING>. => (string_builder := !string_builder ^ "\\" ^ yytext; YYBEGIN STRING; continue());
 
 .       => (ErrorMsg.error yypos ("illegal character (test) " ^ yytext); continue());

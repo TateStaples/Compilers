@@ -1,0 +1,13 @@
+/* unary minus */
+
+let 
+    var x := a - - b
+
+    var b := -a - b
+
+    var c := a + -b * c
+in 
+
+    x
+
+end

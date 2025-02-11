@@ -1,0 +1,5 @@
+let 
+  var a_b := 2
+in 
+  a_b
+end
