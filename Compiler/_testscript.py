@@ -9,10 +9,18 @@ def create_divider(test_num):
     return f"{divider} TEST {test_num} {divider} \\n \\n \\n"
 
 
+
+directory = 'tests'
 # Create commands to be executed in SML
 sml_commands = [
     'CM.make "sources.cm";',
-    *[f'print "{create_divider(i)}"; Parse.parse "tests/test{i}.tig"; print "\\n \\n \\n";' for i in range(1, 55)],
+    *[f'print "{create_divider(item)}"; Parse.parse "{os.path.join(directory, item)}"; print "\\n \\n \\n";' for item in sorted(os.listdir(directory))],
+    
+    
+    
+    #*[f'print "{create_divider(i)}"; Parse.parse "tests/test{i}.tig"; print "\\n \\n \\n";' for i in range(1, 55)],
+    #f'print "{create_divider("Queens")}"; Parse.parse "tests/queens.tig"; print "\\n \\n \\n";',
+    #f'print "{create_divider("Merge")}"; Parse.parse "tests/merge.tig"; print "\\n \\n \\n";',
     'OS.Process.exit(0);'
 ]
 

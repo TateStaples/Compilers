@@ -44,7 +44,8 @@ fun add_or_combine_dec (A.FunctionDec(a1::l1), A.FunctionDec(l2)::dec_seq) = A.F
 
 %prefer THEN ELSE LPAREN
 
-%left THEN DO ELSE OF (*
+%left THEN DO ELSE OF 
+(*
 if at top, then IF exp THEN exp + exp -> IF exp THEN (exp + exp)
 if at bottom, then IF exp THEN exp + exp -> (IF exp THEN exp) + exp 
 *)
@@ -88,7 +89,7 @@ lvalue : ID                                             (A.SimpleVar(Symbol.symb
  | ID LBRACK exp RBRACK                                 (A.SubscriptVar(A.SimpleVar(Symbol.symbol(ID), IDleft), exp, LBRACKleft))
  | lvalue LBRACK exp RBRACK                             (A.SubscriptVar(lvalue, exp, LBRACKleft))
 exp_seq : SEMICOLON exp exp_seq                         ((exp, expleft)::exp_seq)
- |                                                      ([]) (* this doesn't include the optional semicolon after the last expression *)
+ |                                                      ([])
 funcparams : COMMA exp funcparams                       (exp::funcparams)
  |                                                      ([])
 recordparams : COMMA ID EQ exp recordparams             ((Symbol.symbol(ID), exp, IDleft)::recordparams)
@@ -125,5 +126,6 @@ exp: lvalue                                             (A.VarExp(lvalue))
  | FOR ID ASSIGN exp TO exp DO exp                      (A.ForExp({var=Symbol.symbol(ID), escape=ref false, lo=exp1, hi=exp2, body=exp3, pos=FORleft}))
  | BREAK                                                (A.BreakExp(BREAKleft))
  | LET dec_seq IN exp exp_seq END                       (A.LetExp({decs=dec_seq, body=A.SeqExp((exp, expleft)::exp_seq), pos=LETleft}))
+ | LET dec_seq IN END                                   (A.LetExp({decs=dec_seq, body=A.SeqExp [], pos=LETleft}))
  | LPAREN exp RPAREN                                    (A.SeqExp([(exp, expleft)]))
 
