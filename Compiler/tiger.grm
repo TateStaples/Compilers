@@ -51,10 +51,10 @@ if at bottom, then IF exp THEN exp + exp -> (IF exp THEN exp) + exp
 *)
 
 (* if a > b then if a > c then a else b *)
-%left ASSIGN
-%left LT LE GT GE
+%nonassoc ASSIGN
 %left OR
 %left AND
+%left LT LE GT GE
 %nonassoc EQ NEQ
 %left PLUS MINUS
 %left TIMES DIVIDE

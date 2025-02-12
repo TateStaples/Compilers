@@ -22,6 +22,8 @@ Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
 [attempting to load plugin $/mlyacc-tool.cm]
 [library $/mlyacc-tool.cm is stable]
 [plugin $/mlyacc-tool.cm loaded successfully]
+[parsing (sources.cm):tiger.grm.sig]
+[parsing (sources.cm):tiger.grm.sml]
 [library $/ml-yacc-lib.cm is stable]
 [library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
 [library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
@@ -29,8 +31,10 @@ Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
 [loading (sources.cm):table.sml]
 [loading (sources.cm):symbol.sml]
 [loading (sources.cm):absyn.sml]
-[loading (sources.cm):tiger.grm.sig]
-[loading (sources.cm):tiger.grm.sml]
+[compiling (sources.cm):tiger.grm.sig]
+[code: 65, data: 1, env: 963 bytes]
+[compiling (sources.cm):tiger.grm.sml]
+[code: 66149, data: 4261, env: 1738 bytes]
 [loading (sources.cm):errormsg.sml]
 [loading (sources.cm):tiger.lex.sml]
 [loading (sources.cm):parse.sml]
@@ -1127,6 +1131,20 @@ val it =
  
  
 val it = () : unit
+==================== TEST test57.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  IfExp
+    {else'=NONE,pos=3,test=VarExp (SimpleVar (-,6)),
+     then'=OpExp
+             {left=VarExp (SimpleVar (-,13)),oper=PlusOp,pos=13,
+              right=VarExp (SimpleVar (-,17))}} : Absyn.exp
+
+ 
+ 
+val it = () : unit
 ==================== TEST test6.tig ==================== 
  
  
@@ -1196,5 +1214,5 @@ val it =
 val it = () : unit
 [autoloading]
 [autoloading done]
-stdIn:1.7312-1.7330 Warning: type vars not generalized because of
+stdIn:1.7438-1.7456 Warning: type vars not generalized because of
    value restriction are instantiated to dummy types (X1,X2,...)

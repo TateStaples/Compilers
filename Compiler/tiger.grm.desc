@@ -971,6 +971,10 @@ state 49:
 	DIVIDE	shift 25
 	EQ	shift 24
 	NEQ	shift 23
+	LT	shift 22
+	LE	shift 21
+	GT	shift 20
+	GE	shift 19
 	AND	shift 18
 
 
@@ -999,6 +1003,10 @@ state 50:
 	DIVIDE	shift 25
 	EQ	shift 24
 	NEQ	shift 23
+	LT	shift 22
+	LE	shift 21
+	GT	shift 20
+	GE	shift 19
 
 
 	.	reduce by rule 49
@@ -1026,8 +1034,6 @@ state 51:
 	DIVIDE	shift 25
 	EQ	shift 24
 	NEQ	shift 23
-	AND	shift 18
-	OR	shift 17
 
 
 	.	reduce by rule 47
@@ -1055,8 +1061,6 @@ state 52:
 	DIVIDE	shift 25
 	EQ	shift 24
 	NEQ	shift 23
-	AND	shift 18
-	OR	shift 17
 
 
 	.	reduce by rule 45
@@ -1084,8 +1088,6 @@ state 53:
 	DIVIDE	shift 25
 	EQ	shift 24
 	NEQ	shift 23
-	AND	shift 18
-	OR	shift 17
 
 
 	.	reduce by rule 48
@@ -1113,8 +1115,6 @@ state 54:
 	DIVIDE	shift 25
 	EQ	shift 24
 	NEQ	shift 23
-	AND	shift 18
-	OR	shift 17
 
 
 	.	reduce by rule 46
