@@ -1,0 +1,6 @@
+/* empty let body */
+let
+  var a := 23
+in 
+    
+end

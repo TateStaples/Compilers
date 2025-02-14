@@ -1,0 +1,1218 @@
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- [autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[parsing (sources.cm):tiger.grm.sig]
+[parsing (sources.cm):tiger.grm.sml]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):absyn.sml]
+[compiling (sources.cm):tiger.grm.sig]
+[code: 65, data: 1, env: 963 bytes]
+[compiling (sources.cm):tiger.grm.sml]
+[code: 66149, data: 4261, env: 1738 bytes]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+==================== TEST merge.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(CallExp {args=[CallExp {args=#,func=#,pos=#}],func=-,pos=1331},
+              1331)],
+     decs=[TypeDec
+             [{name=-,pos=9,ty=RecordTy [{escape=ref #,name=-,pos=21,typ=-}]}],
+           VarDec
+             {escape=ref false,init=CallExp {args=[],func=-,pos=47},name=-,
+              pos=33,typ=NONE},
+           FunctionDec
+             [{body=LetExp
+                      {body=SeqExp [#,#,#,#],decs=[VarDec #,FunctionDec #],
+                       pos=94},name=-,
+               params=[{escape=ref false,name=-,pos=75,typ=-}],pos=58,
+               result=SOME (-,87)}],
+           TypeDec
+             [{name=-,pos=451,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=464,typ=-},
+                     {escape=ref #,name=-,pos=476,typ=-}]}],
+           FunctionDec
+             [{body=LetExp {body=SeqExp [#],decs=[VarDec #,VarDec #],pos=523},
+               name=-,params=[],pos=490,result=SOME (-,512)},
+              {body=IfExp
+                      {else'=SOME (IfExp #),pos=715,
+                       test=OpExp {left=#,oper=#,pos=#,right=#},
+                       then'=VarExp (SimpleVar #)},name=-,
+               params=[{escape=ref false,name=-,pos=685,typ=-},
+                       {escape=ref false,name=-,pos=694,typ=-}],pos=670,
+               result=SOME (-,705)},
+              {body=LetExp {body=SeqExp [#],decs=[FunctionDec #],pos=921},
+               name=-,params=[{escape=ref false,name=-,pos=909,typ=-}],
+               pos=891,result=NONE},
+              {body=IfExp
+                      {else'=SOME (SeqExp #),pos=1135,
+                       test=OpExp {left=#,oper=#,pos=#,right=#},
+                       then'=CallExp {args=#,func=#,pos=#}},name=-,
+               params=[{escape=ref false,name=-,pos=1121,typ=-}],pos=1102,
+               result=NONE}],
+           VarDec
+             {escape=ref false,init=CallExp {args=[],func=-,pos=1237},name=-,
+              pos=1224,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=SeqExp
+                     [(AssignExp {exp=#,pos=#,var=#},1265),
+                      (CallExp {args=#,func=#,pos=#},1284)],name=-,pos=1251,
+              typ=NONE}],pos=2} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST queens.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(CallExp {args=[IntExp 0],func=-,pos=790},790)],
+     decs=[VarDec {escape=ref false,init=IntExp 8,name=-,pos=57,typ=NONE},
+           TypeDec [{name=-,pos=73,ty=ArrayTy (-,89)}],
+           VarDec
+             {escape=ref false,
+              init=ArrayExp
+                     {init=IntExp 0,pos=127,size=VarExp (SimpleVar (#,#)),
+                      typ=-},name=-,pos=107,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=ArrayExp
+                     {init=IntExp 0,pos=162,size=VarExp (SimpleVar (#,#)),
+                      typ=-},name=-,pos=142,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=ArrayExp
+                     {init=IntExp 0,pos=199,
+                      size=OpExp
+                             {left=OpExp #,oper=MinusOp,pos=200,
+                              right=IntExp #},typ=-},name=-,pos=177,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=ArrayExp
+                     {init=IntExp 0,pos=238,
+                      size=OpExp
+                             {left=OpExp #,oper=MinusOp,pos=239,
+                              right=IntExp #},typ=-},name=-,pos=216,typ=NONE},
+           FunctionDec
+             [{body=SeqExp [(ForExp #,288),(CallExp #,410)],name=-,params=[],
+               pos=256,result=NONE},
+              {body=SeqExp [(IfExp #,516)],name=-,
+               params=[{escape=ref false,name=-,pos=441,typ=-}],pos=428,
+               result=NONE}]],pos=49} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test1.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,121)),121)],
+     decs=[TypeDec [{name=-,pos=49,ty=ArrayTy (-,65)}],
+           VarDec
+             {escape=ref false,
+              init=ArrayExp {init=IntExp 0,pos=107,size=IntExp 10,typ=-},
+              name=-,pos=83,typ=SOME (-,88)}],pos=44} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test10.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  WhileExp
+    {body=OpExp {left=IntExp 5,oper=PlusOp,pos=56,right=IntExp 6},pos=39,
+     test=SeqExp [(OpExp {left=IntExp 10,oper=GtOp,pos=45,right=IntExp 5},45)]}
+  : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test11.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  ForExp
+    {body=AssignExp
+            {exp=OpExp
+                   {left=VarExp (SimpleVar (-,106)),oper=MinusOp,pos=106,
+                    right=IntExp 1},pos=101,var=SimpleVar (-,101)},
+     escape=ref false,hi=StringExp (" ",92),lo=IntExp 10,pos=79,var=-}
+  : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test12.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(ForExp
+                {body=SeqExp [(#,#),(#,#)],escape=ref false,hi=IntExp 100,
+                 lo=IntExp 0,pos=47,var=-},47)],
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=32,typ=NONE}],
+     pos=27} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test13.tig ==================== 
+ 
+ 
+val it = () : unit
+val it = OpExp {left=IntExp 3,oper=GtOp,pos=49,right=StringExp ("df",53)}
+  : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test14.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(IfExp
+                {else'=SOME (IntExp 4),pos=189,
+                 test=OpExp {left=VarExp #,oper=NeqOp,pos=192,right=VarExp #},
+                 then'=IntExp 3},189)],
+     decs=[TypeDec
+             [{name=-,pos=46,ty=ArrayTy (-,61)},
+              {name=-,pos=75,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=91,typ=-},
+                     {escape=ref #,name=-,pos=104,typ=-}]}],
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,StringExp #,135),(-,IntExp #,149)],pos=126,
+                      typ=-},name=-,pos=115,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=ArrayExp {init=IntExp 0,pos=175,size=IntExp 3,typ=-},
+              name=-,pos=156,typ=NONE}],pos=40} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test15.tig ==================== 
+ 
+ 
+val it = () : unit
+val it = IfExp {else'=NONE,pos=42,test=IntExp 20,then'=IntExp 3} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test16.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(StringExp ("",128),128)],
+     decs=[TypeDec
+             [{name=-,pos=87,ty=NameTy (-,94)},
+              {name=-,pos=96,ty=NameTy (-,103)},
+              {name=-,pos=105,ty=NameTy (-,112)},
+              {name=-,pos=114,ty=NameTy (-,121)}]],pos=81} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test17.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,186)),186)],
+     decs=[TypeDec
+             [{name=-,pos=84,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=96,typ=-},
+                     {escape=ref #,name=-,pos=106,typ=-}]}],
+           VarDec
+             {escape=ref false,init=IntExp 0,name=-,pos=130,typ=SOME (-,132)},
+           TypeDec
+             [{name=-,pos=140,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=157,typ=-},
+                     {escape=ref #,name=-,pos=167,typ=-}]}]],pos=60}
+  : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test18.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=222},222)],
+     decs=[FunctionDec
+             [{body=SeqExp [(CallExp #,118),(IntExp #,135)],name=-,
+               params=[{escape=ref false,name=-,pos=91,typ=-},
+                       {escape=ref false,name=-,pos=99,typ=-}],pos=70,
+               result=SOME (-,110)}],
+           VarDec {escape=ref false,init=IntExp 0,name=-,pos=139,typ=NONE},
+           FunctionDec
+             [{body=SeqExp [(CallExp #,190),(StringExp #,212)],name=-,
+               params=[{escape=ref false,name=-,pos=170,typ=-}],pos=149,
+               result=SOME (-,178)}]],pos=65} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test19.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=238},238)],
+     decs=[FunctionDec
+             [{body=SeqExp [(CallExp #,144),(IntExp #,161)],name=-,
+               params=[{escape=ref false,name=-,pos=117,typ=-},
+                       {escape=ref false,name=-,pos=125,typ=-}],pos=96,
+               result=SOME (-,136)},
+              {body=SeqExp [(CallExp #,206),(StringExp #,228)],name=-,
+               params=[{escape=ref false,name=-,pos=186,typ=-}],pos=165,
+               result=SOME (-,194)}]],pos=91} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test2.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,154)),154)],
+     decs=[TypeDec
+             [{name=-,pos=61,ty=NameTy (-,74)},
+              {name=-,pos=79,ty=ArrayTy (-,95)}],
+           VarDec
+             {escape=ref false,
+              init=ArrayExp {init=IntExp 0,pos=140,size=IntExp 10,typ=-},
+              name=-,pos=116,typ=SOME (-,121)}],pos=56} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test20.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  WhileExp
+    {body=SeqExp
+            [(OpExp
+                {left=VarExp (SimpleVar (#,#)),oper=PlusOp,pos=55,
+                 right=IntExp 1},55),(SeqExp [],59)],pos=38,
+     test=OpExp {left=IntExp 10,oper=GtOp,pos=44,right=IntExp 5}} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test21.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(CallExp {args=[IntExp 10],func=-,pos=177},177)],
+     decs=[FunctionDec
+             [{body=IfExp
+                      {else'=SOME (OpExp #),pos=126,
+                       test=OpExp {left=#,oper=#,pos=#,right=#},
+                       then'=IntExp 1},name=-,
+               params=[{escape=ref false,name=-,pos=114,typ=-}],pos=97,
+               result=NONE}]],pos=73} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test22.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(AssignExp
+                {exp=StringExp ("asd",143),pos=131,
+                 var=FieldVar (SimpleVar #,-,136)},131)],
+     decs=[TypeDec
+             [{name=-,pos=48,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=64,typ=-},
+                     {escape=ref #,name=-,pos=78,typ=-}]}],
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,StringExp #,108),(-,IntExp #,121)],pos=99,
+                      typ=-},name=-,pos=87,typ=NONE}],pos=42} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test23.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(AssignExp
+                {exp=IntExp 3,pos=121,var=FieldVar (SimpleVar #,-,126)},121),
+             (AssignExp
+                {exp=StringExp ("",149),pos=138,
+                 var=FieldVar (SimpleVar #,-,143)},138)],
+     decs=[TypeDec
+             [{name=-,pos=37,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=53,typ=-},
+                     {escape=ref #,name=-,pos=67,typ=-}]}],
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,StringExp #,97),(-,IntExp #,111)],pos=88,
+                      typ=-},name=-,pos=76,typ=NONE}],pos=31} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test24.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SubscriptVar (SimpleVar (#,#),IntExp 3,55)),54)],
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=41,typ=NONE}],
+     pos=35} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test25.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (FieldVar (SimpleVar (#,#),-,57)),55)],
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=42,typ=NONE}],
+     pos=36} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test26.tig ==================== 
+ 
+ 
+val it = () : unit
+val it = OpExp {left=IntExp 3,oper=PlusOp,pos=34,right=StringExp ("var",38)}
+  : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test27.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(CallExp {args=[IntExp 2],func=-,pos=75},75)],
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=33,typ=NONE},
+           FunctionDec
+             [{body=VarExp (SimpleVar (-,68)),name=-,
+               params=[{escape=ref false,name=-,pos=55,typ=-}],pos=44,
+               result=SOME (-,62)}]],pos=28} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test28.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,181)),181)],
+     decs=[TypeDec
+             [{name=-,pos=45,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=62,typ=-},
+                     {escape=ref #,name=-,pos=76,typ=-}]},
+              {name=-,pos=85,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=102,typ=-},
+                     {escape=ref #,name=-,pos=116,typ=-}]}],
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,StringExp #,158),(-,IntExp #,171)],pos=148,
+                      typ=-},name=-,pos=130,typ=SOME (-,136)}],pos=40}
+  : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test29.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,150)),150)],
+     decs=[TypeDec
+             [{name=-,pos=44,ty=ArrayTy (-,60)},
+              {name=-,pos=74,ty=ArrayTy (-,90)}],
+           VarDec
+             {escape=ref false,
+              init=ArrayExp {init=IntExp 0,pos=136,size=IntExp 10,typ=-},
+              name=-,pos=109,typ=SOME (-,115)}],pos=39} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test3.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(AssignExp
+                {exp=StringExp ("Somebody",160),pos=147,
+                 var=FieldVar (SimpleVar #,-,152)},147),
+             (VarExp (SimpleVar (-,173)),173)],
+     decs=[TypeDec
+             [{name=-,pos=49,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=66,typ=-},
+                     {escape=ref #,name=-,pos=79,typ=-}]}],
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,StringExp #,118),(-,IntExp #,133)],pos=109,
+                      typ=-},name=-,pos=93,typ=SOME (-,98)}],pos=44}
+  : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test30.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SubscriptVar (SimpleVar (#,#),IntExp 2,107)),103)],
+     decs=[TypeDec
+             [{name=-,pos=34,ty=ArrayTy (-,43)},
+              {name=-,pos=58,ty=NameTy (-,67)}],
+           VarDec
+             {escape=ref false,
+              init=ArrayExp {init=IntExp 0,pos=88,size=IntExp 10,typ=-},
+              name=-,pos=76,typ=SOME (-,81)}],pos=27} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test31.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,81)),81)],
+     decs=[VarDec
+             {escape=ref false,init=StringExp (" ",73),name=-,pos=64,
+              typ=SOME (-,66)}],pos=54} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test32.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(IntExp 0,124)],
+     decs=[TypeDec [{name=-,pos=61,ty=ArrayTy (-,76)}],
+           VarDec
+             {escape=ref false,
+              init=ArrayExp
+                     {init=StringExp (" ",116),pos=108,size=IntExp 10,typ=-},
+              name=-,pos=91,typ=NONE}],pos=56} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test33.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(IntExp 0,57)],
+     decs=[VarDec
+             {escape=ref false,init=RecordExp {fields=[],pos=42,typ=-},name=-,
+              pos=34,typ=NONE}],pos=29} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test34.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(CallExp {args=[StringExp (#,#),StringExp (#,#)],func=-,pos=104},
+              104)],
+     decs=[FunctionDec
+             [{body=VarExp (SimpleVar (-,98)),name=-,
+               params=[{escape=ref false,name=-,pos=74,typ=-},
+                       {escape=ref false,name=-,pos=82,typ=-}],pos=62,
+               result=SOME (-,92)}]],pos=57} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test35.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(CallExp {args=[StringExp (#,#)],func=-,pos=93},93)],
+     decs=[FunctionDec
+             [{body=VarExp (SimpleVar (-,87)),name=-,
+               params=[{escape=ref false,name=-,pos=63,typ=-},
+                       {escape=ref false,name=-,pos=71,typ=-}],pos=51,
+               result=SOME (-,81)}]],pos=46} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test36.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(CallExp {args=[IntExp 3,StringExp (#,#),IntExp 5],func=-,pos=94},
+              94)],
+     decs=[FunctionDec
+             [{body=VarExp (SimpleVar (-,88)),name=-,
+               params=[{escape=ref false,name=-,pos=64,typ=-},
+                       {escape=ref false,name=-,pos=72,typ=-}],pos=52,
+               result=SOME (-,82)}]],pos=47} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test37.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(IntExp 0,175)],
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=146,typ=NONE},
+           VarDec
+             {escape=ref false,init=StringExp (" ",167),name=-,pos=158,
+              typ=NONE}],pos=141} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test38.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(IntExp 0,196)],
+     decs=[TypeDec
+             [{name=-,pos=162,ty=NameTy (-,171)},
+              {name=-,pos=176,ty=NameTy (-,185)}]],pos=157} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test39.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(IntExp 0,224)],
+     decs=[FunctionDec
+             [{body=VarExp (SimpleVar (-,191)),name=-,
+               params=[{escape=ref false,name=-,pos=178,typ=-}],pos=167,
+               result=SOME (-,185)},
+              {body=VarExp (SimpleVar (-,218)),name=-,
+               params=[{escape=ref false,name=-,pos=205,typ=-}],pos=194,
+               result=SOME (-,212)}]],pos=162} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test4.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(CallExp {args=[IntExp 10],func=-,pos=145},145)],
+     decs=[FunctionDec
+             [{body=IfExp
+                      {else'=SOME (OpExp #),pos=94,
+                       test=OpExp {left=#,oper=#,pos=#,right=#},
+                       then'=IntExp 1},name=-,
+               params=[{escape=ref false,name=-,pos=77,typ=-}],pos=60,
+               result=SOME (-,86)}]],pos=36} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test40.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(CallExp {args=[IntExp 2],func=-,pos=72},72)],
+     decs=[FunctionDec
+             [{body=VarExp (SimpleVar (-,65)),name=-,
+               params=[{escape=ref false,name=-,pos=56,typ=-}],pos=45,
+               result=NONE}]],pos=40} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test41.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(LetExp {body=SeqExp [(#,#)],decs=[TypeDec [#]],pos=54},54)],
+     decs=[TypeDec [{name=-,pos=37,ty=NameTy (-,46)}]],pos=32} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test42.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(AssignExp
+                {exp=IntExp 1,pos=551,
+                 var=SubscriptVar (SimpleVar #,IntExp #,555)},551),
+             (AssignExp
+                {exp=IntExp 3,pos=566,
+                 var=SubscriptVar (SimpleVar #,IntExp #,570)},566),
+             (AssignExp
+                {exp=StringExp ("kati",596),pos=580,
+                 var=FieldVar (SubscriptVar #,-,588)},580),
+             (AssignExp
+                {exp=IntExp 23,pos=604,var=FieldVar (SubscriptVar #,-,612)},
+              604),
+             (AssignExp
+                {exp=StringExp ("sfd",635),pos=623,
+                 var=SubscriptVar (SimpleVar #,IntExp #,627)},623),
+             (AssignExp
+                {exp=StringExp ("sdf",656),pos=643,
+                 var=FieldVar (SimpleVar #,-,648)},643),
+             (AssignExp
+                {exp=IntExp 2323,pos=663,
+                 var=SubscriptVar (FieldVar #,IntExp #,673)},663),
+             (AssignExp
+                {exp=IntExp 2323,pos=686,
+                 var=SubscriptVar (FieldVar #,IntExp #,696)},686)],
+     decs=[TypeDec
+             [{name=-,pos=35,ty=ArrayTy (-,51)},
+              {name=-,pos=64,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=81,typ=-},
+                     {escape=ref #,name=-,pos=94,typ=-},
+                     {escape=ref #,name=-,pos=110,typ=-},
+                     {escape=ref #,name=-,pos=120,typ=-}]},
+              {name=-,pos=130,ty=ArrayTy (-,146)},
+              {name=-,pos=164,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=181,typ=-},
+                     {escape=ref #,name=-,pos=196,typ=-}]},
+              {name=-,pos=214,ty=ArrayTy (-,230)}],
+           VarDec
+             {escape=ref false,
+              init=ArrayExp {init=IntExp 0,pos=268,size=IntExp 10,typ=-},
+              name=-,pos=247,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=ArrayExp
+                     {init=RecordExp {fields=[#,#,#,#],pos=307,typ=-},pos=300,
+                      size=IntExp 5,typ=-},name=-,pos=278,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=ArrayExp
+                     {init=StringExp ("",404),pos=395,size=IntExp 100,typ=-},
+              name=-,pos=369,typ=SOME (-,374)},
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,StringExp #,430),(-,StringExp #,446),
+                              (-,IntExp #,463),(-,IntExp #,473)],pos=420,
+                      typ=-},name=-,pos=408,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,StringExp #,503),(-,ArrayExp #,517)],pos=493,
+                      typ=-},name=-,pos=481,typ=NONE}],pos=29} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test43.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(OpExp
+                {left=VarExp (SimpleVar (#,#)),oper=PlusOp,pos=90,
+                 right=IntExp 3},90)],
+     decs=[VarDec {escape=ref false,init=SeqExp [],name=-,pos=74,typ=NONE}],
+     pos=68} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test44.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(AssignExp {exp=NilExp,pos=120,var=SimpleVar (-,120)},120)],
+     decs=[TypeDec
+             [{name=-,pos=55,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=71,typ=-},
+                     {escape=ref #,name=-,pos=84,typ=-}]}],
+           VarDec {escape=ref false,init=NilExp,name=-,pos=97,typ=SOME (-,99)}],
+     pos=48} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test45.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,136)),136)],
+     decs=[TypeDec
+             [{name=-,pos=81,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=97,typ=-},
+                     {escape=ref #,name=-,pos=110,typ=-}]}],
+           VarDec {escape=ref false,init=NilExp,name=-,pos=120,typ=NONE}],
+     pos=75} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test46.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(OpExp
+                {left=VarExp (SimpleVar (#,#)),oper=EqOp,pos=99,right=NilExp},
+              99),
+             (OpExp
+                {left=VarExp (SimpleVar (#,#)),oper=NeqOp,pos=109,
+                 right=NilExp},109)],
+     decs=[TypeDec
+             [{name=-,pos=36,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=52,typ=-},
+                     {escape=ref #,name=-,pos=65,typ=-}]}],
+           VarDec {escape=ref false,init=NilExp,name=-,pos=78,typ=SOME (-,80)}],
+     pos=30} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test47.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(IntExp 0,271)],
+     decs=[TypeDec [{name=-,pos=225,ty=NameTy (-,234)}],
+           VarDec {escape=ref false,init=IntExp 4,name=-,pos=239,typ=NONE},
+           TypeDec [{name=-,pos=251,ty=NameTy (-,260)}]],pos=220} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test48.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(IntExp 0,309)],
+     decs=[FunctionDec
+             [{body=VarExp (SimpleVar (-,262)),name=-,
+               params=[{escape=ref false,name=-,pos=249,typ=-}],pos=238,
+               result=SOME (-,256)}],
+           TypeDec [{name=-,pos=265,ty=NameTy (-,274)}],
+           FunctionDec
+             [{body=VarExp (SimpleVar (-,303)),name=-,
+               params=[{escape=ref false,name=-,pos=290,typ=-}],pos=279,
+               result=SOME (-,297)}]],pos=233} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test49.tig ==================== 
+ 
+ 
+val it = () : unit
+tests/test49.tig:5.18:syntax error: inserting  PLUS
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,138)),138)],
+     decs=[TypeDec
+             [{name=-,pos=75,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=91,typ=-},
+                     {escape=ref #,name=-,pos=104,typ=-}]}],
+           VarDec
+             {escape=ref false,
+              init=OpExp
+                     {left=VarExp (SimpleVar (#,#)),oper=PlusOp,pos=122,
+                      right=NilExp},name=-,pos=114,typ=NONE}],pos=69}
+  : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test5.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,256)),256)],
+     decs=[TypeDec
+             [{name=-,pos=61,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=77,typ=-},
+                     {escape=ref #,name=-,pos=86,typ=-}]},
+              {name=-,pos=121,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=133,typ=-},
+                     {escape=ref #,name=-,pos=143,typ=-}]},
+              {name=-,pos=163,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=180,typ=-},
+                     {escape=ref #,name=-,pos=190,typ=-}]}],
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,IntExp #,234),(-,NilExp,240)],pos=224,typ=-},
+              name=-,pos=209,typ=SOME (-,213)}],pos=37} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test50.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,102)),102)],
+     decs=[VarDec
+             {escape=ref false,
+              init=OpExp
+                     {left=VarExp (SimpleVar (#,#)),oper=MinusOp,pos=39,
+                      right=OpExp
+                              {left=IntExp #,oper=MinusOp,pos=43,
+                               right=VarExp #}},name=-,pos=30,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=OpExp
+                     {left=OpExp
+                             {left=IntExp #,oper=MinusOp,pos=61,
+                              right=VarExp #},oper=MinusOp,pos=61,
+                      right=VarExp (SimpleVar (#,#))},name=-,pos=52,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=OpExp
+                     {left=VarExp (SimpleVar (#,#)),oper=PlusOp,pos=82,
+                      right=OpExp
+                              {left=IntExp #,oper=MinusOp,pos=86,
+                               right=OpExp #}},name=-,pos=73,typ=NONE}],
+     pos=21} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test51.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  SeqExp
+    [(OpExp {left=IntExp 1,oper=PlusOp,pos=3,right=IntExp 2},3),
+     (OpExp {left=IntExp 3,oper=PlusOp,pos=10,right=IntExp 4},10),
+     (SeqExp
+        [(OpExp {left=IntExp 5,oper=PlusOp,pos=18,right=IntExp 6},18),
+         (CallExp {args=[IntExp #],func=-,pos=25},25)],17)] : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test52.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [],
+     decs=[VarDec {escape=ref false,init=IntExp 23,name=-,pos=29,typ=NONE}],
+     pos=23} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test53.tig ==================== 
+ 
+ 
+val it = () : unit
+tests/test53.tig:4.16:syntax error: inserting  SEMICOLON
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,58)),58)],
+     decs=[VarDec
+             {escape=ref false,init=SeqExp [(IntExp 5,45),(IntExp 6,47)],
+              name=-,pos=35,typ=NONE}],pos=28} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test54.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp [(SeqExp [(VarExp (SimpleVar #),47)],46)],
+     decs=[VarDec {escape=ref false,init=IntExp 23,name=-,pos=29,typ=NONE}],
+     pos=22} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test55.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  IfExp
+    {else'=NONE,pos=2,
+     test=OpExp
+            {left=VarExp (SimpleVar (-,5)),oper=GtOp,pos=5,
+             right=VarExp (SimpleVar (-,9))},
+     then'=IfExp
+             {else'=SOME (VarExp (SimpleVar (-,37))),pos=16,
+              test=OpExp
+                     {left=VarExp (SimpleVar (-,19)),oper=GtOp,pos=19,
+                      right=VarExp (SimpleVar (-,23))},
+              then'=VarExp (SimpleVar (-,30))}} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test56.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  IfExp
+    {else'=SOME
+             (IfExp
+                {else'=SOME
+                         (IfExp
+                            {else'=SOME (RecordExp #),pos=50,
+                             test=OpExp {left=#,oper=#,pos=#,right=#},
+                             then'=RecordExp {fields=#,pos=#,typ=#}}),pos=26,
+                 test=OpExp
+                        {left=VarExp (SimpleVar (#,#)),oper=EqOp,pos=29,
+                         right=NilExp},then'=VarExp (SimpleVar (-,40))}),
+     pos=2,
+     test=OpExp {left=VarExp (SimpleVar (-,5)),oper=EqOp,pos=5,right=NilExp},
+     then'=VarExp (SimpleVar (-,16))} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test57.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  IfExp
+    {else'=NONE,pos=3,test=VarExp (SimpleVar (-,6)),
+     then'=OpExp
+             {left=VarExp (SimpleVar (-,13)),oper=PlusOp,pos=13,
+              right=VarExp (SimpleVar (-,17))}} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test6.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=177},177)],
+     decs=[FunctionDec
+             [{body=CallExp {args=[OpExp #],func=-,pos=99},name=-,
+               params=[{escape=ref false,name=-,pos=77,typ=-},
+                       {escape=ref false,name=-,pos=85,typ=-}],pos=56,
+               result=NONE},
+              {body=CallExp {args=[VarExp #,StringExp #],func=-,pos=150},
+               name=-,params=[{escape=ref false,name=-,pos=138,typ=-}],
+               pos=117,result=NONE}]],pos=51} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test7.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  LetExp
+    {body=SeqExp
+            [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=197},197)],
+     decs=[FunctionDec
+             [{body=SeqExp [(CallExp #,103),(IntExp #,120)],name=-,
+               params=[{escape=ref false,name=-,pos=76,typ=-},
+                       {escape=ref false,name=-,pos=84,typ=-}],pos=55,
+               result=SOME (-,95)},
+              {body=SeqExp [(CallExp #,165),(StringExp #,187)],name=-,
+               params=[{escape=ref false,name=-,pos=145,typ=-}],pos=124,
+               result=SOME (-,153)}]],pos=50} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test8.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  IfExp
+    {else'=SOME (IntExp 40),pos=19,
+     test=SeqExp
+            [(OpExp {left=IntExp 10,oper=GtOp,pos=23,right=IntExp 20},23)],
+     then'=IntExp 30} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+==================== TEST test9.tig ==================== 
+ 
+ 
+val it = () : unit
+val it =
+  IfExp
+    {else'=SOME (StringExp (" ",68)),pos=45,
+     test=SeqExp [(OpExp {left=IntExp 5,oper=GtOp,pos=49,right=IntExp 4},49)],
+     then'=IntExp 13} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+[autoloading]
+[autoloading done]
+stdIn:1.7438-1.7456 Warning: type vars not generalized because of
+   value restriction are instantiated to dummy types (X1,X2,...)
