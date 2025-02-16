@@ -1,0 +1,12 @@
+/* arr1 is valid since expression 0 is int = myint */
+let
+	type a = int
+  type b = a
+  type c = b
+  type d = c
+	type  arrtype = array of d
+
+	var arr1:arrtype := arrtype [10] of 0
+in
+	arr1
+end

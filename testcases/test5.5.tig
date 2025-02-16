@@ -1,0 +1,47 @@
+/* define valid recursive types */
+let
+/* define a list */
+type intlist = {hd: int, tl: intlist} 
+
+/* define a tree */
+type tree ={key: int, children: treelist}
+type treelist = {hd: tree, tl: treelist}
+
+var lis:intlist := intlist { hd=0, tl= nil } 
+
+var lis2:intlist := intlist { hd=0, tl=intlist {hd=1, tl=nil}}
+
+var tree:tree := tree{key=1, children=nil}
+var tree2:tree := tree{key=1, children=treelist{hd=tree{key=2, children=nil}, tl=nil}}
+var tree3:tree := tree{
+  key=1, 
+  children=treelist{
+    hd=tree{
+      key=2, 
+      children=treelist{
+        hd=tree{
+          key=4,
+          children=nil
+        },
+        tl=treelist{
+          hd=tree{
+            key=5,
+            children=nil
+          },
+          tl=nil
+        }
+      }
+    }, 
+    tl=treelist{
+      hd=tree{
+        key=3,
+        children=nil
+      },
+      tl=nil
+    }
+  }
+}
+
+in
+	lis
+end
