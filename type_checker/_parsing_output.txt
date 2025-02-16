@@ -1,5 +1,9 @@
 Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
-- [autoloading]
+- ==================== TEST merge ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
 [library $smlnj/cm/cm.cm is stable]
 [library $smlnj/internal/cm-sig-lib.cm is stable]
 [library $/pgraph.cm is stable]
@@ -22,961 +26,3144 @@ Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
 [attempting to load plugin $/mlyacc-tool.cm]
 [library $/mlyacc-tool.cm is stable]
 [plugin $/mlyacc-tool.cm loaded successfully]
-[parsing (sources.cm):tiger.grm.sig]
-[parsing (sources.cm):tiger.grm.sml]
+[parsing (sources.cm):environment.sml]
 [library $/ml-yacc-lib.cm is stable]
 [library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
 [library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
 [loading (sources.cm):table.sig]
 [loading (sources.cm):table.sml]
 [loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
 [loading (sources.cm):absyn.sml]
-[compiling (sources.cm):tiger.grm.sig]
-[code: 65, data: 1, env: 963 bytes]
-[compiling (sources.cm):tiger.grm.sml]
-[code: 66149, data: 4261, env: 1738 bytes]
+[compiling (sources.cm):environment.sml]
+[code: 3633, data: 169, env: 551 bytes]
+[compiling (sources.cm):semant.sml]
+[code: 36502, data: 1166, env: 1081 bytes]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[compiling (sources.cm):parse.sml]
+[code: 6904, data: 64, env: 125 bytes]
+[compiling (sources.cm):prabsyn.sml]
+[code: 30322, data: 394, env: 173 bytes]
+[New bindings added.]
+val it = true : bool
+any => any=>INT 
+buffer => STRING
+readint => Function(NAME(any,...),)->INT
+any => NAME(any,...)
+i => INT
+isdigit => Function(STRING,)->INT
+skipto => Function()->UNIT
+checking while
+while over
+s => STRING
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+checking while
+COMPARING STRING AND STRING
+while over
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+list => first=>INT rest=>NAME(list,...) 
+readlist => Function()->NAME(list,...)
+merge => Function(NAME(list,...),NAME(list,...),)->NAME(list,...)
+printint => Function(INT,)->UNIT
+printlist => Function(NAME(list,...),)->UNIT
+l => NAME(list,...)
+COMPARING STRING AND STRING
+COMPARING INT AND INT
+COMPARING STRING AND STRING
+COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
+i => INT
+f => Function(INT,)->UNIT
+i => INT
+COMPARING INT AND INT
+COMPARING STRING AND STRING
+COMPARING INT AND INT
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+COMPARING INT AND INT
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+COMPARING INT AND INT
+COMPARING INT AND INT
+COMPARING STRING AND STRING
+a => NAME(list,...)
+b => NAME(list,...)
+INT & INT
+COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
+COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
+NAME(list,...) & NAME(list,...)
+COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
+COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
+INT & INT
+COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
+COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
+NAME(list,...) & NAME(list,...)
+COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
+COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
+INT & INT
+any => any=>INT 
+COMPARING any=>INT  AND any=>INT 
+i => INT
+INT & INT
+NAME(list,...) & NAME(list,...)
+list1 => NAME(list,...)
+list2 => NAME(list,...)
+COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
+COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
+COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
+COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
+COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
+val it =
+  LetExp
+    {body=SeqExp
+            [(CallExp {args=[CallExp {args=#,func=#,pos=#}],func=-,pos=1384},
+              1384)],
+     decs=[TypeDec
+             [{name=-,pos=11,ty=RecordTy [{escape=ref #,name=-,pos=23,typ=-}]}],
+           VarDec
+             {escape=ref false,init=CallExp {args=[],func=-,pos=50},name=-,
+              pos=36,typ=NONE},
+           FunctionDec
+             [{body=LetExp
+                      {body=SeqExp [#,#,#,#],decs=[VarDec #,FunctionDec #],
+                       pos=100},name=-,
+               params=[{escape=ref false,name=-,pos=80,typ=-}],pos=63,
+               result=SOME (-,92)}],
+           TypeDec
+             [{name=-,pos=470,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=483,typ=-},
+                     {escape=ref #,name=-,pos=495,typ=-}]}],
+           FunctionDec
+             [{body=LetExp {body=SeqExp [#],decs=[VarDec #,VarDec #],pos=545},
+               name=-,params=[],pos=511,result=SOME (-,533)},
+              {body=IfExp
+                      {else'=SOME (IfExp #),pos=745,
+                       test=OpExp {left=#,oper=#,pos=#,right=#},
+                       then'=VarExp (SimpleVar #)},name=-,
+               params=[{escape=ref false,name=-,pos=714,typ=-},
+                       {escape=ref false,name=-,pos=723,typ=-}],pos=699,
+               result=SOME (-,734)},
+              {body=LetExp {body=SeqExp [#],decs=[FunctionDec #],pos=958},
+               name=-,params=[{escape=ref false,name=-,pos=945,typ=-}],
+               pos=927,result=NONE},
+              {body=IfExp
+                      {else'=SOME (SeqExp #),pos=1180,
+                       test=OpExp {left=#,oper=#,pos=#,right=#},
+                       then'=CallExp {args=#,func=#,pos=#}},name=-,
+               params=[{escape=ref false,name=-,pos=1165,typ=-}],pos=1146,
+               result=NONE}],
+           VarDec
+             {escape=ref false,init=CallExp {args=[],func=-,pos=1285},name=-,
+              pos=1272,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=SeqExp
+                     [(AssignExp {exp=#,pos=#,var=#},1314),
+                      (CallExp {args=#,func=#,pos=#},1333)],name=-,pos=1300,
+              typ=NONE}],pos=2} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST queens ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
 [loading (sources.cm):errormsg.sml]
 [loading (sources.cm):tiger.lex.sml]
 [loading (sources.cm):parse.sml]
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-==================== TEST merge.tig ==================== 
- 
- 
-val it = () : unit
+N => INT
+intArray => ARRAY OF INT
+row => ARRAY OF INT
+col => ARRAY OF INT
+diag1 => ARRAY OF INT
+diag2 => ARRAY OF INT
+printboard => Function()->UNIT
+try => Function(INT,)->UNIT
+c => INT
+r => INT
+COMPARING INT AND INT
+i => INT
+j => INT
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+COMPARING INT AND INT
 val it =
   LetExp
-    {body=SeqExp
-            [(CallExp {args=[CallExp {args=#,func=#,pos=#}],func=-,pos=1331},
-              1331)],
-     decs=[TypeDec
-             [{name=-,pos=9,ty=RecordTy [{escape=ref #,name=-,pos=21,typ=-}]}],
-           VarDec
-             {escape=ref false,init=CallExp {args=[],func=-,pos=47},name=-,
-              pos=33,typ=NONE},
-           FunctionDec
-             [{body=LetExp
-                      {body=SeqExp [#,#,#,#],decs=[VarDec #,FunctionDec #],
-                       pos=94},name=-,
-               params=[{escape=ref false,name=-,pos=75,typ=-}],pos=58,
-               result=SOME (-,87)}],
-           TypeDec
-             [{name=-,pos=451,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=464,typ=-},
-                     {escape=ref #,name=-,pos=476,typ=-}]}],
-           FunctionDec
-             [{body=LetExp {body=SeqExp [#],decs=[VarDec #,VarDec #],pos=523},
-               name=-,params=[],pos=490,result=SOME (-,512)},
-              {body=IfExp
-                      {else'=SOME (IfExp #),pos=715,
-                       test=OpExp {left=#,oper=#,pos=#,right=#},
-                       then'=VarExp (SimpleVar #)},name=-,
-               params=[{escape=ref false,name=-,pos=685,typ=-},
-                       {escape=ref false,name=-,pos=694,typ=-}],pos=670,
-               result=SOME (-,705)},
-              {body=LetExp {body=SeqExp [#],decs=[FunctionDec #],pos=921},
-               name=-,params=[{escape=ref false,name=-,pos=909,typ=-}],
-               pos=891,result=NONE},
-              {body=IfExp
-                      {else'=SOME (SeqExp #),pos=1135,
-                       test=OpExp {left=#,oper=#,pos=#,right=#},
-                       then'=CallExp {args=#,func=#,pos=#}},name=-,
-               params=[{escape=ref false,name=-,pos=1121,typ=-}],pos=1102,
-               result=NONE}],
-           VarDec
-             {escape=ref false,init=CallExp {args=[],func=-,pos=1237},name=-,
-              pos=1224,typ=NONE},
-           VarDec
-             {escape=ref false,
-              init=SeqExp
-                     [(AssignExp {exp=#,pos=#,var=#},1265),
-                      (CallExp {args=#,func=#,pos=#},1284)],name=-,pos=1251,
-              typ=NONE}],pos=2} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST queens.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(CallExp {args=[IntExp 0],func=-,pos=790},790)],
-     decs=[VarDec {escape=ref false,init=IntExp 8,name=-,pos=57,typ=NONE},
-           TypeDec [{name=-,pos=73,ty=ArrayTy (-,89)}],
+    {body=SeqExp [(CallExp {args=[IntExp 0],func=-,pos=821},821)],
+     decs=[VarDec {escape=ref false,init=IntExp 8,name=-,pos=60,typ=NONE},
+           TypeDec [{name=-,pos=78,ty=ArrayTy (-,94)}],
            VarDec
              {escape=ref false,
               init=ArrayExp
-                     {init=IntExp 0,pos=127,size=VarExp (SimpleVar (#,#)),
-                      typ=-},name=-,pos=107,typ=NONE},
+                     {init=IntExp 0,pos=134,size=VarExp (SimpleVar (#,#)),
+                      typ=-},name=-,pos=114,typ=NONE},
            VarDec
              {escape=ref false,
               init=ArrayExp
-                     {init=IntExp 0,pos=162,size=VarExp (SimpleVar (#,#)),
-                      typ=-},name=-,pos=142,typ=NONE},
+                     {init=IntExp 0,pos=170,size=VarExp (SimpleVar (#,#)),
+                      typ=-},name=-,pos=150,typ=NONE},
            VarDec
              {escape=ref false,
               init=ArrayExp
-                     {init=IntExp 0,pos=199,
+                     {init=IntExp 0,pos=208,
                       size=OpExp
-                             {left=OpExp #,oper=MinusOp,pos=200,
-                              right=IntExp #},typ=-},name=-,pos=177,typ=NONE},
+                             {left=OpExp #,oper=MinusOp,pos=209,
+                              right=IntExp #},typ=-},name=-,pos=186,typ=NONE},
            VarDec
              {escape=ref false,
               init=ArrayExp
-                     {init=IntExp 0,pos=238,
+                     {init=IntExp 0,pos=248,
                       size=OpExp
-                             {left=OpExp #,oper=MinusOp,pos=239,
-                              right=IntExp #},typ=-},name=-,pos=216,typ=NONE},
+                             {left=OpExp #,oper=MinusOp,pos=249,
+                              right=IntExp #},typ=-},name=-,pos=226,typ=NONE},
            FunctionDec
-             [{body=SeqExp [(ForExp #,288),(CallExp #,410)],name=-,params=[],
-               pos=256,result=NONE},
-              {body=SeqExp [(IfExp #,516)],name=-,
-               params=[{escape=ref false,name=-,pos=441,typ=-}],pos=428,
-               result=NONE}]],pos=49} : Absyn.exp
+             [{body=SeqExp [(ForExp #,301),(CallExp #,427)],name=-,params=[],
+               pos=268,result=NONE},
+              {body=SeqExp [(IfExp #,537)],name=-,
+               params=[{escape=ref false,name=-,pos=460,typ=-}],pos=447,
+               result=NONE}]],pos=51} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test1.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test1 ==================== 
  
  
 val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+arrtype => ARRAY OF INT
+COMPARING ARRAY OF INT
+AND ARRAY OF INT
+arr1 => ARRAY OF INT
 val it =
   LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,121)),121)],
-     decs=[TypeDec [{name=-,pos=49,ty=ArrayTy (-,65)}],
+    {body=SeqExp [(VarExp (SimpleVar (-,126)),126)],
+     decs=[TypeDec [{name=-,pos=51,ty=ArrayTy (-,67)}],
            VarDec
              {escape=ref false,
-              init=ArrayExp {init=IntExp 0,pos=107,size=IntExp 10,typ=-},
-              name=-,pos=83,typ=SOME (-,88)}],pos=44} : Absyn.exp
+              init=ArrayExp {init=IntExp 0,pos=110,size=IntExp 10,typ=-},
+              name=-,pos=86,typ=SOME (-,91)}],pos=45} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test10.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test10 ==================== 
  
  
 val it = () : unit
-val it =
-  WhileExp
-    {body=OpExp {left=IntExp 5,oper=PlusOp,pos=56,right=IntExp 6},pos=39,
-     test=SeqExp [(OpExp {left=IntExp 10,oper=GtOp,pos=45,right=IntExp 5},45)]}
-  : Absyn.exp
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+checking while
+while over
+40 while should return unit
 
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test11 ==================== 
  
  
 val it = () : unit
-==================== TEST test11.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  ForExp
-    {body=AssignExp
-            {exp=OpExp
-                   {left=VarExp (SimpleVar (-,106)),oper=MinusOp,pos=106,
-                    right=IntExp 1},pos=101,var=SimpleVar (-,101)},
-     escape=ref false,hi=StringExp (" ",92),lo=IntExp 10,pos=79,var=-}
-  : Absyn.exp
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+80 integer required got STRING
 
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test12 ==================== 
  
  
 val it = () : unit
-==================== TEST test12.tig ==================== 
- 
- 
-val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+a => INT
+i => INT
 val it =
   LetExp
     {body=SeqExp
             [(ForExp
                 {body=SeqExp [(#,#),(#,#)],escape=ref false,hi=IntExp 100,
-                 lo=IntExp 0,pos=47,var=-},47)],
-     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=32,typ=NONE}],
-     pos=27} : Absyn.exp
+                 lo=IntExp 0,pos=52,var=-},52)],
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=35,typ=NONE}],
+     pos=29} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test13.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test13 ==================== 
  
  
 val it = () : unit
-val it = OpExp {left=IntExp 3,oper=GtOp,pos=49,right=StringExp ("df",53)}
-  : Absyn.exp
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+51 integer required got STRING
+
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test14 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+rectype => name=>STRING id=>INT 
+arrtype => ARRAY OF INT
+STRING & STRING
+INT & INT
+rec => name=>STRING id=>INT 
+arr => ARRAY OF INT
+203 integer required got name=>STRING id=>INT 
+
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test15 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+44 ifthen should return unit
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test16 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+d => NAME(a,NONE)
+c => NAME(d,...)
+b => NAME(a,NONE)
+90 cyclic type declaration
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test17 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+109 field of undefined type
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test18 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+do_nothing1 => Function(INT,STRING,)->INT
+a => INT
+b => STRING
+122 Func does not exist
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test19 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+do_nothing1 => Function(INT,STRING,)->INT
+do_nothing2 => Function(INT,)->STRING
+d => INT
+225 undefined variable a
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test2 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+arrtype => ARRAY OF NAME(d,NONE)
+d => NAME(c,NONE)
+c => NAME(b,NONE)
+b => NAME(a,NONE)
+a => INT
+COMPARING ARRAY OF NAME(d,...)
+AND ARRAY OF NAME(d,...)
+arr1 => ARRAY OF NAME(d,...)
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,185)),185)],
+     decs=[TypeDec
+             [{name=-,pos=61,ty=NameTy (-,70)},
+              {name=-,pos=76,ty=NameTy (-,85)},
+              {name=-,pos=89,ty=NameTy (-,98)},
+              {name=-,pos=102,ty=NameTy (-,111)},
+              {name=-,pos=114,ty=ArrayTy (-,130)}],
+           VarDec
+             {escape=ref false,
+              init=ArrayExp {init=IntExp 0,pos=171,size=IntExp 10,typ=-},
+              name=-,pos=147,typ=SOME (-,152)}],pos=56} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test14.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test2 ==================== 
  
  
 val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+arrtype => ARRAY OF NAME(myint,NONE)
+myint => INT
+COMPARING ARRAY OF NAME(myint,...)
+AND ARRAY OF NAME(myint,...)
+arr1 => ARRAY OF NAME(myint,...)
+val it =
+  LetExp
+    {body=SeqExp [(VarExp (SimpleVar (-,161)),161)],
+     decs=[TypeDec
+             [{name=-,pos=63,ty=NameTy (-,76)},
+              {name=-,pos=82,ty=ArrayTy (-,98)}],
+           VarDec
+             {escape=ref false,
+              init=ArrayExp {init=IntExp 0,pos=145,size=IntExp 10,typ=-},
+              name=-,pos=121,typ=SOME (-,126)}],pos=57} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test20 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+checking while
+while over
+57 undefined variable i
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test21 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+nfactor => Function(INT,)->UNIT
+n => INT
+COMPARING INT AND INT
+162 integer required got UNIT
+
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test22 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+rectype => name=>STRING id=>INT 
+STRING & STRING
+INT & INT
+rec1 => name=>STRING id=>INT 
+142 unknown field
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test23 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+rectype => name=>STRING id=>INT 
+STRING & STRING
+INT & INT
+rec1 => name=>STRING id=>INT 
+127 right side doesn't match
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test24 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+d => INT
+59 tried to subscript non array
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test25 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+d => INT
+61 tried to take field of non record
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test26 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+36 integer required got STRING
+
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test27 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+a => INT
+g => Function(INT,)->INT
+a => INT
+COMPARING INT AND INT
+val it =
+  LetExp
+    {body=SeqExp [(CallExp {args=[IntExp 2],func=-,pos=81},81)],
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=35,typ=NONE},
+           FunctionDec
+             [{body=VarExp (SimpleVar (-,72)),name=-,
+               params=[{escape=ref false,name=-,pos=59,typ=-}],pos=48,
+               result=SOME (-,66)}]],pos=29} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test28 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+rectype2 => name=>STRING id=>INT 
+rectype1 => name=>STRING id=>INT 
+STRING & STRING
+INT & INT
+COMPARING name=>STRING id=>INT 
+AND name=>STRING id=>INT 
+142 types don't match
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test29 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+arrtype2 => ARRAY OF INT
+arrtype1 => ARRAY OF INT
+COMPARING ARRAY OF INT
+AND ARRAY OF INT
+121 types don't match
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test3 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+rectype => name=>STRING age=>INT 
+STRING & STRING
+INT & INT
+COMPARING name=>STRING age=>INT 
+AND name=>STRING age=>INT 
+rec1 => name=>STRING age=>INT 
 val it =
   LetExp
     {body=SeqExp
-            [(IfExp
-                {else'=SOME (IntExp 4),pos=189,
-                 test=OpExp {left=VarExp #,oper=NeqOp,pos=192,right=VarExp #},
-                 then'=IntExp 3},189)],
+            [(AssignExp
+                {exp=StringExp ("Somebody",165),pos=152,
+                 var=FieldVar (SimpleVar #,-,157)},152),
+             (VarExp (SimpleVar (-,179)),179)],
      decs=[TypeDec
-             [{name=-,pos=46,ty=ArrayTy (-,61)},
-              {name=-,pos=75,
+             [{name=-,pos=51,
                ty=RecordTy
-                    [{escape=ref #,name=-,pos=91,typ=-},
-                     {escape=ref #,name=-,pos=104,typ=-}]}],
+                    [{escape=ref #,name=-,pos=68,typ=-},
+                     {escape=ref #,name=-,pos=81,typ=-}]}],
            VarDec
              {escape=ref false,
               init=RecordExp
-                     {fields=[(-,StringExp #,135),(-,IntExp #,149)],pos=126,
-                      typ=-},name=-,pos=115,typ=NONE},
-           VarDec
-             {escape=ref false,
-              init=ArrayExp {init=IntExp 0,pos=175,size=IntExp 3,typ=-},
-              name=-,pos=156,typ=NONE}],pos=40} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test15.tig ==================== 
- 
- 
-val it = () : unit
-val it = IfExp {else'=NONE,pos=42,test=IntExp 20,then'=IntExp 3} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test16.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(StringExp ("",128),128)],
-     decs=[TypeDec
-             [{name=-,pos=87,ty=NameTy (-,94)},
-              {name=-,pos=96,ty=NameTy (-,103)},
-              {name=-,pos=105,ty=NameTy (-,112)},
-              {name=-,pos=114,ty=NameTy (-,121)}]],pos=81} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test17.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,186)),186)],
-     decs=[TypeDec
-             [{name=-,pos=84,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=96,typ=-},
-                     {escape=ref #,name=-,pos=106,typ=-}]}],
-           VarDec
-             {escape=ref false,init=IntExp 0,name=-,pos=130,typ=SOME (-,132)},
-           TypeDec
-             [{name=-,pos=140,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=157,typ=-},
-                     {escape=ref #,name=-,pos=167,typ=-}]}]],pos=60}
+                     {fields=[(-,StringExp #,121),(-,IntExp #,136)],pos=112,
+                      typ=-},name=-,pos=96,typ=SOME (-,101)}],pos=45}
   : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test18.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test30 ==================== 
  
  
 val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+b => NAME(a,NONE)
+a => ARRAY OF INT
+COMPARING ARRAY OF INT
+AND ARRAY OF INT
+arr1 => ARRAY OF INT
 val it =
   LetExp
-    {body=SeqExp
-            [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=222},222)],
-     decs=[FunctionDec
-             [{body=SeqExp [(CallExp #,118),(IntExp #,135)],name=-,
-               params=[{escape=ref false,name=-,pos=91,typ=-},
-                       {escape=ref false,name=-,pos=99,typ=-}],pos=70,
-               result=SOME (-,110)}],
-           VarDec {escape=ref false,init=IntExp 0,name=-,pos=139,typ=NONE},
-           FunctionDec
-             [{body=SeqExp [(CallExp #,190),(StringExp #,212)],name=-,
-               params=[{escape=ref false,name=-,pos=170,typ=-}],pos=149,
-               result=SOME (-,178)}]],pos=65} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test19.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp
-            [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=238},238)],
-     decs=[FunctionDec
-             [{body=SeqExp [(CallExp #,144),(IntExp #,161)],name=-,
-               params=[{escape=ref false,name=-,pos=117,typ=-},
-                       {escape=ref false,name=-,pos=125,typ=-}],pos=96,
-               result=SOME (-,136)},
-              {body=SeqExp [(CallExp #,206),(StringExp #,228)],name=-,
-               params=[{escape=ref false,name=-,pos=186,typ=-}],pos=165,
-               result=SOME (-,194)}]],pos=91} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test2.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,154)),154)],
+    {body=SeqExp [(VarExp (SubscriptVar (SimpleVar (#,#),IntExp 2,115)),111)],
      decs=[TypeDec
-             [{name=-,pos=61,ty=NameTy (-,74)},
-              {name=-,pos=79,ty=ArrayTy (-,95)}],
+             [{name=-,pos=37,ty=ArrayTy (-,46)},
+              {name=-,pos=62,ty=NameTy (-,71)}],
            VarDec
              {escape=ref false,
-              init=ArrayExp {init=IntExp 0,pos=140,size=IntExp 10,typ=-},
-              name=-,pos=116,typ=SOME (-,121)}],pos=56} : Absyn.exp
+              init=ArrayExp {init=IntExp 0,pos=94,size=IntExp 10,typ=-},
+              name=-,pos=82,typ=SOME (-,87)}],pos=29} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test20.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test31 ==================== 
  
  
 val it = () : unit
-val it =
-  WhileExp
-    {body=SeqExp
-            [(OpExp
-                {left=VarExp (SimpleVar (#,#)),oper=PlusOp,pos=55,
-                 right=IntExp 1},55),(SeqExp [],59)],pos=38,
-     test=OpExp {left=IntExp 10,oper=GtOp,pos=44,right=IntExp 5}} : Absyn.exp
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+COMPARING STRING
+AND INT
+68 types don't match
 
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test32 ==================== 
  
  
 val it = () : unit
-==================== TEST test21.tig ==================== 
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+arrayty => ARRAY OF INT
+113 array init wrong type
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test33 ==================== 
  
  
 val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+44 record type undeclared
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test34 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+g => Function(INT,STRING,)->INT
+a => INT
+b => STRING
+COMPARING STRING AND INT
+108 Argument does not match expected type
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test35 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+g => Function(INT,STRING,)->INT
+a => INT
+b => STRING
+COMPARING STRING AND INT
+97 Argument does not match expected type
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test36 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+g => Function(INT,STRING,)->INT
+a => INT
+b => STRING
+COMPARING INT AND INT
+COMPARING STRING AND STRING
+98 too many args
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test37 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+a => INT
+a => STRING
 val it =
   LetExp
-    {body=SeqExp [(CallExp {args=[IntExp 10],func=-,pos=177},177)],
+    {body=SeqExp [(IntExp 0,181)],
+     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=149,typ=NONE},
+           VarDec
+             {escape=ref false,init=StringExp (" ",171),name=-,pos=162,
+              typ=NONE}],pos=143} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test38 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+166 dupliate name in recursive declarations
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test39 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+171 dupliate name in recursive declarations
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test4 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+nfactor => Function(INT,)->INT
+n => INT
+COMPARING INT AND INT
+COMPARING INT AND INT
+val it =
+  LetExp
+    {body=SeqExp [(CallExp {args=[IntExp 10],func=-,pos=155},155)],
      decs=[FunctionDec
              [{body=IfExp
-                      {else'=SOME (OpExp #),pos=126,
+                      {else'=SOME (OpExp #),pos=99,
                        test=OpExp {left=#,oper=#,pos=#,right=#},
                        then'=IntExp 1},name=-,
-               params=[{escape=ref false,name=-,pos=114,typ=-}],pos=97,
-               result=NONE}]],pos=73} : Absyn.exp
+               params=[{escape=ref false,name=-,pos=81,typ=-}],pos=64,
+               result=SOME (-,90)}]],pos=37} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test22.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test40 ==================== 
  
  
 val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+g => Function(INT,)->UNIT
+a => INT
+47 function returns unexpected type
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test41 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+a => INT
+a => STRING
 val it =
   LetExp
-    {body=SeqExp
-            [(AssignExp
-                {exp=StringExp ("asd",143),pos=131,
-                 var=FieldVar (SimpleVar #,-,136)},131)],
+    {body=SeqExp [(LetExp {body=SeqExp [(#,#)],decs=[TypeDec [#]],pos=58},58)],
+     decs=[TypeDec [{name=-,pos=39,ty=NameTy (-,48)}]],pos=33} : Absyn.exp
+
+ 
+ 
+val it = () : unit
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test42 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+arrtype3 => ARRAY OF STRING
+rectype2 => name=>STRING dates=>NAME(arrtype1,NONE) 
+arrtype2 => ARRAY OF NAME(rectype1,NONE)
+rectype1 => name=>STRING address=>STRING id=>INT age=>INT 
+arrtype1 => ARRAY OF INT
+arr1 => ARRAY OF INT
+STRING & STRING
+STRING & STRING
+INT & INT
+INT & INT
+arr2 => ARRAY OF NAME(rectype1,...)
+COMPARING ARRAY OF STRING
+AND ARRAY OF STRING
+arr3 => ARRAY OF STRING
+STRING & STRING
+STRING & STRING
+INT & INT
+INT & INT
+rec1 => name=>STRING address=>STRING id=>INT age=>INT 
+STRING & STRING
+ARRAY OF INT & NAME(arrtype1,...)
+rec2 => name=>STRING dates=>NAME(arrtype1,...) 
+609 tried to take field of non record
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test43 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+a => UNIT
+95 integer required got UNIT
+
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test44 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+rectype => name=>STRING id=>INT 
+COMPARING NIL
+AND name=>STRING id=>INT 
+b => NIL
+val it =
+  LetExp
+    {body=SeqExp [(AssignExp {exp=NilExp,pos=128,var=SimpleVar (-,128)},128)],
      decs=[TypeDec
-             [{name=-,pos=48,
+             [{name=-,pos=58,
                ty=RecordTy
-                    [{escape=ref #,name=-,pos=64,typ=-},
-                     {escape=ref #,name=-,pos=78,typ=-}]}],
+                    [{escape=ref #,name=-,pos=74,typ=-},
+                     {escape=ref #,name=-,pos=87,typ=-}]}],
            VarDec
-             {escape=ref false,
-              init=RecordExp
-                     {fields=[(-,StringExp #,108),(-,IntExp #,121)],pos=99,
-                      typ=-},name=-,pos=87,typ=NONE}],pos=42} : Absyn.exp
+             {escape=ref false,init=NilExp,name=-,pos=101,typ=SOME (-,103)}],
+     pos=49} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test23.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test45 ==================== 
  
  
 val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+rectype => name=>STRING id=>INT 
+a => NIL
 val it =
   LetExp
-    {body=SeqExp
-            [(AssignExp
-                {exp=IntExp 3,pos=121,var=FieldVar (SimpleVar #,-,126)},121),
-             (AssignExp
-                {exp=StringExp ("",149),pos=138,
-                 var=FieldVar (SimpleVar #,-,143)},138)],
+    {body=SeqExp [(VarExp (SimpleVar (-,142)),142)],
      decs=[TypeDec
-             [{name=-,pos=37,
+             [{name=-,pos=83,
                ty=RecordTy
-                    [{escape=ref #,name=-,pos=53,typ=-},
-                     {escape=ref #,name=-,pos=67,typ=-}]}],
-           VarDec
-             {escape=ref false,
-              init=RecordExp
-                     {fields=[(-,StringExp #,97),(-,IntExp #,111)],pos=88,
-                      typ=-},name=-,pos=76,typ=NONE}],pos=31} : Absyn.exp
+                    [{escape=ref #,name=-,pos=99,typ=-},
+                     {escape=ref #,name=-,pos=112,typ=-}]}],
+           VarDec {escape=ref false,init=NilExp,name=-,pos=124,typ=NONE}],
+     pos=76} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test24.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test46 ==================== 
  
  
 val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+rectype => name=>STRING id=>INT 
+COMPARING NIL
+AND name=>STRING id=>INT 
+b => NIL
+115 integer required got NIL
+
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test47 ==================== 
+ 
+ 
+val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+a => INT
+b => INT
+a => STRING
 val it =
   LetExp
-    {body=SeqExp [(VarExp (SubscriptVar (SimpleVar (#,#),IntExp 3,55)),54)],
-     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=41,typ=NONE}],
-     pos=35} : Absyn.exp
+    {body=SeqExp [(IntExp 0,280)],
+     decs=[TypeDec [{name=-,pos=230,ty=NameTy (-,239)}],
+           VarDec {escape=ref false,init=IntExp 4,name=-,pos=245,typ=NONE},
+           TypeDec [{name=-,pos=258,ty=NameTy (-,267)}]],pos=224} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test25.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test48 ==================== 
  
  
 val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+g => Function(INT,)->INT
+a => INT
+t => INT
+g => Function(INT,)->INT
+a => INT
 val it =
   LetExp
-    {body=SeqExp [(VarExp (FieldVar (SimpleVar (#,#),-,57)),55)],
-     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=42,typ=NONE}],
-     pos=36} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test26.tig ==================== 
- 
- 
-val it = () : unit
-val it = OpExp {left=IntExp 3,oper=PlusOp,pos=34,right=StringExp ("var",38)}
-  : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test27.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(CallExp {args=[IntExp 2],func=-,pos=75},75)],
-     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=33,typ=NONE},
+    {body=SeqExp [(IntExp 0,318)],
+     decs=[FunctionDec
+             [{body=VarExp (SimpleVar (-,267)),name=-,
+               params=[{escape=ref false,name=-,pos=254,typ=-}],pos=243,
+               result=SOME (-,261)}],
+           TypeDec [{name=-,pos=271,ty=NameTy (-,280)}],
            FunctionDec
-             [{body=VarExp (SimpleVar (-,68)),name=-,
-               params=[{escape=ref false,name=-,pos=55,typ=-}],pos=44,
-               result=SOME (-,62)}]],pos=28} : Absyn.exp
+             [{body=VarExp (SimpleVar (-,310)),name=-,
+               params=[{escape=ref false,name=-,pos=297,typ=-}],pos=286,
+               result=SOME (-,304)}]],pos=237} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test28.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test49 ==================== 
  
  
 val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,181)),181)],
-     decs=[TypeDec
-             [{name=-,pos=45,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=62,typ=-},
-                     {escape=ref #,name=-,pos=76,typ=-}]},
-              {name=-,pos=85,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=102,typ=-},
-                     {escape=ref #,name=-,pos=116,typ=-}]}],
-           VarDec
-             {escape=ref false,
-              init=RecordExp
-                     {fields=[(-,StringExp #,158),(-,IntExp #,171)],pos=148,
-                      typ=-},name=-,pos=130,typ=SOME (-,136)}],pos=40}
-  : Absyn.exp
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+../testcases/test49.tig:5.18:syntax error: inserting  PLUS
+rectype => name=>STRING id=>INT 
+126 undefined variable rectype
 
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test5 ==================== 
  
  
 val it = () : unit
-==================== TEST test29.tig ==================== 
- 
- 
-val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+treelist => hd=>NAME(tree,NONE) tl=>NAME(treelist,...) 
+tree => key=>INT children=>NAME(treelist,...) 
+intlist => hd=>INT tl=>NAME(intlist,...) 
+INT & INT
+NIL & NAME(intlist,...)
+COMPARING hd=>INT tl=>NAME(intlist,...) 
+AND hd=>INT tl=>NAME(intlist,...) 
+lis => hd=>INT tl=>NAME(intlist,...) 
+INT & INT
+INT & INT
+NIL & NAME(intlist,...)
+hd=>INT tl=>NAME(intlist,...)  & NAME(intlist,...)
+INT & INT
+NIL & NAME(intlist,...)
+COMPARING hd=>INT tl=>NAME(intlist,...) 
+AND hd=>INT tl=>NAME(intlist,...) 
+lis2 => hd=>INT tl=>NAME(intlist,...) 
+INT & INT
+NIL & NAME(treelist,...)
+COMPARING key=>INT children=>NAME(treelist,...) 
+AND key=>INT children=>NAME(treelist,...) 
+tree => key=>INT children=>NAME(treelist,...) 
+INT & INT
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+COMPARING key=>INT children=>NAME(treelist,...) 
+AND key=>INT children=>NAME(treelist,...) 
+tree2 => key=>INT children=>NAME(treelist,...) 
+INT & INT
+INT & INT
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+COMPARING key=>INT children=>NAME(treelist,...) 
+AND key=>INT children=>NAME(treelist,...) 
+tree3 => key=>INT children=>NAME(treelist,...) 
 val it =
   LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,150)),150)],
-     decs=[TypeDec
-             [{name=-,pos=44,ty=ArrayTy (-,60)},
-              {name=-,pos=74,ty=ArrayTy (-,90)}],
-           VarDec
-             {escape=ref false,
-              init=ArrayExp {init=IntExp 0,pos=136,size=IntExp 10,typ=-},
-              name=-,pos=109,typ=SOME (-,115)}],pos=39} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test3.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp
-            [(AssignExp
-                {exp=StringExp ("Somebody",160),pos=147,
-                 var=FieldVar (SimpleVar #,-,152)},147),
-             (VarExp (SimpleVar (-,173)),173)],
-     decs=[TypeDec
-             [{name=-,pos=49,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=66,typ=-},
-                     {escape=ref #,name=-,pos=79,typ=-}]}],
-           VarDec
-             {escape=ref false,
-              init=RecordExp
-                     {fields=[(-,StringExp #,118),(-,IntExp #,133)],pos=109,
-                      typ=-},name=-,pos=93,typ=SOME (-,98)}],pos=44}
-  : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test30.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(VarExp (SubscriptVar (SimpleVar (#,#),IntExp 2,107)),103)],
-     decs=[TypeDec
-             [{name=-,pos=34,ty=ArrayTy (-,43)},
-              {name=-,pos=58,ty=NameTy (-,67)}],
-           VarDec
-             {escape=ref false,
-              init=ArrayExp {init=IntExp 0,pos=88,size=IntExp 10,typ=-},
-              name=-,pos=76,typ=SOME (-,81)}],pos=27} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test31.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,81)),81)],
-     decs=[VarDec
-             {escape=ref false,init=StringExp (" ",73),name=-,pos=64,
-              typ=SOME (-,66)}],pos=54} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test32.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(IntExp 0,124)],
-     decs=[TypeDec [{name=-,pos=61,ty=ArrayTy (-,76)}],
-           VarDec
-             {escape=ref false,
-              init=ArrayExp
-                     {init=StringExp (" ",116),pos=108,size=IntExp 10,typ=-},
-              name=-,pos=91,typ=NONE}],pos=56} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test33.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(IntExp 0,57)],
-     decs=[VarDec
-             {escape=ref false,init=RecordExp {fields=[],pos=42,typ=-},name=-,
-              pos=34,typ=NONE}],pos=29} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test34.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp
-            [(CallExp {args=[StringExp (#,#),StringExp (#,#)],func=-,pos=104},
-              104)],
-     decs=[FunctionDec
-             [{body=VarExp (SimpleVar (-,98)),name=-,
-               params=[{escape=ref false,name=-,pos=74,typ=-},
-                       {escape=ref false,name=-,pos=82,typ=-}],pos=62,
-               result=SOME (-,92)}]],pos=57} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test35.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(CallExp {args=[StringExp (#,#)],func=-,pos=93},93)],
-     decs=[FunctionDec
-             [{body=VarExp (SimpleVar (-,87)),name=-,
-               params=[{escape=ref false,name=-,pos=63,typ=-},
-                       {escape=ref false,name=-,pos=71,typ=-}],pos=51,
-               result=SOME (-,81)}]],pos=46} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test36.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp
-            [(CallExp {args=[IntExp 3,StringExp (#,#),IntExp 5],func=-,pos=94},
-              94)],
-     decs=[FunctionDec
-             [{body=VarExp (SimpleVar (-,88)),name=-,
-               params=[{escape=ref false,name=-,pos=64,typ=-},
-                       {escape=ref false,name=-,pos=72,typ=-}],pos=52,
-               result=SOME (-,82)}]],pos=47} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test37.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(IntExp 0,175)],
-     decs=[VarDec {escape=ref false,init=IntExp 0,name=-,pos=146,typ=NONE},
-           VarDec
-             {escape=ref false,init=StringExp (" ",167),name=-,pos=158,
-              typ=NONE}],pos=141} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test38.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(IntExp 0,196)],
-     decs=[TypeDec
-             [{name=-,pos=162,ty=NameTy (-,171)},
-              {name=-,pos=176,ty=NameTy (-,185)}]],pos=157} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test39.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(IntExp 0,224)],
-     decs=[FunctionDec
-             [{body=VarExp (SimpleVar (-,191)),name=-,
-               params=[{escape=ref false,name=-,pos=178,typ=-}],pos=167,
-               result=SOME (-,185)},
-              {body=VarExp (SimpleVar (-,218)),name=-,
-               params=[{escape=ref false,name=-,pos=205,typ=-}],pos=194,
-               result=SOME (-,212)}]],pos=162} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test4.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(CallExp {args=[IntExp 10],func=-,pos=145},145)],
-     decs=[FunctionDec
-             [{body=IfExp
-                      {else'=SOME (OpExp #),pos=94,
-                       test=OpExp {left=#,oper=#,pos=#,right=#},
-                       then'=IntExp 1},name=-,
-               params=[{escape=ref false,name=-,pos=77,typ=-}],pos=60,
-               result=SOME (-,86)}]],pos=36} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test40.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(CallExp {args=[IntExp 2],func=-,pos=72},72)],
-     decs=[FunctionDec
-             [{body=VarExp (SimpleVar (-,65)),name=-,
-               params=[{escape=ref false,name=-,pos=56,typ=-}],pos=45,
-               result=NONE}]],pos=40} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test41.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(LetExp {body=SeqExp [(#,#)],decs=[TypeDec [#]],pos=54},54)],
-     decs=[TypeDec [{name=-,pos=37,ty=NameTy (-,46)}]],pos=32} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test42.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp
-            [(AssignExp
-                {exp=IntExp 1,pos=551,
-                 var=SubscriptVar (SimpleVar #,IntExp #,555)},551),
-             (AssignExp
-                {exp=IntExp 3,pos=566,
-                 var=SubscriptVar (SimpleVar #,IntExp #,570)},566),
-             (AssignExp
-                {exp=StringExp ("kati",596),pos=580,
-                 var=FieldVar (SubscriptVar #,-,588)},580),
-             (AssignExp
-                {exp=IntExp 23,pos=604,var=FieldVar (SubscriptVar #,-,612)},
-              604),
-             (AssignExp
-                {exp=StringExp ("sfd",635),pos=623,
-                 var=SubscriptVar (SimpleVar #,IntExp #,627)},623),
-             (AssignExp
-                {exp=StringExp ("sdf",656),pos=643,
-                 var=FieldVar (SimpleVar #,-,648)},643),
-             (AssignExp
-                {exp=IntExp 2323,pos=663,
-                 var=SubscriptVar (FieldVar #,IntExp #,673)},663),
-             (AssignExp
-                {exp=IntExp 2323,pos=686,
-                 var=SubscriptVar (FieldVar #,IntExp #,696)},686)],
-     decs=[TypeDec
-             [{name=-,pos=35,ty=ArrayTy (-,51)},
-              {name=-,pos=64,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=81,typ=-},
-                     {escape=ref #,name=-,pos=94,typ=-},
-                     {escape=ref #,name=-,pos=110,typ=-},
-                     {escape=ref #,name=-,pos=120,typ=-}]},
-              {name=-,pos=130,ty=ArrayTy (-,146)},
-              {name=-,pos=164,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=181,typ=-},
-                     {escape=ref #,name=-,pos=196,typ=-}]},
-              {name=-,pos=214,ty=ArrayTy (-,230)}],
-           VarDec
-             {escape=ref false,
-              init=ArrayExp {init=IntExp 0,pos=268,size=IntExp 10,typ=-},
-              name=-,pos=247,typ=NONE},
-           VarDec
-             {escape=ref false,
-              init=ArrayExp
-                     {init=RecordExp {fields=[#,#,#,#],pos=307,typ=-},pos=300,
-                      size=IntExp 5,typ=-},name=-,pos=278,typ=NONE},
-           VarDec
-             {escape=ref false,
-              init=ArrayExp
-                     {init=StringExp ("",404),pos=395,size=IntExp 100,typ=-},
-              name=-,pos=369,typ=SOME (-,374)},
-           VarDec
-             {escape=ref false,
-              init=RecordExp
-                     {fields=[(-,StringExp #,430),(-,StringExp #,446),
-                              (-,IntExp #,463),(-,IntExp #,473)],pos=420,
-                      typ=-},name=-,pos=408,typ=NONE},
-           VarDec
-             {escape=ref false,
-              init=RecordExp
-                     {fields=[(-,StringExp #,503),(-,ArrayExp #,517)],pos=493,
-                      typ=-},name=-,pos=481,typ=NONE}],pos=29} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test43.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp
-            [(OpExp
-                {left=VarExp (SimpleVar (#,#)),oper=PlusOp,pos=90,
-                 right=IntExp 3},90)],
-     decs=[VarDec {escape=ref false,init=SeqExp [],name=-,pos=74,typ=NONE}],
-     pos=68} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test44.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(AssignExp {exp=NilExp,pos=120,var=SimpleVar (-,120)},120)],
-     decs=[TypeDec
-             [{name=-,pos=55,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=71,typ=-},
-                     {escape=ref #,name=-,pos=84,typ=-}]}],
-           VarDec {escape=ref false,init=NilExp,name=-,pos=97,typ=SOME (-,99)}],
-     pos=48} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test45.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,136)),136)],
-     decs=[TypeDec
-             [{name=-,pos=81,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=97,typ=-},
-                     {escape=ref #,name=-,pos=110,typ=-}]}],
-           VarDec {escape=ref false,init=NilExp,name=-,pos=120,typ=NONE}],
-     pos=75} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test46.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp
-            [(OpExp
-                {left=VarExp (SimpleVar (#,#)),oper=EqOp,pos=99,right=NilExp},
-              99),
-             (OpExp
-                {left=VarExp (SimpleVar (#,#)),oper=NeqOp,pos=109,
-                 right=NilExp},109)],
-     decs=[TypeDec
-             [{name=-,pos=36,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=52,typ=-},
-                     {escape=ref #,name=-,pos=65,typ=-}]}],
-           VarDec {escape=ref false,init=NilExp,name=-,pos=78,typ=SOME (-,80)}],
-     pos=30} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test47.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(IntExp 0,271)],
-     decs=[TypeDec [{name=-,pos=225,ty=NameTy (-,234)}],
-           VarDec {escape=ref false,init=IntExp 4,name=-,pos=239,typ=NONE},
-           TypeDec [{name=-,pos=251,ty=NameTy (-,260)}]],pos=220} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test48.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(IntExp 0,309)],
-     decs=[FunctionDec
-             [{body=VarExp (SimpleVar (-,262)),name=-,
-               params=[{escape=ref false,name=-,pos=249,typ=-}],pos=238,
-               result=SOME (-,256)}],
-           TypeDec [{name=-,pos=265,ty=NameTy (-,274)}],
-           FunctionDec
-             [{body=VarExp (SimpleVar (-,303)),name=-,
-               params=[{escape=ref false,name=-,pos=290,typ=-}],pos=279,
-               result=SOME (-,297)}]],pos=233} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test49.tig ==================== 
- 
- 
-val it = () : unit
-tests/test49.tig:5.18:syntax error: inserting  PLUS
-val it =
-  LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,138)),138)],
-     decs=[TypeDec
-             [{name=-,pos=75,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=91,typ=-},
-                     {escape=ref #,name=-,pos=104,typ=-}]}],
-           VarDec
-             {escape=ref false,
-              init=OpExp
-                     {left=VarExp (SimpleVar (#,#)),oper=PlusOp,pos=122,
-                      right=NilExp},name=-,pos=114,typ=NONE}],pos=69}
-  : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test5.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,256)),256)],
+    {body=SeqExp [(VarExp (SimpleVar (-,868)),868)],
      decs=[TypeDec
              [{name=-,pos=61,
                ty=RecordTy
@@ -994,225 +3181,543 @@ val it =
              {escape=ref false,
               init=RecordExp
                      {fields=[(-,IntExp #,234),(-,NilExp,240)],pos=224,typ=-},
-              name=-,pos=209,typ=SOME (-,213)}],pos=37} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test50.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,102)),102)],
-     decs=[VarDec
-             {escape=ref false,
-              init=OpExp
-                     {left=VarExp (SimpleVar (#,#)),oper=MinusOp,pos=39,
-                      right=OpExp
-                              {left=IntExp #,oper=MinusOp,pos=43,
-                               right=VarExp #}},name=-,pos=30,typ=NONE},
+              name=-,pos=209,typ=SOME (-,213)},
            VarDec
              {escape=ref false,
-              init=OpExp
-                     {left=OpExp
-                             {left=IntExp #,oper=MinusOp,pos=61,
-                              right=VarExp #},oper=MinusOp,pos=61,
-                      right=VarExp (SimpleVar (#,#))},name=-,pos=52,typ=NONE},
+              init=RecordExp
+                     {fields=[(-,IntExp #,282),(-,RecordExp #,288)],pos=272,
+                      typ=-},name=-,pos=256,typ=SOME (-,261)},
            VarDec
              {escape=ref false,
-              init=OpExp
-                     {left=VarExp (SimpleVar (#,#)),oper=PlusOp,pos=82,
-                      right=OpExp
-                              {left=IntExp #,oper=MinusOp,pos=86,
-                               right=OpExp #}},name=-,pos=73,typ=NONE}],
-     pos=21} : Absyn.exp
+              init=RecordExp
+                     {fields=[(-,IntExp #,338),(-,NilExp,345)],pos=333,typ=-},
+              name=-,pos=320,typ=SOME (-,325)},
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,IntExp #,382),(-,RecordExp #,389)],pos=377,
+                      typ=-},name=-,pos=363,typ=SOME (-,369)},
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,IntExp #,472),(-,RecordExp #,482)],pos=464,
+                      typ=-},name=-,pos=450,typ=SOME (-,456)}],pos=37}
+  : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test51.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test5 ==================== 
  
  
 val it = () : unit
-val it =
-  SeqExp
-    [(OpExp {left=IntExp 1,oper=PlusOp,pos=3,right=IntExp 2},3),
-     (OpExp {left=IntExp 3,oper=PlusOp,pos=10,right=IntExp 4},10),
-     (SeqExp
-        [(OpExp {left=IntExp 5,oper=PlusOp,pos=18,right=IntExp 6},18),
-         (CallExp {args=[IntExp #],func=-,pos=25},25)],17)] : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test52.tig ==================== 
- 
- 
-val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+treea => key=>INT children=>NAME(treelistc,NONE) 
+treelistc => NAME(treelist,NONE)
+treelist => hd=>NAME(treed,NONE) tl=>NAME(treelist,...) 
+treed => NAME(treec,NONE)
+treec => NAME(tree,NONE)
+tree => key=>INT children=>NAME(treelist,...) 
+intlist => hd=>INT tl=>NAME(intlist,...) 
+INT & INT
+NIL & NAME(intlist,...)
+COMPARING hd=>INT tl=>NAME(intlist,...) 
+AND hd=>INT tl=>NAME(intlist,...) 
+lis => hd=>INT tl=>NAME(intlist,...) 
+INT & INT
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(treed,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+hd=>NAME(treed,...) tl=>NAME(treelist,...)  & NAME(treelistc,...)
+INT & INT
+NIL & NAME(treelist,...)
+key=>INT children=>NAME(treelist,...)  & NAME(treed,...)
+INT & INT
+NIL & NAME(treelist,...)
+NIL & NAME(treelist,...)
+COMPARING key=>INT children=>NAME(treelistc,...) 
+AND key=>INT children=>NAME(treelistc,...) 
+list => key=>INT children=>NAME(treelistc,...) 
 val it =
   LetExp
-    {body=SeqExp [],
-     decs=[VarDec {escape=ref false,init=IntExp 23,name=-,pos=29,typ=NONE}],
-     pos=23} : Absyn.exp
+    {body=SeqExp [(VarExp (SimpleVar (-,453)),453)],
+     decs=[TypeDec
+             [{name=-,pos=61,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=77,typ=-},
+                     {escape=ref #,name=-,pos=86,typ=-}]},
+              {name=-,pos=121,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=133,typ=-},
+                     {escape=ref #,name=-,pos=143,typ=-}]},
+              {name=-,pos=163,ty=NameTy (-,176)},
+              {name=-,pos=181,ty=NameTy (-,194)},
+              {name=-,pos=200,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=217,typ=-},
+                     {escape=ref #,name=-,pos=228,typ=-}]},
+              {name=-,pos=242,ty=NameTy (-,259)},
+              {name=-,pos=268,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=282,typ=-},
+                     {escape=ref #,name=-,pos=291,typ=-}]}],
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,IntExp #,342),(-,NilExp,348)],pos=332,typ=-},
+              name=-,pos=317,typ=SOME (-,321)},
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,IntExp #,384),(-,RecordExp #,391)],pos=377,
+                      typ=-},name=-,pos=363,typ=SOME (-,368)}],pos=37}
+  : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test53.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test5 ==================== 
  
  
 val it = () : unit
-tests/test53.tig:4.16:syntax error: inserting  SEMICOLON
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+treelist => hd=>NAME(tree,NONE) tl=>NAME(treelist,...) 
+tree => key=>INT children=>NAME(treelist,...) 
+intlist => hd=>INT tl=>NAME(intlist,...) 
+INT & INT
+NIL & NAME(intlist,...)
+COMPARING hd=>INT tl=>NAME(intlist,...) 
+AND hd=>INT tl=>NAME(intlist,...) 
+lis => hd=>INT tl=>NAME(intlist,...) 
 val it =
   LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,58)),58)],
-     decs=[VarDec
-             {escape=ref false,init=SeqExp [(IntExp 5,45),(IntExp 6,47)],
-              name=-,pos=35,typ=NONE}],pos=28} : Absyn.exp
+    {body=SeqExp [(VarExp (SimpleVar (-,268)),268)],
+     decs=[TypeDec
+             [{name=-,pos=64,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=80,typ=-},
+                     {escape=ref #,name=-,pos=89,typ=-}]},
+              {name=-,pos=127,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=139,typ=-},
+                     {escape=ref #,name=-,pos=149,typ=-}]},
+              {name=-,pos=170,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=187,typ=-},
+                     {escape=ref #,name=-,pos=197,typ=-}]}],
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,IntExp #,243),(-,NilExp,249)],pos=233,typ=-},
+              name=-,pos=218,typ=SOME (-,222)}],pos=38} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test54.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test50 ==================== 
  
  
 val it = () : unit
-val it =
-  LetExp
-    {body=SeqExp [(SeqExp [(VarExp (SimpleVar #),47)],46)],
-     decs=[VarDec {escape=ref false,init=IntExp 23,name=-,pos=29,typ=NONE}],
-     pos=22} : Absyn.exp
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+f => Function(INT,)->UNIT
+i => INT
+COMPARING INT AND INT
+COMPARING STRING AND STRING
+COMPARING INT AND INT
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+COMPARING STRING AND STRING
+COMPARING INT AND INT
+COMPARING STRING AND STRING
+91 undefined variable i
 
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test6 ==================== 
  
  
 val it = () : unit
-==================== TEST test55.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  IfExp
-    {else'=NONE,pos=2,
-     test=OpExp
-            {left=VarExp (SimpleVar (-,5)),oper=GtOp,pos=5,
-             right=VarExp (SimpleVar (-,9))},
-     then'=IfExp
-             {else'=SOME (VarExp (SimpleVar (-,37))),pos=16,
-              test=OpExp
-                     {left=VarExp (SimpleVar (-,19)),oper=GtOp,pos=19,
-                      right=VarExp (SimpleVar (-,23))},
-              then'=VarExp (SimpleVar (-,30))}} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test56.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  IfExp
-    {else'=SOME
-             (IfExp
-                {else'=SOME
-                         (IfExp
-                            {else'=SOME (RecordExp #),pos=50,
-                             test=OpExp {left=#,oper=#,pos=#,right=#},
-                             then'=RecordExp {fields=#,pos=#,typ=#}}),pos=26,
-                 test=OpExp
-                        {left=VarExp (SimpleVar (#,#)),oper=EqOp,pos=29,
-                         right=NilExp},then'=VarExp (SimpleVar (-,40))}),
-     pos=2,
-     test=OpExp {left=VarExp (SimpleVar (-,5)),oper=EqOp,pos=5,right=NilExp},
-     then'=VarExp (SimpleVar (-,16))} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test57.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  IfExp
-    {else'=NONE,pos=3,test=VarExp (SimpleVar (-,6)),
-     then'=OpExp
-             {left=VarExp (SimpleVar (-,13)),oper=PlusOp,pos=13,
-              right=VarExp (SimpleVar (-,17))}} : Absyn.exp
-
- 
- 
-val it = () : unit
-==================== TEST test6.tig ==================== 
- 
- 
-val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+do_nothing1 => Function(INT,STRING,)->UNIT
+do_nothing2 => Function(INT,)->UNIT
+d => INT
+COMPARING INT AND INT
+COMPARING STRING AND STRING
+a => INT
+b => STRING
+COMPARING INT AND INT
+COMPARING INT AND INT
+COMPARING STRING AND STRING
 val it =
   LetExp
     {body=SeqExp
-            [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=177},177)],
+            [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=187},187)],
      decs=[FunctionDec
-             [{body=CallExp {args=[OpExp #],func=-,pos=99},name=-,
-               params=[{escape=ref false,name=-,pos=77,typ=-},
-                       {escape=ref false,name=-,pos=85,typ=-}],pos=56,
+             [{body=CallExp {args=[OpExp #],func=-,pos=103},name=-,
+               params=[{escape=ref false,name=-,pos=80,typ=-},
+                       {escape=ref false,name=-,pos=88,typ=-}],pos=59,
                result=NONE},
-              {body=CallExp {args=[VarExp #,StringExp #],func=-,pos=150},
-               name=-,params=[{escape=ref false,name=-,pos=138,typ=-}],
-               pos=117,result=NONE}]],pos=51} : Absyn.exp
+              {body=CallExp {args=[VarExp #,StringExp #],func=-,pos=157},
+               name=-,params=[{escape=ref false,name=-,pos=144,typ=-}],
+               pos=123,result=NONE}]],pos=52} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test7.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test7 ==================== 
  
  
 val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+do_nothing1 => Function(INT,STRING,)->INT
+do_nothing2 => Function(INT,)->STRING
+d => INT
+COMPARING INT AND INT
+COMPARING STRING AND STRING
+a => INT
+b => STRING
+COMPARING INT AND INT
+COMPARING INT AND INT
+COMPARING STRING AND STRING
 val it =
   LetExp
     {body=SeqExp
-            [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=197},197)],
+            [(CallExp {args=[IntExp 0,StringExp (#,#)],func=-,pos=207},207)],
      decs=[FunctionDec
-             [{body=SeqExp [(CallExp #,103),(IntExp #,120)],name=-,
-               params=[{escape=ref false,name=-,pos=76,typ=-},
-                       {escape=ref false,name=-,pos=84,typ=-}],pos=55,
-               result=SOME (-,95)},
-              {body=SeqExp [(CallExp #,165),(StringExp #,187)],name=-,
-               params=[{escape=ref false,name=-,pos=145,typ=-}],pos=124,
-               result=SOME (-,153)}]],pos=50} : Absyn.exp
+             [{body=SeqExp [(CallExp #,107),(IntExp #,124)],name=-,
+               params=[{escape=ref false,name=-,pos=79,typ=-},
+                       {escape=ref false,name=-,pos=87,typ=-}],pos=58,
+               result=SOME (-,98)},
+              {body=SeqExp [(CallExp #,172),(StringExp #,194)],name=-,
+               params=[{escape=ref false,name=-,pos=151,typ=-}],pos=130,
+               result=SOME (-,159)}]],pos=51} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test8.tig ==================== 
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test8 ==================== 
  
  
 val it = () : unit
+[autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
 val it =
   IfExp
-    {else'=SOME (IntExp 40),pos=19,
+    {else'=SOME (IntExp 40),pos=20,
      test=SeqExp
-            [(OpExp {left=IntExp 10,oper=GtOp,pos=23,right=IntExp 20},23)],
+            [(OpExp {left=IntExp 10,oper=GtOp,pos=24,right=IntExp 20},24)],
      then'=IntExp 30} : Absyn.exp
 
  
  
 val it = () : unit
-==================== TEST test9.tig ==================== 
- 
- 
-val it = () : unit
-val it =
-  IfExp
-    {else'=SOME (StringExp (" ",68)),pos=45,
-     test=SeqExp [(OpExp {left=IntExp 5,oper=GtOp,pos=49,right=IntExp 4},49)],
-     then'=IntExp 13} : Absyn.exp
-
+- 
+Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
+- ==================== TEST test9 ==================== 
  
  
 val it = () : unit
 [autoloading]
+[library $smlnj/cm/cm.cm is stable]
+[library $smlnj/internal/cm-sig-lib.cm is stable]
+[library $/pgraph.cm is stable]
+[library $smlnj/internal/srcpath-lib.cm is stable]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
 [autoloading done]
-stdIn:1.7438-1.7456 Warning: type vars not generalized because of
-   value restriction are instantiated to dummy types (X1,X2,...)
+[scanning sources.cm]
+[attempting to load plugin $/lex-ext.cm]
+[library $/lex-ext.cm is stable]
+[library $smlnj/cm/tools.cm is stable]
+[library $smlnj/internal/cm-lib.cm is stable]
+[plugin $/lex-ext.cm loaded successfully]
+[attempting to load plugin $/mllex-tool.cm]
+[library $/mllex-tool.cm is stable]
+[plugin $/mllex-tool.cm loaded successfully]
+[attempting to load plugin $/grm-ext.cm]
+[library $/grm-ext.cm is stable]
+[plugin $/grm-ext.cm loaded successfully]
+[attempting to load plugin $/mlyacc-tool.cm]
+[library $/mlyacc-tool.cm is stable]
+[plugin $/mlyacc-tool.cm loaded successfully]
+[library $/ml-yacc-lib.cm is stable]
+[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
+[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
+[loading (sources.cm):table.sig]
+[loading (sources.cm):table.sml]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
+[loading (sources.cm):semant.sml]
+[loading (sources.cm):tiger.grm.sig]
+[loading (sources.cm):tiger.grm.sml]
+[loading (sources.cm):errormsg.sml]
+[loading (sources.cm):tiger.lex.sml]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
+[New bindings added.]
+val it = true : bool
+47 then and else clause different types
+
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
+- 
+/bin/sh: -c: line 0: syntax error near unexpected token `0'
+/bin/sh: -c: line 0: `OS.Process.exit(0);'
