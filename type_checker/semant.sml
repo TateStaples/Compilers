@@ -54,6 +54,7 @@ struct
   fun transExp (venv: venv, tenv: tenv, exp: Absyn.exp) = 
     let 
       fun trexp (A.OpExp{left,oper=A.EqOp,right,pos}) = if not (Types.tyEq(actual_ty (#ty (trexp left), pos), actual_ty (#ty (trexp right), pos))) then error pos "comparing different types" else {exp=(), ty=Types.INT}
+      | trexp (A.OpExp{left,oper=A.NeqOp,right,pos}) = if not (Types.tyEq(actual_ty (#ty (trexp left), pos), actual_ty (#ty (trexp right), pos))) then error pos "comparing different types" else {exp=(), ty=Types.INT}
       | trexp (A.OpExp{left,oper,right,pos}) = (checkInt (trexp left, pos); checkInt (trexp right, pos); {exp= () , ty=Types. INT} )
       | trexp (A.RecordExp{fields, typ, pos}) = let
           val constraint = (case S.look (tenv, typ) of
@@ -154,15 +155,16 @@ struct
           | NONE => (error pos ("undefined variable " ^ S.name id); {exp= (), ty=Types. INT})
           | _ => error pos "function entry in venv" 
         )
-      | trvar (A.FieldVar(v,id,pos)) = (case #ty (trvar v) of
+      | trvar (A.FieldVar(v,id,pos)) = (case actual_ty(#ty (trvar v), pos) of
           Types.RECORD(fields, _) => (let
           fun findField ((sym, ty)::l, target) = if S.name sym = S.name target then {exp=(), ty=ty} else findField (l, target)
             | findField ([], target) = error pos "unknown field"
           in
             findField (fields, id)
           end)
-        | _ => (error pos "tried to take field of non record"))
-      | trvar (A.SubscriptVar(v, exp, pos)) = case #ty (trvar v) of
+        | _ => (error pos ("tried to take field '" ^(Symbol.name(id))^"' of non record " ^(Types.toString(#ty(trvar v)))); {exp=(), ty=Types.INT})
+        )
+      | trvar (A.SubscriptVar(v, exp, pos)) = case actual_ty(#ty (trvar v), pos) of
           Types.ARRAY(ty, unique) => if not (Types.tyEq(actual_ty (#ty (trexp exp), pos), Types.INT)) then error pos "index must be int" else {ty=ty, exp=()}
         | _ => error pos "tried to subscript non array"
     in
@@ -172,7 +174,12 @@ struct
   
   and transDec (venv, tenv, A.VarDec{name, escape, typ=NONE, init, pos}) = 
     let val {exp, ty} = transExp(venv, tenv, init)
-      in {tenv=tenv, venv=(print ((S.name name) ^ " => " ^ (Types.toString ty) ^ "\n"); S.enter(venv, name, E.VarEntry{ty=ty}); venv)}
+      in 
+        (case ty of 
+          Types.NIL => error pos "nil not allowed"
+        | _ => print ((S.name name) ^ " => " ^ (Types.toString ty) ^ "\n"));
+        {tenv=tenv, 
+        venv=(S.enter(venv, name, E.VarEntry{ty=ty}); venv)}
     end
   | transDec (venv, tenv, A.VarDec{name, escape, typ=SOME(v, tpos), init, pos}) = 
     let 

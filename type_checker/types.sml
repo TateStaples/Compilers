@@ -21,8 +21,11 @@ struct
     | toString (NAME(s, t)) = "NAME(" ^ (Symbol.name s) ^ "," ^ (case !t of NONE => "NONE" | SOME v => "...") ^ ")"
     | toString (UNIT) = "UNIT"
  
-  fun tyEq(NIL, _) = true
-    | tyEq(_, NIL) = true
+  fun tyEq(NIL, RECORD _) = true
+    | tyEq(RECORD _, NIL) = true
+    | tyEq(NIL, ARRAY _ )= true
+    | tyEq(NIL, NIL) = true
+    | tyEq(ARRAY _, NIL) = true
     | tyEq (RECORD(_, u1), RECORD(_, u2)) = (u1 = u2)
     | tyEq (INT, INT) = true
     | tyEq (STRING, STRING) = true

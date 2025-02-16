@@ -26,35 +26,24 @@ val it = () : unit
 [attempting to load plugin $/mlyacc-tool.cm]
 [library $/mlyacc-tool.cm is stable]
 [plugin $/mlyacc-tool.cm loaded successfully]
-[parsing (sources.cm):symbol.sml]
 [parsing (sources.cm):semant.sml]
-[parsing (sources.cm):parse.sml]
-[parsing (sources.cm):types.sml]
-[parsing (sources.cm):environment.sml]
 [library $/ml-yacc-lib.cm is stable]
 [library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
 [library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
 [loading (sources.cm):table.sig]
 [loading (sources.cm):table.sml]
-[compiling (sources.cm):symbol.sml]
-[code: 12857, data: 105, env: 623 bytes]
-[compiling (sources.cm):types.sml]
-[code: 3311, data: 87, env: 678 bytes]
-[compiling (sources.cm):absyn.sml]
-[code: 84, data: 20, env: 2873 bytes]
-[compiling (sources.cm):environment.sml]
-[code: 3633, data: 169, env: 551 bytes]
+[loading (sources.cm):symbol.sml]
+[loading (sources.cm):types.sml]
+[loading (sources.cm):absyn.sml]
+[loading (sources.cm):environment.sml]
 [compiling (sources.cm):semant.sml]
-[code: 36502, data: 1166, env: 1081 bytes]
+[code: 38277, data: 1189, env: 1081 bytes]
 [loading (sources.cm):tiger.grm.sig]
-[compiling (sources.cm):tiger.grm.sml]
-[code: 66149, data: 4261, env: 1740 bytes]
+[loading (sources.cm):tiger.grm.sml]
 [loading (sources.cm):errormsg.sml]
 [loading (sources.cm):tiger.lex.sml]
-[compiling (sources.cm):parse.sml]
-[code: 6904, data: 64, env: 125 bytes]
-[compiling (sources.cm):prabsyn.sml]
-[code: 30322, data: 394, env: 173 bytes]
+[loading (sources.cm):parse.sml]
+[loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
 any => any=>INT 
@@ -622,8 +611,7 @@ STRING & STRING
 INT & INT
 rec => name=>STRING id=>INT 
 arr => ARRAY OF INT
-203 integer required got name=>STRING id=>INT 
-
+203 comparing different types
 
 uncaught exception TypeCheck
   raised at: semant.sml:16.77-16.86
@@ -1358,7 +1346,7 @@ val it = () : unit
 [New bindings added.]
 val it = true : bool
 d => INT
-61 tried to take field of non record
+61 tried to take field 'f' of non record INT
 
 uncaught exception TypeCheck
   raised at: semant.sml:16.77-16.86
@@ -2169,7 +2157,7 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-166 dupliate name in recursive declarations
+172 dupliate name in recursive declarations
 
 uncaught exception TypeCheck
   raised at: semant.sml:16.77-16.86
@@ -2221,7 +2209,7 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-171 dupliate name in recursive declarations
+177 dupliate name in recursive declarations
 
 uncaught exception TypeCheck
   raised at: semant.sml:16.77-16.86
@@ -2471,11 +2459,76 @@ rec1 => name=>STRING address=>STRING id=>INT age=>INT
 STRING & STRING
 ARRAY OF INT & NAME(arrtype1,...)
 rec2 => name=>STRING dates=>NAME(arrtype1,...) 
-609 tried to take field of non record
+val it =
+  LetExp
+    {body=SeqExp
+            [(AssignExp
+                {exp=IntExp 1,pos=570,
+                 var=SubscriptVar (SimpleVar #,IntExp #,574)},570),
+             (AssignExp
+                {exp=IntExp 3,pos=586,
+                 var=SubscriptVar (SimpleVar #,IntExp #,590)},586),
+             (AssignExp
+                {exp=StringExp ("kati",617),pos=601,
+                 var=FieldVar (SubscriptVar #,-,609)},601),
+             (AssignExp
+                {exp=IntExp 23,pos=626,var=FieldVar (SubscriptVar #,-,634)},
+              626),
+             (AssignExp
+                {exp=StringExp ("sfd",658),pos=646,
+                 var=SubscriptVar (SimpleVar #,IntExp #,650)},646),
+             (AssignExp
+                {exp=StringExp ("sdf",681),pos=668,
+                 var=FieldVar (SimpleVar #,-,673)},668),
+             (AssignExp
+                {exp=IntExp 2323,pos=689,
+                 var=SubscriptVar (FieldVar #,IntExp #,699)},689),
+             (AssignExp
+                {exp=IntExp 2323,pos=713,
+                 var=SubscriptVar (FieldVar #,IntExp #,723)},713)],
+     decs=[TypeDec
+             [{name=-,pos=38,ty=ArrayTy (-,54)},
+              {name=-,pos=68,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=85,typ=-},
+                     {escape=ref #,name=-,pos=98,typ=-},
+                     {escape=ref #,name=-,pos=114,typ=-},
+                     {escape=ref #,name=-,pos=124,typ=-}]},
+              {name=-,pos=135,ty=ArrayTy (-,151)},
+              {name=-,pos=170,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=187,typ=-},
+                     {escape=ref #,name=-,pos=202,typ=-}]},
+              {name=-,pos=222,ty=ArrayTy (-,238)}],
+           VarDec
+             {escape=ref false,
+              init=ArrayExp {init=IntExp 0,pos=278,size=IntExp 10,typ=-},
+              name=-,pos=257,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=ArrayExp
+                     {init=RecordExp {fields=[#,#,#,#],pos=318,typ=-},pos=311,
+                      size=IntExp 5,typ=-},name=-,pos=289,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=ArrayExp
+                     {init=StringExp ("",416),pos=407,size=IntExp 100,typ=-},
+              name=-,pos=381,typ=SOME (-,386)},
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,StringExp #,444),(-,StringExp #,460),
+                              (-,IntExp #,477),(-,IntExp #,487)],pos=434,
+                      typ=-},name=-,pos=422,typ=NONE},
+           VarDec
+             {escape=ref false,
+              init=RecordExp
+                     {fields=[(-,StringExp #,518),(-,ArrayExp #,532)],pos=508,
+                      typ=-},name=-,pos=496,typ=NONE}],pos=30} : Absyn.exp
 
-uncaught exception TypeCheck
-  raised at: semant.sml:16.77-16.86
-             parse.sml:18.62
+ 
+ 
+val it = () : unit
 - 
 Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
 - ==================== TEST test43 ==================== 
@@ -2524,7 +2577,7 @@ val it = () : unit
 [New bindings added.]
 val it = true : bool
 a => UNIT
-95 integer required got UNIT
+103 integer required got UNIT
 
 
 uncaught exception TypeCheck
@@ -2644,21 +2697,11 @@ val it = () : unit
 [New bindings added.]
 val it = true : bool
 rectype => name=>STRING id=>INT 
-a => NIL
-val it =
-  LetExp
-    {body=SeqExp [(VarExp (SimpleVar (-,142)),142)],
-     decs=[TypeDec
-             [{name=-,pos=83,
-               ty=RecordTy
-                    [{escape=ref #,name=-,pos=99,typ=-},
-                     {escape=ref #,name=-,pos=112,typ=-}]}],
-           VarDec {escape=ref false,init=NilExp,name=-,pos=124,typ=NONE}],
-     pos=76} : Absyn.exp
+124 nil not allowed
 
- 
- 
-val it = () : unit
+uncaught exception TypeCheck
+  raised at: semant.sml:16.77-16.86
+             parse.sml:18.62
 - 
 Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
 - ==================== TEST test46 ==================== 
@@ -2710,12 +2753,26 @@ rectype => name=>STRING id=>INT
 COMPARING NIL
 AND name=>STRING id=>INT 
 b => NIL
-115 integer required got NIL
+val it =
+  LetExp
+    {body=SeqExp
+            [(OpExp
+                {left=VarExp (SimpleVar (#,#)),oper=EqOp,pos=104,right=NilExp},
+              104),
+             (OpExp
+                {left=VarExp (SimpleVar (#,#)),oper=NeqOp,pos=115,
+                 right=NilExp},115)],
+     decs=[TypeDec
+             [{name=-,pos=38,
+               ty=RecordTy
+                    [{escape=ref #,name=-,pos=54,typ=-},
+                     {escape=ref #,name=-,pos=67,typ=-}]}],
+           VarDec {escape=ref false,init=NilExp,name=-,pos=81,typ=SOME (-,83)}],
+     pos=31} : Absyn.exp
 
-
-uncaught exception TypeCheck
-  raised at: semant.sml:16.77-16.86
-             parse.sml:18.62
+ 
+ 
+val it = () : unit
 - 
 Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
 - ==================== TEST test47 ==================== 
@@ -3409,68 +3466,6 @@ val it =
  
  
 val it = () : unit
-- 
-Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
-- ==================== TEST test50 ==================== 
- 
- 
-val it = () : unit
-[autoloading]
-[library $smlnj/cm/cm.cm is stable]
-[library $smlnj/internal/cm-sig-lib.cm is stable]
-[library $/pgraph.cm is stable]
-[library $smlnj/internal/srcpath-lib.cm is stable]
-[library $SMLNJ-BASIS/basis.cm is stable]
-[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
-[autoloading done]
-[scanning sources.cm]
-[attempting to load plugin $/lex-ext.cm]
-[library $/lex-ext.cm is stable]
-[library $smlnj/cm/tools.cm is stable]
-[library $smlnj/internal/cm-lib.cm is stable]
-[plugin $/lex-ext.cm loaded successfully]
-[attempting to load plugin $/mllex-tool.cm]
-[library $/mllex-tool.cm is stable]
-[plugin $/mllex-tool.cm loaded successfully]
-[attempting to load plugin $/grm-ext.cm]
-[library $/grm-ext.cm is stable]
-[plugin $/grm-ext.cm loaded successfully]
-[attempting to load plugin $/mlyacc-tool.cm]
-[library $/mlyacc-tool.cm is stable]
-[plugin $/mlyacc-tool.cm loaded successfully]
-[library $/ml-yacc-lib.cm is stable]
-[library $SMLNJ-LIB/Util/smlnj-lib.cm is stable]
-[library $SMLNJ-ML-YACC-LIB/ml-yacc-lib.cm is stable]
-[loading (sources.cm):table.sig]
-[loading (sources.cm):table.sml]
-[loading (sources.cm):symbol.sml]
-[loading (sources.cm):types.sml]
-[loading (sources.cm):absyn.sml]
-[loading (sources.cm):environment.sml]
-[loading (sources.cm):semant.sml]
-[loading (sources.cm):tiger.grm.sig]
-[loading (sources.cm):tiger.grm.sml]
-[loading (sources.cm):errormsg.sml]
-[loading (sources.cm):tiger.lex.sml]
-[loading (sources.cm):parse.sml]
-[loading (sources.cm):prabsyn.sml]
-[New bindings added.]
-val it = true : bool
-f => Function(INT,)->UNIT
-i => INT
-COMPARING INT AND INT
-COMPARING STRING AND STRING
-COMPARING INT AND INT
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-COMPARING INT AND INT
-COMPARING STRING AND STRING
-91 undefined variable i
-
-uncaught exception TypeCheck
-  raised at: semant.sml:16.77-16.86
-             parse.sml:18.62
 - 
 Standard ML of New Jersey [Version 110.99.6.1; 64-bit; October 25, 2024]
 - ==================== TEST test6 ==================== 
