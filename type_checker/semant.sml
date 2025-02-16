@@ -1,242 +1,245 @@
-type venv = Env.enventry Symbol.table (* value environment *)
-type tenv = Types.ty Symbol.table (* type environment *)
-type expty = {exp: unit, ty: Types.ty} (* expression type - TODO: exp should later be Translation.exp *)
+structure Translate = struct type exp = unit end
+structure A = Absyn
+structure S = Symbol
+structure E = Env
 
-fun types_equal(t1: ty, t2: ty): bool = case of (t1, t2)
-    | (Types.INT, Types.INT) => true
-    | (Types.STRING, Types.STRING) => true
-    | (Types.NIL, Types.NIL) => true
-    | (Types.UNIT, Types.UNIT) => true
-    | (Types.RECORD(fields1, _), Types.RECORD(fields2, _)) => let fun compare_fields fields1' fields2' = case of (fields1', fields2')
-        | ([], []) => true
-        | ((field1, ty1)::fields1'', (field2, ty2)::fields2'') => if field1 = field2 andalso types_equal(ty1, ty2) then compare_fields fields1'' fields2'' else false
-        | _ => false
-        in
-            compare_fields fields1 fields2
-        end
-    | (Types.ARRAY(ty1, _), Types.ARRAY(ty2, _)) => types_equal(ty1, ty2)
-    | (Types.NAME(_, ref1), Types.NAME(_, ref2)) => let val ty1 = !ref1 in let val ty2 = !ref2 in types_equal(ty1, ty2) end end
-    | _ => false
+structure Semant =
+struct
 
-fun transProg (e: Absyn.exp): unit = let val {exp=_, ty=_} = transExp(Symbol.base_venv, Symbol.base_tenv, e) in () end
-fun transVar (venv, tenv, v: Absyn.var): expty = let fun transVar' v' = case of v'
-    | Absyn.SimpleVar(id, pos) => (case of Symbol.look(venv, id)
-        | SOME (Env.VarEntry {ty}) => {exp=(), ty=ty}
-        | _ => error(pos, "undefined variable " ^ Symbol.name s)
+  type venv = E.enventry S.table 
+  type tenv = Types.ty S.table
+
+  val loops = ref 0
+  
+  exception TypeCheck
+
+  fun error pos msg = (print ((Int.toString pos) ^ " " ^ msg ^ "\n"); raise TypeCheck)
+
+  fun actual_ty(Types.NAME(name, typ), pos) = (case !typ of 
+        SOME v => actual_ty (v, pos)
+      | NONE => error pos "used undefined type")
+    | actual_ty(ty, pos) = ty
+
+  fun checkInt ({exp,ty},pos) = case ty of 
+        Types.INT => ()
+      | _ => (error pos ("integer required got " ^ (Types.toString ty) ^ "\n"); ())
+
+  fun scopeWrapper(venv, tenv, f) = (
+    S.beginScope(venv);
+    S.beginScope(tenv);
+    let 
+      val a = f() 
+    in (
+      S.endScope(venv);
+      S.endScope(tenv);
+      a
+    ) end
+  )
+
+  fun checkDupNames(target: string, l: string list, pos: int) = case List.filter (fn x => x = target) l of 
+        [] => ()
+      | _ => error pos "dupliate name in recursive declarations" 
+ 
+  fun checkCycle(from: Types.ty, to: Types.ty, pos) = case (from, to) of (
+        Types.NAME(s1, _), Types.NAME(s2, _)) => (if S.name s1 = (S.name s2) then error pos "cyclic type declaration" else 
+          case from of 
+            Types.NAME(s, r) => (case !r of
+              SOME next => checkCycle (next, to, pos)
+            | _ => ()
+            )
+          | _ => ()
         )
-    | Absyn.FieldVar(var, field_id, pos) => let val {exp=_, ty=tyvar} = transVar'(var) in
-        case of tyvar
-            | Types.RECORD (fields, _) => let fun search remaining_fields = case of remaining_fields
-                | [] => error(pos, field_id^" not found in record")
-                | (field_id', ty)::remaining_fields' => if field_id = field_id' then {exp=(), ty=ty} else search remaining_fields'
-                in
-                    search fields
-                end
-            | NIL => error(pos, "record initialization required for field access")
-            | _ => error(pos, "record required for field access")
-    | Absyn.SubscriptVar(var, exp, pos) => let val {exp=_, ty=tyvar} = transVar'(var) in
-        case of tyvar
-            | Types.ARRAY (ty, _) => let val {exp=_, ty=tyexp} = transExp(venv, tenv, exp) in
-                case of tyexp
-                    | Types.INT => {exp=(), ty=ty}
-                    | _ => error(pos, "subscript must be integer")
-                end
-            | _ => error(pos, "array required for indexing")
-        end
-    in
-        transVar' v
-    end
-fun transExp (venv, tenv, e: Absyn.exp): expty = let fun transExp' e' = case of e'
-    | Absyn.VarExp v => transVar(venv, tenv, v)
-    | Absyn.NilExp => {exp=(), ty=Types.NIL}
-    | Absyn.IntExp i => {exp=(), ty=Types.INT}
-    | Absyn.StringExp(string, pos) => {exp=(), ty=Types.STRING}
-    | Absyn.CallExp {func, args, pos} => let val {exp=_, ty=func_type} = case of Symbol.look(venv, func)
-        | SOME (Env.FunEntry {formals, result}) => let fun check_args formals' args' = case of (formals, args)
-            | ([], []) => {exp=(), ty=result}
-            | ([], _) => error(pos, "too many arguments")
-            | (_, []) => error(pos, "too few arguments")
-            | ((formal, _)::more_formals, (arg, _)::more_args) => if types_equal(formal, arg) then check_args(more_formals, more_args) else error(pos, "type mismatch in argument")
-            in 
-                check_args formals args
-            end
-        | _ => error(pos, "undefined function " ^ Symbol.name func)
-    | Absyn.OpExp {left, oper, right, pos} => case of oper
-          Absyn.PlusOp => let 
-            val {exp=_, ty=tyleft} = transExp'(left)
-            val {exp=_, ty=tyright} = transExp'(right)
-            in
-                case of (tyleft, tyright)
-                    | (Types.INT, Types.INT) => {exp=(), ty=Types.INT}
-                    | _ => error(pos, "integer required")
-            end
-        | Absyn.MinusOp => let 
-            val {exp=_, ty=tyleft} = transExp'(left)
-            val {exp=_, ty=tyright} = transExp'(right)
-            in
-                case of (tyleft, tyright)
-                    | (Types.INT, Types.INT) => {exp=(), ty=Types.INT}
-                    | _ => error(pos, "integer required")
-            end
-        | Absyn.TimesOp => let
-            val {exp=_, ty=tyleft} = transExp'(left)
-            val {exp=_, ty=tyright} = transExp'(right)
-            in
-                case of (tyleft, tyright)
-                    | (Types.INT, Types.INT) => {exp=(), ty=Types.INT}
-                    | _ => error(pos, "integer required")
-            end
-        | Absyn.DivideOp => let 
-            val {exp=_, ty=tyleft} = transExp'(left)
-            val {exp=_, ty=tyright} = transExp'(right)
-            in
-                case of (tyleft, tyright)
-                    | (Types.INT, Types.INT) => {exp=(), ty=Types.INT}
-                    | _ => error(pos, "integer required")
-            end
-        | Absyn.EqOp => let
-            val {exp=_, ty=tyleft} = transExp'(left)
-            val {exp=_, ty=tyright} = transExp'(right)
-            in
-                case of (tyleft, tyright)
-                    | (Types.INT, Types.INT) => {exp=(), ty=Types.bool}
-                    | (Types.STRING, Types.STRING) => {exp=(), ty=Types.bool}
-                    | (Types.NIL, Types.NIL) => {exp=(), ty=Types.bool}
-                    | (Types.Array (_, u1), Types.Array (_, u2)) => if u1 = u2 then {exp=(), ty=Types.bool} else error(pos, "tycon mismatch on = operator")
-                    | (Types.RECORD(_, u1), Types.RECORD(_, u2)) => if u1 = u2 then {exp=(), ty=Types.bool} else error(pos, "tycon mismatch on = operator")
-                    | _ => error(pos, "integer required")
-            end
-        | Absyn.NeqOp => let
-            val {exp=_, ty=tyleft} = transExp'(left)
-            val {exp=_, ty=tyright} = transExp'(right)
-            in
-                case of (tyleft, tyright)
-                    | (Types.INT, Types.INT) => {exp=(), ty=Types.bool}
-                    | (Types.STRING, Types.STRING) => {exp=(), ty=Types.bool}
-                    | (Types.NIL, Types.NIL) => {exp=(), ty=Types.bool}
-                    | (Types.Array (_, u1), Types.Array (_, u2)) => if u1 = u2 then {exp=(), ty=Types.bool} else error(pos, "tycon mismatch on != operator")
-                    | (Types.RECORD(_, u1), Types.RECORD(_, u2)) => if u1 = u2 then {exp=(), ty=Types.bool} else error(pos, "tycon mismatch on != operator")
-                    | _ => error(pos, "tycon mismatch on != operator")
-            end
-        | Absyn.LtOp => let
-            val {exp=_, ty=tyleft} = transExp'(left)
-            val {exp=_, ty=tyright} = transExp'(right)
-            in
-                case of (tyleft, tyright)
-                    | (Types.INT, Types.INT) => {exp=(), ty=Types.INT}
-                    | _ => error(pos, "integer required")
-            end
-        | Absyn.LeOp => let
-            val {exp=_, ty=tyleft} = transExp'(left)
-            val {exp=_, ty=tyright} = transExp'(right)
-            in
-                case of (tyleft, tyright)
-                    | (Types.INT, Types.INT) => {exp=(), ty=Types.INT}
-                    | _ => error(pos, "integer required")
-            end
-        | Absyn.GtOp => let
-            val {exp=_, ty=tyleft} = transExp'(left)
-            val {exp=_, ty=tyright} = transExp'(right)
-            in
-                case of (tyleft, tyright)
-                    | (Types.INT, Types.INT) => {exp=(), ty=Types.INT}
-                    | _ => error(pos, "integer required")
-            end
-        | Absyn.GeOp => let 
-            val {exp=_, ty=tyleft} = transExp'(left)
-            val {exp=_, ty=tyright} = transExp'(right)
-            in
-                case of (tyleft, tyright)
-                    | (Types.INT, Types.INT) => {exp=(), ty=Types.INT}
-                    | _ => error(pos, "integer required")
-            end
-    | Absyn.RecordExp {provided_fields, typ, pos} => let val record_type = case of Symbol.look(tenv, typ)
-        | SOME TypeDec {name, ty, pos} => ty
-        | _ => error(pos, "undefined type " ^ Symbol.name typ)
+      | _ => ()
+ 
+  fun transExp (venv: venv, tenv: tenv, exp: Absyn.exp) = 
+    let 
+      fun trexp (A.OpExp{left,oper=A.EqOp,right,pos}) = if not (Types.tyEq(actual_ty (#ty (trexp left), pos), actual_ty (#ty (trexp right), pos))) then error pos "comparing different types" else {exp=(), ty=Types.INT}
+      | trexp (A.OpExp{left,oper,right,pos}) = (checkInt (trexp left, pos); checkInt (trexp right, pos); {exp= () , ty=Types. INT} )
+      | trexp (A.RecordExp{fields, typ, pos}) = let
+          val constraint = (case S.look (tenv, typ) of
+            NONE => error pos "record type undeclared"
+          | SOME v => actual_ty (v, pos))
+          val conFields = (case constraint of
+            Types.RECORD(l, _) => l
+          | _ => error pos "record exp type is not record")
+          fun checkField ((s1,e,p)::l1, (s2,t)::l2) = (
+            if (S.name s1) <> (S.name s2) then error pos "field names don't match" else ();
+            print(Types.toString (#ty (trexp e)) ^ " & " ^ (Types.toString t) ^ "\n");
+            if not (Types.tyEq(actual_ty (#ty (trexp e), pos), actual_ty (t, pos))) then error pos "expression doesn't match field type" else ();
+            checkField(l1, l2)
+          ) 
+            | checkField ([], []) = ()
+            | checkField ([], _) = error pos "too few fields"
+            | checkField (_, []) = error pos "too many fields"
         in
-            case of record_types
-                | Types.RECORD(record_fields, _) => let fun check_field_match(available_fields, required_fields) = case of (available_fields, required_fields)
-                    | ([], []) => {exp=(), ty=record_type}
-                    | ((field_id, exp, pos)::more_provided, (field_id', ty)::more_required) => if field_id = field_id' then check_field_match(more_provided, more_required) else check_field_match(more_provided, required_fields)
-                    | (x::xs, []) => error(pos, Symbol.name x ^ " not part of " ^ Symbol.name typ ^ " record")
-                    | ([], x::xs) => error(pos, Symbol.name x ^ " not provided when making " ^ Symbol.name typ ^ " record")
-                | _ => error(pos, "record required")
+          (checkField(fields, conFields); {exp=(), ty=constraint})
         end
-    | Absyn.SeqExp exps => case exps of
-        | [] => {exp=(), ty=Types.UNIT}
-        | (exp, pos)::exps' => let val {
-            exp=_, ty=tyexp
-        } = transExp'(exp) in
-            case of exps'
-                | [] => {exp=(), ty=tyexp}
-                | _ => transExp'(Absyn.SeqExp exps')
+
+      | trexp (A.VarExp(var)) = trvar(var)
+      | trexp (A.NilExp) = {exp=(), ty=Types.NIL}
+      | trexp (A.IntExp(i)) = {exp=(), ty=Types.INT}
+      | trexp (A.StringExp(s,p)) = {exp=(), ty=Types.STRING}
+      | trexp (A.CallExp{func, args, pos}) = let
+          fun checkArgs (a::l1, b::l2) = (print ("COMPARING " ^ (Types.toString (#ty (trexp a))) ^ " AND " ^ (Types.toString (actual_ty (b, pos))) ^ "\n"); if not (Types.tyEq(actual_ty (#ty (trexp a), pos), actual_ty (b, pos))) then error pos "Argument does not match expected type" else checkArgs(l1, l2))
+            | checkArgs ([], []) = ()
+            | checkArgs (a::l1, []) = error pos "too many args"
+            | checkArgs ([], b::l2) = error pos "too few args"
+        in
+         (case S.look (venv, func) of 
+              SOME(E.FunEntry{formals, result}) => (checkArgs(args, formals); {ty=result, exp=()})
+            | SOME(E.VarEntry{ty}) => error pos "Var not callable"
+            | NONE => error pos "Func does not exist"   )
         end
-    | Absyn.AssignExp {var, exp, pos} => let 
-            val {env=_, ty=left_type} = transVar(venv, tenv, var)
-            val {env=_, ty=right_type} = transExp(venv, tenv, exp) 
-            in case of (left_type, right_type)
-                | (Types.INT, Types.INT) => {exp=(), ty=Types.UNIT}
-                | (Types.STRING, Types.STRING) => {exp=(), ty=Types.UNIT}
-                | (Types.NIL, Types.NIL) => {exp=(), ty=Types.UNIT}
-                | (Types.Array (_, u1), Types.Array (_, u2)) => if u1 = u2 then {exp=(), ty=Types.UNIT} else error(pos, "tycon mismatch on assignment")
-                | (Types.RECORD(_, u1), Types.RECORD(_, u2)) => if u1 = u2 then {exp=(), ty=Types.UNIT} else error(pos, "tycon mismatch on assignment")
-                | _ => error(pos, "type mismatch on assignment") (* TODO: can you assign a record onto a NIL lvalue? *)
+      | trexp (A.SeqExp((exp,pos)::[])) = trexp exp
+      | trexp (A.SeqExp((exp,pos)::l)) = (trexp exp; trexp (A.SeqExp l))
+      | trexp (A.SeqExp([])) = {exp=(), ty=Types.UNIT}
+      | trexp (A.AssignExp{var, exp, pos}) = (
+          let
+            val resty = #ty (trexp exp) 
+          in 
+            if not (Types.tyEq(actual_ty (#ty (trvar var), pos), actual_ty (resty, pos))) then error pos "right side doesn't match" else ();
+            {ty=Types.UNIT, exp=()} 
+          end) 
+      | trexp (A.IfExp{test, then', else'=SOME(e), pos}) = let 
+          val _ = checkInt (trexp test, pos)
+          val a = trexp(then') 
+          val b = trexp e
+          val _ = if not (Types.tyEq(actual_ty (#ty a, pos), actual_ty (#ty b, pos))) then error pos "then and else clause different types" else () 
+        in 
+          {exp=(), ty=(#ty a)}
         end
-    | Absyn.IfExp {test, then', else', pos} => let val {env=_, ty=test_type} in transExp'(test) in
-        case of test_type
-            | Types.INT => let val {env=_, ty=then_type} = transExp'(then')
-                in case of else'
-                    | SOME else_exp => let val {env=_, ty=else_type} = transExp'(else_exp) in
-                        case of (then_type, else_type)
-                            | (Types.INT, Types.INT) => {exp=(), ty=Types.INT}
-                            | _ => error(pos, "type mismatch on if-then-else")
-                        end
-                    | NONE => {exp=(), ty=then_type}
-                end
-            | _ => error(pos, "integer required for conditional test")
-        end
-    | Absyn.WhileExp {test, body, pos} => let val {env=_, ty=test_type} = transExp'(test) in
-        case of test_type
-            | Types.INT => let val {env=_, ty=body_type} = transExp'(body) in {exp=(), ty=Types.UNIT} end (* while loop always returns unit, but still type check the interior *)
-            | _ => error(pos, "integer required for conditional test")
-    | Absyn.ForExp {var, escape, lo, hi, body, pos} => let 
-            val {env=_, ty=low_type} = transExp'(lo)
-            val {env=_, ty=high_type} = transExp'(hi) in
-            case of (loty, hity)
-                | (Types.INT, Types.INT) => let {env=_, ty=body_type} = transExp'(body) in {exp=(), ty=Types.UNIT}
-                | _ => error(pos, "integer required for for loop bounds")
-        end
-    | Absyn.BreakExp pos => {exp=(), ty=Types.UNIT}
-    | Absyn.LetExp {decs, body, pos} => let val {v=venv', t=tenv'} = transDec(venv, tenv, decs) in transExp(venv', tenv', body) end (* update venv and tenv before semantic analysis of the body *)
-    | Absyn.ArrayExp {typ: symbol, size: exp, init: exp, pos} => let 
-        val {exp=_, ty=size_type} = transExp'(size)
-        val {exp=_, ty=init_type} = transExp'(init)
-        val name_type = case of Symbol.look(tenv, typ) (* TODO: I think this might be wrong *)
-            | SOME TypeDec {name, ty, pos} => ty
-            | _ => error(pos, "undefined type " ^ Symbol.name typ)
-        in if types_equal(name_type, init_type) then 
-            case of size_type
-                | Types.INT => {exp=(), ty=Types.ARRAY(name_type, ref ())}
-                | _ => error(pos, "integer required for array size")
-        else
-            error(pos, "Tried to initialize array with " ^ Symbol.name typ ^ " but got " ^ Symbol.name init_type)
-        end
+      | trexp (A.IfExp{test, then', else'=NONE, pos}) = (checkInt(trexp test, pos); case #ty (trexp then') of Types.UNIT => () | _ => error pos "ifthen should return unit"; {exp=(), ty=Types.UNIT})
+      | trexp (A.WhileExp{test, body, pos}) = (loops := (!loops + 1); print "checking while\n"; checkInt(trexp test, pos); print "while over\n"; case #ty (trexp body) of Types.UNIT => () | _ => error pos "while should return unit"; loops := (!loops - 1); {ty=Types.UNIT, exp=()})
+      | trexp (A.ForExp{var, escape, lo, hi, body, pos}) = (
+          loops := (!loops + 1);
+          checkInt(trexp lo, pos);
+          checkInt(trexp hi, pos);
+          S.beginScope venv;
+          print ((S.name var) ^ " => INT\n"); 
+          S.enter(venv, var, E.VarEntry{ty=Types.INT});
+          case #ty (trexp body) of 
+              Types.UNIT => ()
+            | _ => error pos "for should return unit";
+          S.endScope venv;
+          loops := (!loops - 1);
+          {ty=Types.UNIT, exp=()}
+        )
+      | trexp (A.BreakExp(pos)) = if !loops = 0 then (error pos "break outside of loop"; {ty=Types.UNIT, exp=()}) else {ty=Types.UNIT, exp=()} (* have to check that we're in a for or while *)
+      | trexp (A.LetExp{decs, body, pos}) = scopeWrapper(
+          venv, 
+          tenv, 
+          fn () => (
+            map (fn d => transDec(venv, tenv, d)) decs;
+            trexp(body)
+          )
+        ) 
+      | trexp (A.ArrayExp{typ, size, init, pos}) = (
+          let 
+            val t = case S.look (tenv, typ) of 
+              SOME (v) => actual_ty (v, pos) 
+            | NONE => error pos "array of undeclared type"
+            val t' = case t of 
+              Types.ARRAY(ty, u) => ty
+            | _ => error pos "non array in array expression" 
+          in
+            checkInt(trexp size, pos);
+            if not (Types.tyEq(actual_ty (t', pos), actual_ty (#ty (trexp init), pos))) then error pos "array init wrong type" else ();
+            {ty=t, exp=()}
+          end
+        ) 
+      and trvar (A.SimpleVar(id, pos)) =  
+        (
+          case S.look (venv, id) of 
+            SOME (E.VarEntry{ty}) => {exp= (), ty=actual_ty (ty, pos)}
+          | NONE => (error pos ("undefined variable " ^ S.name id); {exp= (), ty=Types. INT})
+          | _ => error pos "function entry in venv" 
+        )
+      | trvar (A.FieldVar(v,id,pos)) = (case #ty (trvar v) of
+          Types.RECORD(fields, _) => (let
+          fun findField ((sym, ty)::l, target) = if S.name sym = S.name target then {exp=(), ty=ty} else findField (l, target)
+            | findField ([], target) = error pos "unknown field"
+          in
+            findField (fields, id)
+          end)
+        | _ => (error pos "tried to take field of non record"))
+      | trvar (A.SubscriptVar(v, exp, pos)) = case #ty (trvar v) of
+          Types.ARRAY(ty, unique) => if not (Types.tyEq(actual_ty (#ty (trexp exp), pos), Types.INT)) then error pos "index must be int" else {ty=ty, exp=()}
+        | _ => error pos "tried to subscript non array"
     in
-        transExp' e
+      trexp exp
     end
-fun transDec (venv, tenv, d: Absyn.dec): {v:venv, t: tenv} = case of d (* start with beginScope() and end with endScope() *)
-    | Absyn.FunctionDec fundecs => raise Fail "Not implemented" (* pg. 119 *)
-    | Absyn.VarDec {name, escape, typ, init, pos} => case of typ
-        | NONE => let val {exp=_, ty=tyinit} = transExp(venv, tenv, init) in (* TODO: There's somethign about initializing expressions of type NIL, pg 118 *)
-            {tenv=tenv, venv=Symbol.enter(tenv, name, Env.VarEntry {ty=tyinit})}
-        end
-        | SOME (type_id, pos) => raise Fail "Not implemented"
-    | Absyn.TypeDec tydecs => raise Fail "Not implemented" (* Textbook literally says "The reader is invited to generalize this", pg. 118 *)
-fun transTy (tenv, t: Absyn.ty): Types.ty = case of t
-    | Absyn.NameTy(name, pos) => case of Symbol.look(tenv, name)
-        | SOME ty => ty
-        | _ => error(pos, "undefined type " ^ Symbol.name name)
-    | Absyn.RecordTy fields => Types.RECORD(map (fn {name, escape, typ, pos} => (name, transTy(tenv, typ))) fields, ref ())
-    | Absyn.ArrayTy(name, pos) => case of Symbol.look(tenv, name)
-        | SOME ty => Types.ARRAY(ty, ref ())
-        | _ => error(pos, "undefined type " ^ Symbol.name name)
+
+  
+  and transDec (venv, tenv, A.VarDec{name, escape, typ=NONE, init, pos}) = 
+    let val {exp, ty} = transExp(venv, tenv, init)
+      in {tenv=tenv, venv=(print ((S.name name) ^ " => " ^ (Types.toString ty) ^ "\n"); S.enter(venv, name, E.VarEntry{ty=ty}); venv)}
+    end
+  | transDec (venv, tenv, A.VarDec{name, escape, typ=SOME(v, tpos), init, pos}) = 
+    let 
+      val {exp, ty} = transExp(venv, tenv, init)
+      val _ = print ("COMPARING " ^ (Types.toString ty) ^ "\n")
+      val _ = case S.look (tenv, v) of 
+        SOME(constraint) => (print ("AND " ^ (Types.toString (actual_ty (constraint, pos))) ^ "\n"); if Types.tyEq(actual_ty (constraint, pos), actual_ty (ty, pos)) then () else (error tpos "types don't match"; ()))
+      | NONE => (error tpos "constraint has undefined type"; ())
+    in {tenv=tenv, venv=(print ((S.name name) ^ " => " ^ (Types.toString ty) ^ "\n"); S.enter(venv, name, E.VarEntry{ty=ty}); venv)}
+    end
+  | transDec (venv, tenv, A. TypeDec ({name,ty,pos}::l)) = let 
+      val r = ref NONE  
+    in (
+      checkDupNames (S.name name, map (fn x => S.name (#name x)) l, pos);
+      S.enter (tenv, name, Types.NAME(name, r));
+      transDec(venv, tenv, A.TypeDec(l));
+      {venv=venv,
+        tenv= (
+          r := SOME (transTy(tenv, ty));
+          case !r of 
+            SOME (Types.NAME(s, ptr)) => (
+              case !ptr of 
+                  SOME t => checkCycle (t, Types.NAME(s, ptr), pos) (* ty referts to t, can we get from t to ty *)
+                | NONE => ()
+            )
+          | _ => ();
+          print ((S.name name) ^ " => " ^ (case !r of SOME rr => Types.toString rr | NONE => "NONE") ^ "\n");
+          tenv
+        )}
+    ) end
+  | transDec (venv, tenv, A.TypeDec([])) = {tenv=tenv, venv=venv}
+  | transDec(venv, tenv, A.FunctionDec({name, params, body, pos, result}::l)) = 
+      let 
+        val result_ty = case result of 
+          SOME(rt, rpos) => (case S.look(tenv, rt) of 
+            SOME(r) => r
+          | NONE => error pos "function returns unknown type") 
+        | NONE => Types.UNIT
+        fun transpararm{name, typ, escape, pos} =
+          case S.look(tenv, typ)
+            of SOME t => {name=name, ty=t}
+             | NONE => error pos "parameter has unknown type"
+        val params' = map transpararm params
+      in 
+        (
+          checkDupNames (S.name name, map (fn x => S.name (#name x)) l, pos);
+          print ((S.name name) ^ " => Function(" ^ foldr (fn (x,s) => Types.toString (#ty x) ^ "," ^ s) "" params' ^ ")->" ^ (Types.toString result_ty) ^  "\n"); 
+          S.enter(venv, name, E.FunEntry{formals=map #ty params', result=result_ty});  
+          transDec(venv, tenv, A.FunctionDec(l)); 
+          S.beginScope venv;
+          map (fn {name, ty} => (print((S.name name) ^ " => " ^ (Types.toString ty) ^ "\n"); S.enter(venv, name, E.VarEntry {ty=ty}))) params'; 
+          if not (Types.tyEq(actual_ty (#ty (transExp (venv, tenv, body)), pos), actual_ty (result_ty, pos))) then error pos "function returns unexpected type" else ();
+          S.endScope venv;
+          {tenv=tenv, venv=venv}
+        )
+      end
+   | transDec(venv, tenv, A.FunctionDec[]) = {venv=venv, tenv=tenv}
+
+  and transTy (tenv, A.NameTy(s, p)) = (case S.look (tenv, s) of 
+        SOME v => v
+      | NONE => Types.NAME(s, ref NONE) )
+    | transTy (tenv, A.RecordTy(l)) = Types.RECORD(map (fn {name, escape, typ, pos} => (name, case S.look (tenv, typ) of NONE => error pos "field of undefined type" | SOME v => v)) l, ref ()) 
+    | transTy (tenv, A.ArrayTy(s, pos)) = Types.ARRAY(
+        case S.look (tenv, s) of 
+          NONE => error pos "array of unknown type" 
+        | SOME v => v, ref ())
+
+  fun transProg(prog) =  transExp (E.base_venv, E.base_tenv, prog)
+
+end
