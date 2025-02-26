@@ -65,7 +65,7 @@ struct
           | _ => error pos "record exp type is not record")
           fun checkField ((s1,e,p)::l1, (s2,t)::l2) = (
             if (S.name s1) <> (S.name s2) then error pos "field names don't match" else ();
-            print(Types.toString (#ty (trexp e)) ^ " & " ^ (Types.toString t) ^ "\n");
+            (* print(Types.toString (#ty (trexp e)) ^ " & " ^ (Types.toString t) ^ "\n"); *)
             if not (Types.tyEq(actual_ty (#ty (trexp e), pos), actual_ty (t, pos))) then error pos "expression doesn't match field type" else ();
             checkField(l1, l2)
           ) 
@@ -81,7 +81,7 @@ struct
       | trexp (A.IntExp(i)) = {exp=(), ty=Types.INT}
       | trexp (A.StringExp(s,p)) = {exp=(), ty=Types.STRING}
       | trexp (A.CallExp{func, args, pos}) = let
-          fun checkArgs (a::l1, b::l2) = (print ("COMPARING " ^ (Types.toString (#ty (trexp a))) ^ " AND " ^ (Types.toString (actual_ty (b, pos))) ^ "\n"); if not (Types.tyEq(actual_ty (#ty (trexp a), pos), actual_ty (b, pos))) then error pos "Argument does not match expected type" else checkArgs(l1, l2))
+          fun checkArgs (a::l1, b::l2) = ((* print ("COMPARING " ^ (Types.toString (#ty (trexp a))) ^ " AND " ^ (Types.toString (actual_ty (b, pos))) ^ "\n"); *) if not (Types.tyEq(actual_ty (#ty (trexp a), pos), actual_ty (b, pos))) then error pos "Argument does not match expected type" else checkArgs(l1, l2))
             | checkArgs ([], []) = ()
             | checkArgs (a::l1, []) = error pos "too many args"
             | checkArgs ([], b::l2) = error pos "too few args"
@@ -110,13 +110,13 @@ struct
           {exp=(), ty=(#ty a)}
         end
       | trexp (A.IfExp{test, then', else'=NONE, pos}) = (checkInt(trexp test, pos); case #ty (trexp then') of Types.UNIT => () | _ => error pos "ifthen should return unit"; {exp=(), ty=Types.UNIT})
-      | trexp (A.WhileExp{test, body, pos}) = (loops := (!loops + 1); print "checking while\n"; checkInt(trexp test, pos); print "while over\n"; case #ty (trexp body) of Types.UNIT => () | _ => error pos "while should return unit"; loops := (!loops - 1); {ty=Types.UNIT, exp=()})
+      | trexp (A.WhileExp{test, body, pos}) = (loops := (!loops + 1); (*print "checking while\n";*) checkInt(trexp test, pos); (*print "while over\n";*) case #ty (trexp body) of Types.UNIT => () | _ => error pos "while should return unit"; loops := (!loops - 1); {ty=Types.UNIT, exp=()})
       | trexp (A.ForExp{var, escape, lo, hi, body, pos}) = (
           loops := (!loops + 1);
           checkInt(trexp lo, pos);
           checkInt(trexp hi, pos);
           S.beginScope venv;
-          print ((S.name var) ^ " => INT\n"); 
+          (* print ((S.name var) ^ " => INT\n"); *) 
           S.enter(venv, var, E.VarEntry{ty=Types.INT});
           case #ty (trexp body) of 
               Types.UNIT => ()
@@ -177,18 +177,18 @@ struct
       in 
         (case ty of 
           Types.NIL => error pos "nil not allowed"
-        | _ => print ((S.name name) ^ " => " ^ (Types.toString ty) ^ "\n"));
+        | _ =>  (* print ((S.name name) ^ " => " ^ (Types.toString ty) ^ "\n") *) ()); 
         {tenv=tenv, 
         venv=(S.enter(venv, name, E.VarEntry{ty=ty}); venv)}
     end
   | transDec (venv, tenv, A.VarDec{name, escape, typ=SOME(v, tpos), init, pos}) = 
     let 
       val {exp, ty} = transExp(venv, tenv, init)
-      val _ = print ("COMPARING " ^ (Types.toString ty) ^ "\n")
+      (* val _ = print ("COMPARING " ^ (Types.toString ty) ^ "\n") *)
       val _ = case S.look (tenv, v) of 
-        SOME(constraint) => (print ("AND " ^ (Types.toString (actual_ty (constraint, pos))) ^ "\n"); if Types.tyEq(actual_ty (constraint, pos), actual_ty (ty, pos)) then () else (error tpos "types don't match"; ()))
+        SOME(constraint) => ((* print ("AND " ^ (Types.toString (actual_ty (constraint, pos))) ^ "\n"); *) if Types.tyEq(actual_ty (constraint, pos), actual_ty (ty, pos)) then () else (error tpos "types don't match"; ()))
       | NONE => (error tpos "constraint has undefined type"; ())
-    in {tenv=tenv, venv=(print ((S.name name) ^ " => " ^ (Types.toString ty) ^ "\n"); S.enter(venv, name, E.VarEntry{ty=ty}); venv)}
+    in {tenv=tenv, venv=((* print ((S.name name) ^ " => " ^ (Types.toString ty) ^ "\n"); *) S.enter(venv, name, E.VarEntry{ty=ty}); venv)}
     end
   | transDec (venv, tenv, A. TypeDec ({name,ty,pos}::l)) = let 
       val r = ref NONE  
@@ -206,7 +206,7 @@ struct
                 | NONE => ()
             )
           | _ => ();
-          print ((S.name name) ^ " => " ^ (case !r of SOME rr => Types.toString rr | NONE => "NONE") ^ "\n");
+         (*  print ((S.name name) ^ " => " ^ (case !r of SOME rr => Types.toString rr | NONE => "NONE") ^ "\n"); *)
           tenv
         )}
     ) end
@@ -226,11 +226,11 @@ struct
       in 
         (
           checkDupNames (S.name name, map (fn x => S.name (#name x)) l, pos);
-          print ((S.name name) ^ " => Function(" ^ foldr (fn (x,s) => Types.toString (#ty x) ^ "," ^ s) "" params' ^ ")->" ^ (Types.toString result_ty) ^  "\n"); 
+          (* print ((S.name name) ^ " => Function(" ^ foldr (fn (x,s) => Types.toString (#ty x) ^ "," ^ s) "" params' ^ ")->" ^ (Types.toString result_ty) ^  "\n"); *) 
           S.enter(venv, name, E.FunEntry{formals=map #ty params', result=result_ty});  
           transDec(venv, tenv, A.FunctionDec(l)); 
           S.beginScope venv;
-          map (fn {name, ty} => (print((S.name name) ^ " => " ^ (Types.toString ty) ^ "\n"); S.enter(venv, name, E.VarEntry {ty=ty}))) params'; 
+          map (fn {name, ty} => ((*print((S.name name) ^ " => " ^ (Types.toString ty) ^ "\n");*) S.enter(venv, name, E.VarEntry {ty=ty}))) params'; 
           if not (Types.tyEq(actual_ty (#ty (transExp (venv, tenv, body)), pos), actual_ty (result_ty, pos))) then error pos "function returns unexpected type" else ();
           S.endScope venv;
           {tenv=tenv, venv=venv}

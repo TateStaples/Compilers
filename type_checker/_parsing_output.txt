@@ -37,7 +37,7 @@ val it = () : unit
 [loading (sources.cm):absyn.sml]
 [loading (sources.cm):environment.sml]
 [compiling (sources.cm):semant.sml]
-[code: 38277, data: 1189, env: 1081 bytes]
+[code: 30066, data: 1082, env: 1081 bytes]
 [loading (sources.cm):tiger.grm.sig]
 [loading (sources.cm):tiger.grm.sml]
 [loading (sources.cm):errormsg.sml]
@@ -46,78 +46,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-any => any=>INT 
-buffer => STRING
-readint => Function(NAME(any,...),)->INT
-any => NAME(any,...)
-i => INT
-isdigit => Function(STRING,)->INT
-skipto => Function()->UNIT
-checking while
-while over
-s => STRING
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-checking while
-COMPARING STRING AND STRING
-while over
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-list => first=>INT rest=>NAME(list,...) 
-readlist => Function()->NAME(list,...)
-merge => Function(NAME(list,...),NAME(list,...),)->NAME(list,...)
-printint => Function(INT,)->UNIT
-printlist => Function(NAME(list,...),)->UNIT
-l => NAME(list,...)
-COMPARING STRING AND STRING
-COMPARING INT AND INT
-COMPARING STRING AND STRING
-COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
-i => INT
-f => Function(INT,)->UNIT
-i => INT
-COMPARING INT AND INT
-COMPARING STRING AND STRING
-COMPARING INT AND INT
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-COMPARING INT AND INT
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-COMPARING INT AND INT
-COMPARING INT AND INT
-COMPARING STRING AND STRING
-a => NAME(list,...)
-b => NAME(list,...)
-INT & INT
-COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
-COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
-NAME(list,...) & NAME(list,...)
-COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
-COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
-INT & INT
-COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
-COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
-NAME(list,...) & NAME(list,...)
-COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
-COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
-INT & INT
-any => any=>INT 
-COMPARING any=>INT  AND any=>INT 
-i => INT
-INT & INT
-NAME(list,...) & NAME(list,...)
-list1 => NAME(list,...)
-list2 => NAME(list,...)
-COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
-COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
-COMPARING NAME(list,...) AND first=>INT rest=>NAME(list,...) 
-COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
-COMPARING first=>INT rest=>NAME(list,...)  AND first=>INT rest=>NAME(list,...) 
 val it =
   LetExp
     {body=SeqExp
@@ -218,23 +146,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-N => INT
-intArray => ARRAY OF INT
-row => ARRAY OF INT
-col => ARRAY OF INT
-diag1 => ARRAY OF INT
-diag2 => ARRAY OF INT
-printboard => Function()->UNIT
-try => Function(INT,)->UNIT
-c => INT
-r => INT
-COMPARING INT AND INT
-i => INT
-j => INT
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-COMPARING STRING AND STRING
-COMPARING INT AND INT
 val it =
   LetExp
     {body=SeqExp [(CallExp {args=[IntExp 0],func=-,pos=821},821)],
@@ -321,10 +232,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-arrtype => ARRAY OF INT
-COMPARING ARRAY OF INT
-AND ARRAY OF INT
-arr1 => ARRAY OF INT
 val it =
   LetExp
     {body=SeqExp [(VarExp (SimpleVar (-,126)),126)],
@@ -384,8 +291,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-checking while
-while over
 40 while should return unit
 
 uncaught exception TypeCheck
@@ -491,8 +396,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-a => INT
-i => INT
 val it =
   LetExp
     {body=SeqExp
@@ -605,12 +508,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-rectype => name=>STRING id=>INT 
-arrtype => ARRAY OF INT
-STRING & STRING
-INT & INT
-rec => name=>STRING id=>INT 
-arr => ARRAY OF INT
 203 comparing different types
 
 uncaught exception TypeCheck
@@ -715,9 +612,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-d => NAME(a,NONE)
-c => NAME(d,...)
-b => NAME(a,NONE)
 90 cyclic type declaration
 
 uncaught exception TypeCheck
@@ -822,9 +716,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-do_nothing1 => Function(INT,STRING,)->INT
-a => INT
-b => STRING
 122 Func does not exist
 
 uncaught exception TypeCheck
@@ -877,9 +768,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-do_nothing1 => Function(INT,STRING,)->INT
-do_nothing2 => Function(INT,)->STRING
-d => INT
 225 undefined variable a
 
 uncaught exception TypeCheck
@@ -932,14 +820,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-arrtype => ARRAY OF NAME(d,NONE)
-d => NAME(c,NONE)
-c => NAME(b,NONE)
-b => NAME(a,NONE)
-a => INT
-COMPARING ARRAY OF NAME(d,...)
-AND ARRAY OF NAME(d,...)
-arr1 => ARRAY OF NAME(d,...)
 val it =
   LetExp
     {body=SeqExp [(VarExp (SimpleVar (-,185)),185)],
@@ -1004,11 +884,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-arrtype => ARRAY OF NAME(myint,NONE)
-myint => INT
-COMPARING ARRAY OF NAME(myint,...)
-AND ARRAY OF NAME(myint,...)
-arr1 => ARRAY OF NAME(myint,...)
 val it =
   LetExp
     {body=SeqExp [(VarExp (SimpleVar (-,161)),161)],
@@ -1070,8 +945,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-checking while
-while over
 57 undefined variable i
 
 uncaught exception TypeCheck
@@ -1124,9 +997,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-nfactor => Function(INT,)->UNIT
-n => INT
-COMPARING INT AND INT
 162 integer required got UNIT
 
 
@@ -1180,10 +1050,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-rectype => name=>STRING id=>INT 
-STRING & STRING
-INT & INT
-rec1 => name=>STRING id=>INT 
 142 unknown field
 
 uncaught exception TypeCheck
@@ -1236,10 +1102,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-rectype => name=>STRING id=>INT 
-STRING & STRING
-INT & INT
-rec1 => name=>STRING id=>INT 
 127 right side doesn't match
 
 uncaught exception TypeCheck
@@ -1292,7 +1154,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-d => INT
 59 tried to subscript non array
 
 uncaught exception TypeCheck
@@ -1345,7 +1206,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-d => INT
 61 tried to take field 'f' of non record INT
 
 uncaught exception TypeCheck
@@ -1451,10 +1311,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-a => INT
-g => Function(INT,)->INT
-a => INT
-COMPARING INT AND INT
 val it =
   LetExp
     {body=SeqExp [(CallExp {args=[IntExp 2],func=-,pos=81},81)],
@@ -1514,12 +1370,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-rectype2 => name=>STRING id=>INT 
-rectype1 => name=>STRING id=>INT 
-STRING & STRING
-INT & INT
-COMPARING name=>STRING id=>INT 
-AND name=>STRING id=>INT 
 142 types don't match
 
 uncaught exception TypeCheck
@@ -1572,10 +1422,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-arrtype2 => ARRAY OF INT
-arrtype1 => ARRAY OF INT
-COMPARING ARRAY OF INT
-AND ARRAY OF INT
 121 types don't match
 
 uncaught exception TypeCheck
@@ -1628,12 +1474,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-rectype => name=>STRING age=>INT 
-STRING & STRING
-INT & INT
-COMPARING name=>STRING age=>INT 
-AND name=>STRING age=>INT 
-rec1 => name=>STRING age=>INT 
 val it =
   LetExp
     {body=SeqExp
@@ -1703,11 +1543,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-b => NAME(a,NONE)
-a => ARRAY OF INT
-COMPARING ARRAY OF INT
-AND ARRAY OF INT
-arr1 => ARRAY OF INT
 val it =
   LetExp
     {body=SeqExp [(VarExp (SubscriptVar (SimpleVar (#,#),IntExp 2,115)),111)],
@@ -1769,8 +1604,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-COMPARING STRING
-AND INT
 68 types don't match
 
 uncaught exception TypeCheck
@@ -1823,7 +1656,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-arrayty => ARRAY OF INT
 113 array init wrong type
 
 uncaught exception TypeCheck
@@ -1928,10 +1760,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-g => Function(INT,STRING,)->INT
-a => INT
-b => STRING
-COMPARING STRING AND INT
 108 Argument does not match expected type
 
 uncaught exception TypeCheck
@@ -1984,10 +1812,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-g => Function(INT,STRING,)->INT
-a => INT
-b => STRING
-COMPARING STRING AND INT
 97 Argument does not match expected type
 
 uncaught exception TypeCheck
@@ -2040,11 +1864,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-g => Function(INT,STRING,)->INT
-a => INT
-b => STRING
-COMPARING INT AND INT
-COMPARING STRING AND STRING
 98 too many args
 
 uncaught exception TypeCheck
@@ -2097,8 +1916,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-a => INT
-a => STRING
 val it =
   LetExp
     {body=SeqExp [(IntExp 0,181)],
@@ -2261,10 +2078,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-nfactor => Function(INT,)->INT
-n => INT
-COMPARING INT AND INT
-COMPARING INT AND INT
 val it =
   LetExp
     {body=SeqExp [(CallExp {args=[IntExp 10],func=-,pos=155},155)],
@@ -2326,8 +2139,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-g => Function(INT,)->UNIT
-a => INT
 47 function returns unexpected type
 
 uncaught exception TypeCheck
@@ -2380,8 +2191,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-a => INT
-a => STRING
 val it =
   LetExp
     {body=SeqExp [(LetExp {body=SeqExp [(#,#)],decs=[TypeDec [#]],pos=58},58)],
@@ -2437,28 +2246,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-arrtype3 => ARRAY OF STRING
-rectype2 => name=>STRING dates=>NAME(arrtype1,NONE) 
-arrtype2 => ARRAY OF NAME(rectype1,NONE)
-rectype1 => name=>STRING address=>STRING id=>INT age=>INT 
-arrtype1 => ARRAY OF INT
-arr1 => ARRAY OF INT
-STRING & STRING
-STRING & STRING
-INT & INT
-INT & INT
-arr2 => ARRAY OF NAME(rectype1,...)
-COMPARING ARRAY OF STRING
-AND ARRAY OF STRING
-arr3 => ARRAY OF STRING
-STRING & STRING
-STRING & STRING
-INT & INT
-INT & INT
-rec1 => name=>STRING address=>STRING id=>INT age=>INT 
-STRING & STRING
-ARRAY OF INT & NAME(arrtype1,...)
-rec2 => name=>STRING dates=>NAME(arrtype1,...) 
 val it =
   LetExp
     {body=SeqExp
@@ -2576,7 +2363,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-a => UNIT
 103 integer required got UNIT
 
 
@@ -2630,10 +2416,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-rectype => name=>STRING id=>INT 
-COMPARING NIL
-AND name=>STRING id=>INT 
-b => NIL
 val it =
   LetExp
     {body=SeqExp [(AssignExp {exp=NilExp,pos=128,var=SimpleVar (-,128)},128)],
@@ -2696,7 +2478,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-rectype => name=>STRING id=>INT 
 124 nil not allowed
 
 uncaught exception TypeCheck
@@ -2749,10 +2530,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-rectype => name=>STRING id=>INT 
-COMPARING NIL
-AND name=>STRING id=>INT 
-b => NIL
 val it =
   LetExp
     {body=SeqExp
@@ -2820,9 +2597,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-a => INT
-b => INT
-a => STRING
 val it =
   LetExp
     {body=SeqExp [(IntExp 0,280)],
@@ -2880,11 +2654,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-g => Function(INT,)->INT
-a => INT
-t => INT
-g => Function(INT,)->INT
-a => INT
 val it =
   LetExp
     {body=SeqExp [(IntExp 0,318)],
@@ -2949,7 +2718,6 @@ val it = () : unit
 [New bindings added.]
 val it = true : bool
 ../testcases/test49.tig:5.18:syntax error: inserting  PLUS
-rectype => name=>STRING id=>INT 
 126 undefined variable rectype
 
 uncaught exception TypeCheck
@@ -3002,230 +2770,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-treelist => hd=>NAME(tree,NONE) tl=>NAME(treelist,...) 
-tree => key=>INT children=>NAME(treelist,...) 
-intlist => hd=>INT tl=>NAME(intlist,...) 
-INT & INT
-NIL & NAME(intlist,...)
-COMPARING hd=>INT tl=>NAME(intlist,...) 
-AND hd=>INT tl=>NAME(intlist,...) 
-lis => hd=>INT tl=>NAME(intlist,...) 
-INT & INT
-INT & INT
-NIL & NAME(intlist,...)
-hd=>INT tl=>NAME(intlist,...)  & NAME(intlist,...)
-INT & INT
-NIL & NAME(intlist,...)
-COMPARING hd=>INT tl=>NAME(intlist,...) 
-AND hd=>INT tl=>NAME(intlist,...) 
-lis2 => hd=>INT tl=>NAME(intlist,...) 
-INT & INT
-NIL & NAME(treelist,...)
-COMPARING key=>INT children=>NAME(treelist,...) 
-AND key=>INT children=>NAME(treelist,...) 
-tree => key=>INT children=>NAME(treelist,...) 
-INT & INT
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-COMPARING key=>INT children=>NAME(treelist,...) 
-AND key=>INT children=>NAME(treelist,...) 
-tree2 => key=>INT children=>NAME(treelist,...) 
-INT & INT
-INT & INT
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(tree,...) tl=>NAME(treelist,...)  & NAME(treelist,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(tree,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-COMPARING key=>INT children=>NAME(treelist,...) 
-AND key=>INT children=>NAME(treelist,...) 
-tree3 => key=>INT children=>NAME(treelist,...) 
 val it =
   LetExp
     {body=SeqExp [(VarExp (SimpleVar (-,868)),868)],
@@ -3319,35 +2863,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-treea => key=>INT children=>NAME(treelistc,NONE) 
-treelistc => NAME(treelist,NONE)
-treelist => hd=>NAME(treed,NONE) tl=>NAME(treelist,...) 
-treed => NAME(treec,NONE)
-treec => NAME(tree,NONE)
-tree => key=>INT children=>NAME(treelist,...) 
-intlist => hd=>INT tl=>NAME(intlist,...) 
-INT & INT
-NIL & NAME(intlist,...)
-COMPARING hd=>INT tl=>NAME(intlist,...) 
-AND hd=>INT tl=>NAME(intlist,...) 
-lis => hd=>INT tl=>NAME(intlist,...) 
-INT & INT
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(treed,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-hd=>NAME(treed,...) tl=>NAME(treelist,...)  & NAME(treelistc,...)
-INT & INT
-NIL & NAME(treelist,...)
-key=>INT children=>NAME(treelist,...)  & NAME(treed,...)
-INT & INT
-NIL & NAME(treelist,...)
-NIL & NAME(treelist,...)
-COMPARING key=>INT children=>NAME(treelistc,...) 
-AND key=>INT children=>NAME(treelistc,...) 
-list => key=>INT children=>NAME(treelistc,...) 
 val it =
   LetExp
     {body=SeqExp [(VarExp (SimpleVar (-,453)),453)],
@@ -3433,14 +2948,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-treelist => hd=>NAME(tree,NONE) tl=>NAME(treelist,...) 
-tree => key=>INT children=>NAME(treelist,...) 
-intlist => hd=>INT tl=>NAME(intlist,...) 
-INT & INT
-NIL & NAME(intlist,...)
-COMPARING hd=>INT tl=>NAME(intlist,...) 
-AND hd=>INT tl=>NAME(intlist,...) 
-lis => hd=>INT tl=>NAME(intlist,...) 
 val it =
   LetExp
     {body=SeqExp [(VarExp (SimpleVar (-,268)),268)],
@@ -3513,16 +3020,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-do_nothing1 => Function(INT,STRING,)->UNIT
-do_nothing2 => Function(INT,)->UNIT
-d => INT
-COMPARING INT AND INT
-COMPARING STRING AND STRING
-a => INT
-b => STRING
-COMPARING INT AND INT
-COMPARING INT AND INT
-COMPARING STRING AND STRING
 val it =
   LetExp
     {body=SeqExp
@@ -3586,16 +3083,6 @@ val it = () : unit
 [loading (sources.cm):prabsyn.sml]
 [New bindings added.]
 val it = true : bool
-do_nothing1 => Function(INT,STRING,)->INT
-do_nothing2 => Function(INT,)->STRING
-d => INT
-COMPARING INT AND INT
-COMPARING STRING AND STRING
-a => INT
-b => STRING
-COMPARING INT AND INT
-COMPARING INT AND INT
-COMPARING STRING AND STRING
 val it =
   LetExp
     {body=SeqExp
